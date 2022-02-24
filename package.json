@@ -8,10 +8,10 @@
     "example"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "pnpm format && turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,vue,md}\""
+    "format": "prettier --write \"**/*.{ts,vue,md,json}\""
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",

@@ -1,4 +1,4 @@
-import { NanoInstance } from "../../instance";
+import { KogaraInstance } from "../../instance";
 import { _getType } from "../../utilities/getType";
 
 export const _addLog = ({
@@ -34,8 +34,8 @@ export const _addLog = ({
   }
 
   // Finally we add the log to the timeline
-  NanoInstance.plugins.__devtoolsApi?.addTimelineEvent({
-    layerId: "nano",
+  KogaraInstance.plugins.__devtoolsApi?.addTimelineEvent({
+    layerId: "kogara",
     event: {
       groupId: id,
       logType,

@@ -1,8 +1,8 @@
 {
-  "name": "@nano/monorepo",
+  "name": "@kogara/monorepo",
   "version": "0.0.0",
-  "description": "Monorepo of nano packages",
-  "homepage": "https://github.com/ragokan/nano",
+  "description": "Monorepo of kogara packages",
+  "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
   "license": "MIT",
   "private": false,
@@ -27,7 +27,8 @@
     "prettier": "^2.5.1",
     "tsup": "^5.11.13",
     "turbo": "latest",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "vue": "^3.2.31"
   },
   "engines": {
     "npm": ">=7.0.0",
@@ -36,6 +37,6 @@
   "packageManager": "pnpm@6.32.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ragokan/nano.git"
+    "url": "https://github.com/ragokan/kogara.git"
   }
 }

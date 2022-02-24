@@ -1,8 +1,8 @@
-import type { NanoPlugins, NanoStoreApi, NanoStores } from "./types";
+import type { KogaraPlugins, KogaraStoreApi, KogaraStores } from "./types";
 
-class NanoBase {
-  private _stores: NanoStores = {};
-  private _plugins: NanoPlugins = {};
+class KogaraBase {
+  private _stores: KogaraStores = {};
+  private _plugins: KogaraPlugins = {};
 
   public get stores() {
     return this._stores;
@@ -12,17 +12,17 @@ class NanoBase {
     return this._plugins;
   }
 
-  public addStore(store: NanoStoreApi): NanoStoreApi {
+  public addStore(store: KogaraStoreApi): KogaraStoreApi {
     return (this._stores[store.id] = store);
   }
 
-  public getStore(id: string, create?: () => NanoStoreApi | null): NanoStoreApi | undefined {
+  public getStore(id: string, create?: () => KogaraStoreApi | null): KogaraStoreApi | undefined {
     return this._stores[id] ?? create?.();
   }
 
-  public disposeStore(store: NanoStoreApi) {
+  public disposeStore(store: KogaraStoreApi) {
     delete this._stores[store.id];
   }
 }
 
-export const NanoInstance = new NanoBase();
+export const KogaraInstance = new KogaraBase();

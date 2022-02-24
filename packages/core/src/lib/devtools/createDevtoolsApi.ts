@@ -1,11 +1,11 @@
-import type { NanoDevtoolsApi } from "../types";
+import type { KogaraDevtoolsApi } from "../types";
 import { _getType } from "../utilities/getType";
 import { _addLog } from "./helpers/addLog";
 
-export const _createDevtoolsApi = (id: string, data: any): NanoDevtoolsApi[] | undefined => {
+export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] | undefined => {
   if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
     // Base api for the store
-    const devtoolsApi: NanoDevtoolsApi[] = [];
+    const devtoolsApi: KogaraDevtoolsApi[] = [];
 
     // We loop through all the properties of the store to learn their types and add to *devtoolsApi*
     Object.keys(data).forEach((key) => {

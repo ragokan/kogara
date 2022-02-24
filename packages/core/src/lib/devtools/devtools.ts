@@ -1,22 +1,22 @@
 import { setupDevtoolsPlugin, type PluginDescriptor } from "@vue/devtools-api";
 import type { App } from "vue";
-import { NanoInstance } from "../instance";
-import { nanoDevtoolsID, nanoDevtoolsLabel, nanoDevtoolsPackageName } from "./constants";
+import { KogaraInstance } from "../instance";
+import { kogaraDevtoolsID, kogaraDevtoolsLabel, kogaraDevtoolsPackageName } from "./constants";
 import { _editInspectorState, _getInspectorState, _getInspectorTree, _watchTree } from "./helpers";
 
-export const useNanoDevtools = (app: App) => {
+export const useKogaraDevtools = (app: App) => {
   if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
     setupDevtoolsPlugin(
-      { id: nanoDevtoolsID, label: nanoDevtoolsLabel, packageName: nanoDevtoolsPackageName, app } as PluginDescriptor,
+      { id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, packageName: kogaraDevtoolsPackageName, app } as PluginDescriptor,
       (api) => {
-        // Add nano to devtools UI
-        api.addInspector({ id: nanoDevtoolsID, label: nanoDevtoolsLabel, icon: "source" });
-        api.addTimelineLayer({ id: nanoDevtoolsID, label: nanoDevtoolsLabel, color: 0xff725c });
+        // Add kogara to devtools UI
+        api.addInspector({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, icon: "source" });
+        api.addTimelineLayer({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, color: 0xff725c });
 
-        // Set global devtools api for NanoInstance
-        NanoInstance.plugins.__devtoolsApi = api;
+        // Set global devtools api for KogaraInstance
+        KogaraInstance.plugins.__devtoolsApi = api;
 
-        // Watch changes and update devtools UI for nano
+        // Watch changes and update devtools UI for kogara
         _watchTree(api);
 
         // Devtools Tree

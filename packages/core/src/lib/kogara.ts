@@ -1,6 +1,6 @@
 import { _createDevtoolsApi } from "./devtools/createDevtoolsApi";
-import { NanoInstance } from "./instance";
-import type { NanoStoreApi } from "./types";
+import { KogaraInstance } from "./instance";
+import type { KogaraStoreApi } from "./types";
 
 export const defineStore = <T extends object = {}>(id: string, setup: () => T) => {
   const create = () => {
@@ -9,19 +9,19 @@ export const defineStore = <T extends object = {}>(id: string, setup: () => T) =
     // Check if data exists
     if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
       if (!data) {
-        console.error(`[Nano] defineStore's setup() must return an object for store "${id}"`);
+        console.error(`[Kogara] defineStore's setup() must return an object for store "${id}"`);
       }
     }
 
-    const baseStore: NanoStoreApi = { id, store: data };
+    const baseStore: KogaraStoreApi = { id, store: data };
 
     // If dev mode
     if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
-      NanoInstance.plugins.__devtoolsApi?.sendInspectorTree("nano");
+      KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree("kogara");
     }
 
-    return NanoInstance.addStore(baseStore);
+    return KogaraInstance.addStore(baseStore);
   };
-  return () => NanoInstance.getStore(id, create)!.store as T;
+  return () => KogaraInstance.getStore(id, create)!.store as T;
 };

@@ -1,19 +1,19 @@
 import type { Plugin } from "vue";
-import { useNanoDevtools } from "./devtools/devtools";
-import { NanoInstance } from "./instance";
+import { useKogaraDevtools } from "./devtools/devtools";
+import { KogaraInstance } from "./instance";
 
 declare module "vue" {
   interface ComponentCustomProperties {
-    $nano: typeof NanoInstance;
+    $kogara: typeof KogaraInstance;
   }
 }
 
-export const NanoPlugin: Plugin = {
+export const KogaraPlugin: Plugin = {
   install(app) {
-    app.config.globalProperties.$nano = NanoInstance;
+    app.config.globalProperties.$kogara = KogaraInstance;
 
     if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
-      useNanoDevtools(app);
+      useKogaraDevtools(app);
     }
   },
 };

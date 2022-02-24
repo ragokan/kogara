@@ -1,5 +1,5 @@
 /// <reference path="../../../global.d.ts" />
 
-export { defineStore } from "./lib/nano";
-export { NanoInstance } from "./lib/instance";
-export { NanoPlugin } from "./lib/vue";
+export { defineStore } from "./lib/kogara";
+export { KogaraInstance } from "./lib/instance";
+export { KogaraPlugin } from "./lib/vue";

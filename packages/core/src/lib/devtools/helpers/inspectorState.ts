@@ -1,14 +1,14 @@
-import { NanoInstance } from "../../instance";
+import { KogaraInstance } from "../../instance";
 import type { CustomInspectorState, DevtoolsPluginApi } from "@vue/devtools-api";
 import type { App } from "vue";
-import { nanoDevtoolsID } from "../constants";
+import { kogaraDevtoolsID } from "../constants";
 
 export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) => {
   api.on.getInspectorState((payload) => {
-    if (payload.inspectorId !== nanoDevtoolsID || payload.app !== app) return;
+    if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) return;
 
     const { nodeId } = payload;
-    const store = NanoInstance.stores[nodeId];
+    const store = KogaraInstance.stores[nodeId];
 
     if (store) {
       const refOrReactives = store.devtoolsApi?.filter((i) => i.type === "ref" || i.type === "reactive") ?? [];

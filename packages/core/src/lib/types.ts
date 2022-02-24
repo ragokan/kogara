@@ -1,20 +1,20 @@
 import type { DevtoolsPluginApi } from "@vue/devtools-api";
 
-export interface NanoStoreApi {
+export interface KogaraStoreApi {
   id: string;
   store: any;
-  devtoolsApi?: NanoDevtoolsApi[];
+  devtoolsApi?: KogaraDevtoolsApi[];
 }
 
-export interface NanoStores {
-  [key: string]: NanoStoreApi;
+export interface KogaraStores {
+  [key: string]: KogaraStoreApi;
 }
 
-export interface NanoPlugins {
+export interface KogaraPlugins {
   __devtoolsApi?: DevtoolsPluginApi<any>;
 }
 
-export interface NanoDevtoolsApi {
+export interface KogaraDevtoolsApi {
   key: string;
   type: "ref" | "reactive" | "computed" | "other";
   value: any;

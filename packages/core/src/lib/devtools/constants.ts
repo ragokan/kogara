@@ -1,4 +1,4 @@
 // Devtools Constants
-export const nanoDevtoolsID = "nano";
-export const nanoDevtoolsLabel = "Nano";
-export const nanoDevtoolsPackageName = nanoDevtoolsID;
+export const kogaraDevtoolsID = "kogara";
+export const kogaraDevtoolsLabel = "Kogara";
+export const kogaraDevtoolsPackageName = kogaraDevtoolsID;

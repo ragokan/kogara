@@ -2,10 +2,10 @@
   "name": "@nano/monorepo",
   "version": "0.0.0",
   "description": "Monorepo of nano packages",
-  "private": true,
   "homepage": "https://github.com/ragokan/nano",
   "author": "ragokan",
   "license": "MIT",
+  "private": false,
   "workspaces": [
     "docs",
     "packages/*",
@@ -17,7 +17,7 @@
     "lint": "turbo run lint",
     "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "pnpm build",
-    "publish": "lerna publish --force-publish"
+    "publish": "lerna publish --force-publish --yes"
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",

@@ -1,0 +1,27 @@
+{
+  "name": "@nano/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "docs",
+    "packages/*",
+    "example"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,vue,md}\""
+  },
+  "devDependencies": {
+    "@babel/types": "^7.17.0",
+    "@types/node": "^17.0.21",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@6.32.1"
+}

@@ -12,7 +12,8 @@ export const NanoPlugin: Plugin = {
   install(app) {
     app.config.globalProperties.$nano = NanoInstance;
 
-    // if dev, check
-    useNanoDevtools(app);
+    if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
+      useNanoDevtools(app);
+    }
   },
 };

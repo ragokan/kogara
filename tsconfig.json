@@ -13,9 +13,12 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "strict": true,
+    "skipDefaultLibCheck": false,
+    "skipLibCheck": false,
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
     "types": ["node"]
   },
+  "include": ["./global.d.ts"],
   "exclude": ["node_modules"]
 }

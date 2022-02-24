@@ -4,15 +4,23 @@
   "description": "Core library of nano",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsup src/index.ts --onSuccess 'node dist/index.js'",
-    "dev": "tsup src/index.ts --silent --watch --onSuccess 'node dist/index.js'",
     "build": "tsup src/index.ts --minify"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vue",
+    "state",
+    "nano"
+  ],
+  "homepage": "https://github.com/ragokan/nano",
+  "author": "ragokan",
+  "license": "MIT",
   "dependencies": {
     "@vue/devtools-api": "^6.0.12",
     "vue": "^3.2.31"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ragokan/nano.git",
+    "directory": "packages/core"
   }
 }

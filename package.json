@@ -1,7 +1,11 @@
 {
   "name": "@nano/monorepo",
   "version": "0.0.0",
+  "description": "Monorepo of nano packages",
   "private": true,
+  "homepage": "https://github.com/ragokan/nano",
+  "author": "ragokan",
+  "license": "MIT",
   "workspaces": [
     "docs",
     "packages/*",
@@ -11,6 +15,7 @@
     "build": "pnpm format && turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "publish": "turbo run publish --parallel",
     "format": "prettier --write \"**/*.{ts,vue,md,json}\""
   },
   "devDependencies": {
@@ -26,5 +31,9 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@6.32.1"
+  "packageManager": "pnpm@6.32.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ragokan/nano.git"
+  }
 }

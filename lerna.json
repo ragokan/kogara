@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/lerna.json",
+  "packages": ["packages/*"],
+  "version": "0.0.1",
+  "npmClient": "pnpm",
+  "command": {
+    "version": {
+      "exact": true
+    },
+    "publish": {
+      "npmClient": "pnpm",
+      "allowBranch": ["master"],
+      "registry": "https://registry.npmjs.org/"
+    }
+  }
+}

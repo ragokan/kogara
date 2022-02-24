@@ -15,13 +15,15 @@
     "build": "pnpm format && turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "publish": "turbo run publish --parallel",
-    "format": "prettier --write \"**/*.{ts,vue,md,json}\""
+    "format": "prettier --write \"**/*.{ts,vue,md,json}\"",
+    "prepublish": "pnpm build",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",
     "@swc/core": "^1.2.145",
     "@types/node": "^17.0.21",
+    "lerna": "^4.0.0",
     "prettier": "^2.5.1",
     "tsup": "^5.11.13",
     "turbo": "latest",

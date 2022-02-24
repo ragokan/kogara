@@ -15,9 +15,9 @@
     "build": "pnpm format && turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,vue,md,json}\"",
+    "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "pnpm build",
-    "publish": "lerna publish"
+    "publish": "lerna publish --force-publish"
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",

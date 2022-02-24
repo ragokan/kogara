@@ -1,6 +1,6 @@
 {
   "name": "@nano/core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Core library of nano",
   "main": "dist/index.js",
   "private": false,
@@ -24,5 +24,5 @@
     "url": "https://github.com/ragokan/nano.git",
     "directory": "packages/core"
   },
-  "gitHead": "912bc751325c409b03b24b2f13ac9413c45fcda1"
+  "gitHead": "19671fc3e6c3bf48414937fc85bd1f942f165b22"
 }

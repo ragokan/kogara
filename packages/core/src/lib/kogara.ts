@@ -7,7 +7,7 @@ export const defineStore = <T extends object = {}>(id: string, setup: () => T) =
     const data = setup();
 
     // Check if data exists
-    if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
+    if (process.env.NODE_ENV === "development") {
       if (!data) {
         console.error(`[Kogara] defineStore's setup() must return an object for store "${id}"`);
       }
@@ -16,7 +16,7 @@ export const defineStore = <T extends object = {}>(id: string, setup: () => T) =
     const baseStore: KogaraStoreApi = { id, store: data };
 
     // If dev mode
-    if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
+    if (process.env.NODE_ENV === "development") {
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
       KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree("kogara");
     }

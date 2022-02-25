@@ -14,6 +14,8 @@
   "scripts": {
     "build": "pnpm format && turbo run build",
     "dev": "turbo run dev --parallel",
+    "test": "turbo run test --parallel",
+    "coverage": "turbo run coverage --parallel",
     "lint": "turbo run lint",
     "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "pnpm build",
@@ -28,6 +30,7 @@
     "tsup": "^5.11.13",
     "turbo": "latest",
     "typescript": "^4.5.5",
+    "vitest": "^0.5.5",
     "vue": "^3.2.31"
   },
   "engines": {

@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "private": false,
   "scripts": {
-    "build": "tsup src/index.ts --minify --sourcemap --dts"
+    "build": "tsup src/index.ts --minify --sourcemap --dts",
+    "test": "vitest --config ../../vitest.config.ts",
+    "coverage": "vitest run --coverage --config ../../vitest.config.ts"
   },
   "keywords": [
     "vue",
@@ -15,7 +17,7 @@
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@vue/devtools-api": "^6.0.12"
   },
   "peerDependencies": {

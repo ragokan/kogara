@@ -11,13 +11,12 @@
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "preserveWatchOutput": true,
     "strict": true,
     "skipDefaultLibCheck": false,
     "skipLibCheck": false,
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
-    "types": ["node"]
+    "types": ["node", "vitest"]
   },
   "include": ["./global.d.ts"],
   "exclude": ["node_modules"]

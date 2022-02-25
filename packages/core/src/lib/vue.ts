@@ -12,7 +12,7 @@ export const KogaraPlugin: Plugin = {
   install(app) {
     app.config.globalProperties.$kogara = KogaraInstance;
 
-    if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
+    if (process.env.NODE_ENV === "development") {
       useKogaraDevtools(app);
     }
   },

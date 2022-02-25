@@ -5,7 +5,7 @@ import { kogaraDevtoolsID, kogaraDevtoolsLabel, kogaraDevtoolsPackageName } from
 import { _editInspectorState, _getInspectorState, _getInspectorTree, _watchTree } from "./helpers";
 
 export const useKogaraDevtools = (app: App) => {
-  if (process.env.NODE_ENV === "development" || __VUE_PROD_DEVTOOLS__) {
+  if (process.env.NODE_ENV === "development") {
     setupDevtoolsPlugin(
       { id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, packageName: kogaraDevtoolsPackageName, app } as PluginDescriptor,
       (api) => {

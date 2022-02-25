@@ -18,6 +18,6 @@
     "target": "ESNext",
     "types": ["node", "vitest"]
   },
-  "include": ["./global.d.ts"],
+  "include": ["./global.d.ts", "packages"],
   "exclude": ["node_modules"]
 }

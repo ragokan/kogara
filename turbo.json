@@ -14,9 +14,6 @@
       "cache": false,
       "outputs": ["dist/**"]
     },
-    "prepack": {
-      "cache": true
-    },
     "test": {
       "cache": true,
       "outputs": []

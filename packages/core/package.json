@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "private": false,
   "scripts": {
-    "build": "tsup src/index.ts --clean --minify --sourcemap --dts --format esm,cjs,iife",
+    "build": "tsup src/index.ts --minify --sourcemap --dts",
     "test": "vitest --config ../../vitest.config.ts",
     "test-watch": "vitest --config ../../vitest.config.ts --watch"
   },

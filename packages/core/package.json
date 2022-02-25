@@ -2,12 +2,23 @@
   "name": "@kogara/core",
   "version": "0.0.7",
   "description": "Core library of kogara",
+  "source": "src/index.ts",
   "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/iife/index.js",
+  "jsdelivr": "dist/iife/index.js",
+  "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
-    "build": "tsup src/index.ts --minify --sourcemap --dts --format esm,cjs,iife",
+    "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
     "test": "vitest --config ../../vitest.config.ts",
     "test-watch": "vitest --config ../../vitest.config.ts --watch"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    }
   },
   "keywords": [
     "vue",

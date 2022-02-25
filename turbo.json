@@ -24,10 +24,6 @@
     "test-watch": {
       "cache": true,
       "outputs": []
-    },
-    "publish": {
-      "dependsOn": ["lint", "build"],
-      "cache": false
     }
   }
 }

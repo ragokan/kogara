@@ -32,3 +32,4 @@ pnpm-lock.yaml
 # build files
 dist/
 build/
+lerna-debug.log

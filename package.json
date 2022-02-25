@@ -15,7 +15,6 @@
     "build": "pnpm format && turbo run build",
     "dev": "turbo run dev --parallel",
     "test": "turbo run test --parallel",
-    "coverage": "turbo run coverage --parallel",
     "lint": "turbo run lint",
     "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "pnpm build",

@@ -6,8 +6,7 @@
   "private": false,
   "scripts": {
     "build": "tsup src/index.ts --minify --sourcemap --dts",
-    "test": "vitest --config ../../vitest.config.ts",
-    "coverage": "vitest run --coverage --config ../../vitest.config.ts"
+    "test": "vitest --config ../../vitest.config.ts"
   },
   "keywords": [
     "vue",

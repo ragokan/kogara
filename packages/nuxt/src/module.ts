@@ -8,9 +8,14 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: "@kogara/nuxt",
     configKey: "kogara",
+    compatibility: {
+      nuxt: "^3.0.0",
+      bridge: false,
+    },
   },
 
   setup(options, nuxt) {
+    // @ts-ignore
     const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
     nuxt.options.build.transpile.push(runtimeDir);
     addPlugin(resolve(runtimeDir, "plugin"));

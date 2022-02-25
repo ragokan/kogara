@@ -22,10 +22,8 @@
     "build": "nuxt-module-build"
   },
   "dependencies": {
-    "@nuxt/kit": "npm:@nuxt/kit-edge@latest"
-  },
-  "peerDependencies": {
-    "@kogara/core": "workspace:*"
+    "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+    "@kogara/core": "latest"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",

@@ -16,7 +16,8 @@
     "skipLibCheck": false,
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
-    "types": ["node", "vitest"]
+    "types": ["node", "vitest"],
+    "module": "ESNext"
   },
   "include": ["./global.d.ts", "packages"],
   "exclude": ["node_modules"]

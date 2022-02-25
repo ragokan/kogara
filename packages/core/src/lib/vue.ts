@@ -8,6 +8,12 @@ declare module "vue" {
   }
 }
 
+declare module "@vue/runtime-core" {
+  interface ComponentCustomProperties {
+    $kogara: typeof KogaraInstance;
+  }
+}
+
 export const KogaraPlugin: Plugin = {
   install(app) {
     app.config.globalProperties.$kogara = KogaraInstance;

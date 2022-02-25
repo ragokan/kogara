@@ -1,8 +1,8 @@
 import type { DevtoolsPluginApi } from "@vue/devtools-api";
 
-export interface KogaraStoreApi {
+export interface KogaraStoreApi<T = any> {
   id: string;
-  store: any;
+  store: T;
   devtoolsApi?: KogaraDevtoolsApi[];
 }
 

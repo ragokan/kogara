@@ -16,12 +16,12 @@ class KogaraBase {
     return (this._stores[store.id] = store);
   }
 
-  public getStore(id: string, create?: () => KogaraStoreApi | null): KogaraStoreApi | undefined {
+  public getStore<T = any>(id: string, create?: () => KogaraStoreApi<T> | null): KogaraStoreApi<T> | undefined {
     return this._stores[id] ?? create?.();
   }
 
-  public disposeStore(store: KogaraStoreApi) {
-    delete this._stores[store.id];
+  public disposeStore(id: string) {
+    delete this._stores[id];
   }
 }
 

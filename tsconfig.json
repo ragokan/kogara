@@ -16,8 +16,9 @@
     "skipLibCheck": false,
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
-    "types": ["node", "vitest"]
+    "types": ["node", "vitest"],
+    "rootDirs": ["packages/**"]
   },
-  "include": ["./global.d.ts", "packages"],
+  "include": ["./global.d.ts", "packages", "packages/nuxt/playground", "packages/nuxt"],
   "exclude": ["node_modules"]
 }

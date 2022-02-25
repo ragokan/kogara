@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/lerna.json",
-  "packages": ["packages/*"],
-  "version": "0.0.8",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.9",
   "npmClient": "pnpm",
   "command": {
     "version": {
@@ -9,7 +11,9 @@
     },
     "publish": {
       "npmClient": "pnpm",
-      "allowBranch": ["master"],
+      "allowBranch": [
+        "master"
+      ],
       "registry": "https://registry.npmjs.org/"
     }
   }

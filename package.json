@@ -9,7 +9,8 @@
   "workspaces": [
     "docs",
     "packages/*",
-    "example"
+    "example",
+    "local"
   ],
   "scripts": {
     "build": "pnpm format && turbo run build",

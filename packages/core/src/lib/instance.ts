@@ -1,7 +1,8 @@
+import { shallowReactive } from "vue";
 import type { KogaraPlugins, KogaraStoreApi, KogaraStores } from "./types";
 
 class KogaraBase {
-  private _stores: KogaraStores = {};
+  private _stores: KogaraStores = process.env.NODE_ENV === "development" ? shallowReactive({}) : {};
   private _plugins: KogaraPlugins = {};
 
   public get stores() {
@@ -21,6 +22,10 @@ class KogaraBase {
   }
 
   public disposeStore(id: string) {
+    if (process.env.NODE_ENV === "development") {
+      this.plugins.__devtoolsApi?.sendInspectorTree("kogara");
+      this.plugins.__devtoolsApi?.sendInspectorState("kogara");
+    }
     delete this._stores[id];
   }
 }

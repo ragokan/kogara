@@ -19,6 +19,7 @@ export const defineStore = <T extends object = {}>(id: string, setup: () => T) =
     if (process.env.NODE_ENV === "development") {
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
       KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree("kogara");
+      KogaraInstance.plugins.__devtoolsApi?.sendInspectorState("kogara");
     }
 
     return KogaraInstance.addStore(baseStore);

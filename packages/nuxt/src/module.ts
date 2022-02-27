@@ -13,8 +13,7 @@ export default defineNuxtModule<ModuleOptions>({
       bridge: false,
     },
   },
-
-  setup(options, nuxt) {
+  setup(_, nuxt) {
     // @ts-ignore
     const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
     nuxt.options.build.transpile.push(runtimeDir);

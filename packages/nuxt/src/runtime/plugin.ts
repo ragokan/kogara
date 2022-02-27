@@ -1,6 +1,12 @@
-// @ts-ignore
+// @ts-nocheck
 import { defineNuxtPlugin } from "#app";
 import { KogaraInstance, KogaraPlugin } from "@kogara/core";
+
+declare module "#app" {
+  interface NuxtApp {
+    $kogara: typeof KogaraInstance;
+  }
+}
 
 declare module "vue" {
   interface ComponentCustomProperties {

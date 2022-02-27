@@ -11,6 +11,7 @@
       "outputs": []
     },
     "dev": {
+      "dependsOn": ["prepack"],
       "cache": false,
       "outputs": ["dist/**"]
     },

@@ -30,7 +30,7 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
-    "@vue/devtools-api": "^6.0.12"
+    "@vue/devtools-api": "6.0.12"
   },
   "peerDependencies": {
     "vue": "^3.2.31"

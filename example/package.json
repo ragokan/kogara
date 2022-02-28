@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "vue": "^3.2.31",
-    "@kogara/core": "*"
+    "@kogara/core": "*",
+    "@kogara/form": "*"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.14",

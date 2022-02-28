@@ -13,10 +13,6 @@
     "dev": {
       "cache": false,
       "outputs": ["dist/**"]
-    },
-    "test": {
-      "cache": true,
-      "outputs": []
     }
   }
 }

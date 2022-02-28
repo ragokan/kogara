@@ -15,8 +15,8 @@
   "scripts": {
     "build": "yarn format && turbo run build",
     "dev": "turbo run dev --parallel",
-    "test": "turbo run test --parallel",
-    "test-watch": "turbo run test-watch --parallel",
+    "test": "vitest --config vitest.config.ts",
+    "test-watch": "vitest --config vitest.config.ts --watch",
     "lint": "turbo run lint",
     "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "yarn build",

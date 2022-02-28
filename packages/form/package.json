@@ -1,7 +1,7 @@
 {
   "name": "@kogara/form",
   "version": "0.0.10",
-  "description": "Form hook for VueJS with validation",
+  "description": "Lightweight form validation libary for VueJS",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -11,9 +11,7 @@
   "private": false,
   "scripts": {
     "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
-    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
-    "test": "vitest --config ../../vitest.config.ts",
-    "test-watch": "vitest --config ../../vitest.config.ts --watch"
+    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'"
   },
   "exports": {
     ".": {

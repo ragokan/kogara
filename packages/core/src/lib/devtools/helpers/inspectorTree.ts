@@ -10,29 +10,17 @@ export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) =>
     const nodes: CustomInspectorNode[] = [];
 
     const stores = Object.entries(KogaraInstance.stores).map(([, store]) => store);
-    const globalStores = stores.filter(({ id }) => !id.startsWith("local:"));
-    const localStores = stores.filter(({ id }) => id.startsWith("local:"));
 
-    if (!!globalStores.length) {
+    if (!!stores.length) {
       nodes.push({
         id: "stores",
         label: "Kogara Stores",
-        children: globalStores.map(({ id }) => ({ id, label: id })),
+        children: stores.map(({ id }) => ({ id, label: id })),
       });
-    }
-
-    if (!!localStores.length) {
-      nodes.push({
-        id: "localStores",
-        label: "Local Stores",
-        children: localStores.map(({ id }) => ({ id, label: id })),
-      });
-    }
-
-    if (!stores.length) {
+    } else {
       nodes.push({
         id: "noStores",
-        label: "No Stores",
+        label: "No Stores Yet",
       });
     }
 

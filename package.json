@@ -5,7 +5,7 @@
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "workspaces": [
     "docs",
     "packages/*",
@@ -13,13 +13,13 @@
     "local"
   ],
   "scripts": {
-    "build": "pnpm format && turbo run build",
+    "build": "yarn format && turbo run build",
     "dev": "turbo run dev --parallel",
     "test": "turbo run test --parallel",
     "test-watch": "turbo run test-watch --parallel",
     "lint": "turbo run lint",
     "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
-    "prepublish": "pnpm build",
+    "prepublish": "yarn build",
     "publish": "lerna publish --force-publish --yes"
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@6.32.2",
+  "packageManager": "yarn@1.22.17",
   "repository": {
     "type": "git",
     "url": "https://github.com/ragokan/kogara.git"

@@ -41,7 +41,7 @@ export const _addLog = ({
       logType,
       time: Date.now(),
       title: `Function ${key} ${message}`,
-      subtitle: id + " store",
+      subtitle: id,
       data: actionData,
     },
   });

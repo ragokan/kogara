@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.2.31",
-    "@kogara/core": "workspace:*"
+    "@kogara/core": "*"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.14",

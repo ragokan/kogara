@@ -17,10 +17,6 @@
     "test": {
       "cache": true,
       "outputs": []
-    },
-    "test-watch": {
-      "cache": true,
-      "outputs": []
     }
   }
 }

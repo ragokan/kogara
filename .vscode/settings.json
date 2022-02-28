@@ -1,3 +1,10 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "**/example": true,
+    "**/nuxt": true,
+    "**/renovate.json": true,
+    "**/lerna.json": true,
+    "**/yarn.lock": true
+  }
 }

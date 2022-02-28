@@ -1,7 +1,7 @@
 {
-  "name": "@kogara/reactivity",
+  "name": "@kogara/helpers",
   "version": "0.0.10",
-  "description": "Custom reactivity functions for kogara",
+  "description": "Helpers that help you while coding",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -22,8 +22,7 @@
   "keywords": [
     "vue",
     "state",
-    "kogara",
-    "reactivity"
+    "kogara"
   ],
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
@@ -40,7 +39,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ragokan/kogara.git",
-    "directory": "packages/reactivity"
+    "directory": "packages/helpers"
   },
   "gitHead": "4c407295e080891c37a16bc51949d25ad51aff8a"
 }

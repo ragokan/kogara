@@ -11,12 +11,8 @@
       "outputs": []
     },
     "dev": {
-      "dependsOn": ["prepack"],
       "cache": false,
       "outputs": ["dist/**"]
-    },
-    "prepack": {
-      "cache": true
     },
     "test": {
       "cache": true,

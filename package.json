@@ -17,7 +17,6 @@
     "dev": "turbo run dev --parallel",
     "test": "turbo run test --parallel",
     "test-watch": "turbo run test-watch --parallel",
-    "prepack": "turbo run prepack --parallel",
     "lint": "turbo run lint",
     "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "pnpm build",

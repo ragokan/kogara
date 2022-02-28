@@ -4,8 +4,15 @@ import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
 export const _watchTree = (api: DevtoolsPluginApi<any>) => {
-  watch(KogaraInstance.stores, () => {
-    api.sendInspectorTree(kogaraDevtoolsID);
-    api.sendInspectorState(kogaraDevtoolsID);
-  });
+  watch(
+    KogaraInstance.stores,
+    (current, previous) => {
+      if (Object.keys(previous ?? {}).length !== Object.keys(current).length) {
+        console.log("not equal");
+        api.sendInspectorTree(kogaraDevtoolsID);
+      }
+      api.sendInspectorState(kogaraDevtoolsID);
+    },
+    { deep: true, immediate: true }
+  );
 };

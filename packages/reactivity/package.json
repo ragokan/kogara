@@ -1,0 +1,48 @@
+{
+  "name": "@kogara/reactivity",
+  "version": "0.0.10",
+  "description": "Custom reactivity functions for kogara",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/iife/index.js",
+  "jsdelivr": "dist/iife/index.js",
+  "types": "dist/index.d.ts",
+  "private": false,
+  "scripts": {
+    "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
+    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
+    "test": "vitest --config ../../vitest.config.ts",
+    "test-watch": "vitest --config ../../vitest.config.ts --watch"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "keywords": [
+    "vue",
+    "state",
+    "kogara",
+    "reactivity"
+  ],
+  "homepage": "https://github.com/ragokan/kogara",
+  "author": "ragokan",
+  "license": "MIT",
+  "dependencies": {
+    "@kogara/core": "*"
+  },
+  "devDependencies": {
+    "@vue/devtools-api": "^6.0.12"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.31"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ragokan/kogara.git",
+    "directory": "packages/reactivity"
+  },
+  "gitHead": "4c407295e080891c37a16bc51949d25ad51aff8a"
+}

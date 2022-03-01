@@ -29,7 +29,7 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/core": "0.0.13"
+    "@kogara/core": "*"
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.0.12"

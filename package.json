@@ -1,6 +1,6 @@
 {
   "name": "@kogara/monorepo",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Monorepo of kogara packages",
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",

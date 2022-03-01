@@ -28,7 +28,7 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
-    "@kogara/helpers": "0.0.13",
+    "@kogara/helpers": "*",
     "@vue/devtools-api": "^6.0.12"
   },
   "peerDependencies": {

@@ -1,6 +1,7 @@
 import type { KogaraDevtoolsApi } from "../types";
 import { _getType } from "../utilities/getType";
 import { _addLog } from "./helpers/addLog";
+import { isFunction } from "@kogara/helpers";
 
 export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] | undefined => {
   if (process.env.NODE_ENV === "development") {
@@ -18,7 +19,7 @@ export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] |
       devtoolsApi.push({ key, value, type });
 
       // If the type is a function, we change it to have logging function
-      if (type === "other" && typeof value === "function") {
+      if (type === "other" && isFunction(value)) {
         const func = Object.assign({}, data)[key] as Function;
         Object.defineProperty(data, key, {
           async value(...args: any[]) {

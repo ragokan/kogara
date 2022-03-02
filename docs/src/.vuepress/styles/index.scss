@@ -1,0 +1,18 @@
+.home > .hero > img {
+  max-height: 275px;
+}
+
+@media screen and (min-width: 1000px) {
+  .action-button {
+    padding: 0.7rem 1.5rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  .home > .hero > h1 {
+    margin: 1rem auto !important;
+  }
+
+  .home > .hero > .description {
+    margin: 1rem auto !important;
+  }
+}

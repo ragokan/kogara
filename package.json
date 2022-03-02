@@ -15,10 +15,11 @@
   "scripts": {
     "build": "yarn format && turbo run build",
     "dev": "turbo run dev --parallel",
+    "docs:dev": "turbo run docs:dev --parallel",
+    "example:dev": "turbo run example:dev --parallel",
+    "nuxt:dev": "turbo run nuxt:dev --parallel",
     "test": "vitest --config vitest.config.ts",
     "test-watch": "vitest --config vitest.config.ts --watch",
-    "lint": "turbo run lint",
-    "format": "prettier --loglevel 'error' --write \"**/*.{ts,vue,md,json}\"",
     "prepublish": "yarn build",
     "publish": "lerna publish --force-publish --yes"
   },

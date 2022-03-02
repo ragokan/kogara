@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "**/*.md": false,
+    "**/*public": false
+  }
+}

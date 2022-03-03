@@ -13,7 +13,7 @@
     "local"
   ],
   "scripts": {
-    "build": "yarn format && turbo run build",
+    "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "docs:dev": "turbo run docs:dev --parallel",
     "example:dev": "turbo run example:dev --parallel",

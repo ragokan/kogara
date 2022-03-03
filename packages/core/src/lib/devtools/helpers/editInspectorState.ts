@@ -3,6 +3,7 @@ import type { DevtoolsPluginApi } from "@vue/devtools-api";
 import { isRef, type App } from "vue";
 import { kogaraDevtoolsID } from "../constants";
 import { _setReactiveDeep } from "../utilities";
+import { insert } from "@kogara/helpers";
 
 export const _editInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) => {
   api.on.editInspectorState((payload) => {
@@ -12,7 +13,7 @@ export const _editInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) 
 
     // path[0] is the target. if it is a ref, we need to add the *value* getter
     if (isRef(store[path[0]])) {
-      path.splice(1, 0, "value");
+      insert(path, 1, "value");
     }
     _setReactiveDeep(store, state.value, path);
   });

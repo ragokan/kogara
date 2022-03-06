@@ -1,6 +1,6 @@
 {
   "name": "@kogara/form",
-  "version": "0.0.14",
+  "version": "0.0.13",
   "description": "Lightweight form validation libary for VueJS",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/core": "0.0.14"
+    "@kogara/core": "0.0.13"
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.0.12"

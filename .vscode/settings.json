@@ -6,5 +6,12 @@
     "**/renovate.json": true,
     "**/lerna.json": true,
     "**/yarn.lock": true
+  },
+  "search.exclude": {
+    // "**/example": false,
+    "**/nuxt": false,
+    "**/renovate.json": false,
+    "**/lerna.json": false,
+    "**/yarn.lock": false
   }
 }

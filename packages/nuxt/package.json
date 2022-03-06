@@ -29,5 +29,6 @@
     "@nuxt/module-builder": "latest",
     "@nuxtjs/eslint-config-typescript": "latest",
     "nuxt3": "latest"
-  }
+  },
+  "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"
 }

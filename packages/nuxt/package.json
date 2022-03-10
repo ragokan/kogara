@@ -22,7 +22,7 @@
     "build": "nuxt-module-build"
   },
   "dependencies": {
-    "@kogara/core": "0.0.14",
+    "@kogara/core": "0.0.15",
     "@nuxt/kit": "npm:@nuxt/kit-edge@latest"
   },
   "devDependencies": {

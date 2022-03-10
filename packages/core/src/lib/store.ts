@@ -4,7 +4,7 @@ import type { KogaraStoreApi } from "./types";
 
 export const defineStore = <T extends object = {}>(id: string, setup: () => T) => {
   const create = () => {
-    const data = setup();
+    const data = KogaraInstance.plugins.__scope.run(setup);
 
     // Check if data exists
     if (process.env.NODE_ENV === "development") {

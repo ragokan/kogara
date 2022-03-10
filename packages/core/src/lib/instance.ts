@@ -1,9 +1,9 @@
-import { shallowReactive } from "vue";
+import { effectScope, shallowReactive } from "vue";
 import type { KogaraPlugins, KogaraStoreApi, KogaraStores } from "./types";
 
 class KogaraBase {
   private _stores: KogaraStores = process.env.NODE_ENV === "development" ? shallowReactive({}) : {};
-  private _plugins: KogaraPlugins = {};
+  private _plugins: KogaraPlugins = { __scope: effectScope(true) };
 
   public get stores() {
     return this._stores;

@@ -1,17 +1,26 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.exclude": {
-    // "**/example": true,
+    "**/example": true,
     "**/nuxt": true,
     "**/renovate.json": true,
     "**/lerna.json": true,
-    "**/yarn.lock": true
+    "**/yarn.lock": true,
+    "**/.turbo": true,
+    "**/.npmignore": true,
+    "**/*.json": true,
+    "**/*.config.ts": true,
+    "**/*LICENSE": true,
+    "**/*global.d.ts": true
   },
   "search.exclude": {
-    // "**/example": false,
+    "**/example": false,
     "**/nuxt": false,
     "**/renovate.json": false,
     "**/lerna.json": false,
-    "**/yarn.lock": false
+    "**/*.json": false,
+    "**/*.config.ts": false,
+    "**/*LICENSE": false,
+    "**/*global.d.ts": false
   }
 }

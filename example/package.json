@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.0.15",
+  "version": "0.0.0",
   "scripts": {
     "example:dev": "vite --port 3001",
     "build": "vue-tsc --noEmit && vite build",
@@ -9,9 +9,10 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@kogara/core": "0.0.15",
-    "@kogara/form": "0.0.15",
-    "vue": "^3.2.31"
+    "@kogara/core": "*",
+    "@kogara/form": "*",
+    "vue": "^3.2.31",
+    "update-all": "ncu -u"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.14",

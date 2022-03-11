@@ -1,1 +1,1 @@
-export const debouncedRef = () => {};
+export const debouncedRef = <T>(initialValue: T) => {};

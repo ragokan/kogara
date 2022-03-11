@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "update-all": "ncu -u"
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",

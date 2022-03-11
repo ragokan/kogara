@@ -18,6 +18,9 @@
     },
     "nuxt:dev": {
       "cache": false
+    },
+    "update-all": {
+      "cache": false
     }
   }
 }

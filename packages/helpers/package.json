@@ -11,7 +11,8 @@
   "private": false,
   "scripts": {
     "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
-    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'"
+    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
+    "update-all": "ncu -u"
   },
   "exports": {
     ".": {
@@ -28,7 +29,7 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
-    "@vue/devtools-api": "^6.0.12"
+    "@vue/devtools-api": "^6.1.0"
   },
   "peerDependencies": {
     "vue": "^3.2.31"

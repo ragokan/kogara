@@ -12,6 +12,7 @@ describe("simple counter test", () => {
 
     await sleep(11);
     expect(counter.value).toBe(0);
+
     // wait for debouncedCounter to update
     await sleep(11);
     expect(counter.value).toBe(1);

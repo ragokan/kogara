@@ -39,7 +39,7 @@ export const _addLog = ({
     event: {
       groupId: id,
       logType,
-      time: Date.now(),
+      time: KogaraInstance.plugins.__devtoolsApi.now(),
       title: `Function ${key} ${message}`,
       subtitle: id,
       data: actionData,

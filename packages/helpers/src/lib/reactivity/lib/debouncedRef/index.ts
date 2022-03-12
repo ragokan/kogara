@@ -1,20 +1,20 @@
-import { readonly, ref, Ref, watch } from "vue";
+import { customRef, readonly, ref, Ref, watch } from "vue";
 import { debounce } from "../../../utility";
 
-interface DebouncedRefOptions {
-  deep?: boolean;
-}
+export const debouncedRef = <T>(value: T, ms = 250) => {
+  let timeout: NodeJS.Timeout;
 
-export const debouncedRef = <T>(baseRef: Ref<T>, ms = 250, options: DebouncedRefOptions = {}) => {
-  const { deep = true } = options;
-
-  const debounced = ref(baseRef.value) as Ref<T>;
-
-  const setter = debounce((newValue: T) => {
-    debounced.value = newValue;
-  }, ms);
-
-  watch(baseRef, setter, { deep });
-
-  return readonly(debounced);
+  return customRef<T>((track, trigger) => ({
+    get() {
+      track();
+      return value;
+    },
+    set(newValue) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        value = newValue;
+        trigger();
+      }, ms);
+    },
+  }));
 };

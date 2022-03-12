@@ -1,21 +1,19 @@
-import { describe, assert, it, expect } from "vitest";
-import { ref } from "vue";
+import { describe, expect, it } from "vitest";
 import { debouncedRef } from ".";
 import { sleep } from "../../../utility";
 
 describe("simple counter test", () => {
-  const counter = ref(0);
-  const debouncedCounter = debouncedRef(counter, 20);
-  expect(debouncedCounter.value).toBe(0);
+  const counter = debouncedRef(0, 20);
+  expect(counter.value).toBe(0);
 
   it("increments", async () => {
     counter.value++;
-    expect(counter.value).toBe(1);
-    expect(debouncedCounter.value).toBe(0);
+    expect(counter.value).toBe(0);
 
+    await sleep(11);
+    expect(counter.value).toBe(0);
     // wait for debouncedCounter to update
-    await sleep(21);
-    expect(debouncedCounter.value).toBe(1);
-    assert(debouncedCounter.value === counter.value);
+    await sleep(11);
+    expect(counter.value).toBe(1);
   });
 });

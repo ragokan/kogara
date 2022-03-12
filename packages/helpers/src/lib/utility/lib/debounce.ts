@@ -5,6 +5,6 @@ export const debounce = <T extends Function>(func: T, ms = 300) => {
 
   return (...args: ArgsType<T>) => {
     clearTimeout(timeout);
-    timeout = setTimeout(() => func(args), ms);
+    timeout = setTimeout(() => func(...args), ms);
   };
 };

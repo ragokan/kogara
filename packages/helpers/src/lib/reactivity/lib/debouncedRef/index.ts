@@ -1,5 +1,5 @@
 import { readonly, ref, Ref, watch } from "vue";
-import { debounce } from "../../utility";
+import { debounce } from "../../../utility";
 
 interface DebouncedRefOptions {
   deep?: boolean;
@@ -14,9 +14,7 @@ export const debouncedRef = <T>(baseRef: Ref<T>, ms = 250, options: DebouncedRef
     debounced.value = newValue;
   }, ms);
 
-  watch(baseRef, setter, {
-    deep,
-  });
+  watch(baseRef, setter, { deep });
 
   return readonly(debounced);
 };

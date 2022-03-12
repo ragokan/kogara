@@ -32,4 +32,20 @@ describe("simple counter test", () => {
     expect(debouncedCounter).toBe(1);
     expect(triggerAmount).toBe(1);
   });
+
+  it("increments many times", async () => {
+    counter.value++;
+    counter.value++;
+    counter.value++;
+
+    expect(counter.value).toBe(4);
+    expect(debouncedCounter).toBe(1);
+    expect(triggerAmount).toBe(1);
+
+    await sleep(21);
+
+    expect(counter.value).toBe(4);
+    expect(debouncedCounter).toBe(4);
+    expect(triggerAmount).toBe(2);
+  });
 });

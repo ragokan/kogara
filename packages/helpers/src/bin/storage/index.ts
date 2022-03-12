@@ -2,7 +2,7 @@ import { getKogaraGlobal } from "../global";
 import { createMockStorage } from "./createMockStorage";
 import { IStorage } from "./types";
 
-export const getKogaraStore = () => {
+export const getKogaraStorage = () => {
   const storage: IStorage = (getKogaraGlobal().localStorage ??= createMockStorage());
 
   return {

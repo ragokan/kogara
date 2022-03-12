@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { miniRef } from ".";
-import { sleep } from "../../../utility";
 
 describe("simple counter test", () => {
   const counter = miniRef(0);

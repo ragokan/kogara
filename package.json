@@ -22,11 +22,11 @@
     "test-watch": "vitest --config vitest.config.ts --watch",
     "prepublish": "yarn build",
     "publish": "lerna publish --force-publish --yes",
-    "update-all": "turbo run update-all --parallel"
+    "update-all": "ncu -u && turbo run update-all --parallel"
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",
-    "@swc/core": "^1.2.153",
+    "@swc/core": "^1.2.154",
     "@types/node": "^17.0.21",
     "lerna": "^4.0.0",
     "npm-check-updates": "^12.5.3",

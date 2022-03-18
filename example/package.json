@@ -23,8 +23,8 @@
     "jsdom": "^19.0.0",
     "typescript": "~4.6.0",
     "vite": "^2.8.4",
-    "vitest": "^0.6.0",
-    "vue-tsc": "^0.32.0"
+    "vitest": "^0.7.0",
+    "vue-tsc": "^0.33.0"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"
 }

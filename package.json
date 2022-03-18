@@ -34,14 +34,14 @@
     "tsup": "^5.12.1",
     "turbo": "latest",
     "typescript": "^4.6.2",
-    "vitest": "^0.6.0",
+    "vitest": "^0.7.0",
     "vue": "^3.2.31"
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@1.22.17",
+  "packageManager": "yarn@1.22.18",
   "repository": {
     "type": "git",
     "url": "https://github.com/ragokan/kogara.git"

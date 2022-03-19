@@ -12,6 +12,9 @@ describe("form validation test", () => {
       // we use *value* here because it is a Ref. It is not required in templates
       expect(submitValues).toBe(values.value);
     },
+    onError: (errorValues) => {
+      expect(errorValues).toBe(errors.value);
+    },
     validators: {
       name: minLengthValidator(5, "name is too short"),
       // we can use as many as validator we want, we can also create inline validators

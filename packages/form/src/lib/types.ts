@@ -9,6 +9,8 @@ export interface kogaraFormOptions<Values> {
 
   onSubmit?: (values: Values) => void | Promise<void>;
 
+  onError?: (error: kogaraFormErrors<Values>) => void;
+
   validators?: Validators<Values>;
 }
 

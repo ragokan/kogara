@@ -3,7 +3,7 @@ import type { kogaraFormErrors, kogaraFormOptions } from "./types";
 import { _validateForm } from "./internal/validate";
 
 export const useForm = <Values extends object = {}>(options: kogaraFormOptions<Values> = {}) => {
-  const { initialValues = {}, validators = {}, validateOnChange = true } = options;
+  const { initialValues = {}, validators = {}, validateOnChange = true, onError, onSubmit } = options;
   let _isValidated = false;
 
   const values = ref<Values>(initialValues as Values);
@@ -15,6 +15,9 @@ export const useForm = <Values extends object = {}>(options: kogaraFormOptions<V
     const status = _validateForm(values, errors as Ref<kogaraFormErrors<Values>>, validators);
     if (!_isValidated && !status) {
       _isValidated = true;
+    }
+    if (!status && onError) {
+      onError(errors.value);
     }
     return status;
   };
@@ -31,10 +34,10 @@ export const useForm = <Values extends object = {}>(options: kogaraFormOptions<V
   }
 
   const submit = async () => {
-    if (_validate() && options.onSubmit) {
+    if (_validate() && onSubmit) {
       loading.value = true;
       try {
-        await options.onSubmit(values.value);
+        await onSubmit(values.value);
       } catch (error) {
         throw error;
       } finally {

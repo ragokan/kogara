@@ -33,7 +33,7 @@
     "@kogara/core": "0.0.19"
   },
   "devDependencies": {
-    "@vue/devtools-api": "^6.1.0"
+    "@vue/devtools-api": "^6.1.4"
   },
   "peerDependencies": {
     "vue": "^3.2.31"

@@ -11,7 +11,8 @@
     "**/*.json": true,
     "**/*.config.ts": true,
     "**/*LICENSE": true,
-    "**/*global.d.ts": true
+    "**/*global.d.ts": true,
+    "**/*dist": true
   },
   "search.exclude": {
     "**/example": false,

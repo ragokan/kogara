@@ -29,9 +29,7 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
-    "@vue/devtools-api": "^6.1.0"
-  },
-  "peerDependencies": {
+    "@vue/devtools-api": "^6.1.0",
     "vue": "^3.2.31"
   },
   "repository": {

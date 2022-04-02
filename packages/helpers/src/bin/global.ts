@@ -1,4 +1,4 @@
-const kogaraGlobal =
+const _kogaraGlobal =
   typeof window !== "undefined"
     ? window
     : typeof globalThis !== "undefined"
@@ -9,4 +9,4 @@ const kogaraGlobal =
     ? global
     : {};
 
-export const getKogaraGlobal = (): any => kogaraGlobal;
+export const getKogaraGlobal = (): any => _kogaraGlobal;

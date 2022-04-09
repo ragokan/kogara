@@ -17,7 +17,8 @@
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
     "types": ["node", "vitest"],
-    "module": "ESNext"
+    "module": "ESNext",
+    "noUncheckedIndexedAccess": true
   },
   "include": ["./global.d.ts", "packages"],
   "exclude": ["node_modules"]

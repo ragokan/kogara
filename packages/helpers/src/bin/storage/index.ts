@@ -8,7 +8,7 @@ export const getKogaraStorage = () => {
   return {
     getItem: <T>(key: string): T | null => {
       const value = storage.getItem(key);
-      if (value === null) return null;
+      if (value === null || value === undefined) return null;
       return JSON.parse(value)["value"] as T;
     },
     setItem: <T>(key: string, value: T) => {

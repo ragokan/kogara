@@ -12,7 +12,7 @@ export const _editInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) 
     const store = KogaraInstance.stores[nodeId]?.store;
 
     // path[0] is the target. if it is a ref, we need to add the *value* getter
-    if (isRef(store[path[0]])) {
+    if (path[0] && isRef(store[path[0]])) {
       insert(path, 1, "value");
     }
     _setReactiveDeep(store, state.value, path);

@@ -1,6 +1,6 @@
 {
   "name": "@kogara/core",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Core library of kogara",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -28,7 +28,7 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
-    "@kogara/helpers": "0.0.20",
+    "@kogara/helpers": "0.0.21",
     "@vue/devtools-api": "^6.1.0"
   },
   "peerDependencies": {

@@ -20,26 +20,25 @@ export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] |
 
       // If the type is a function, we change it to have logging function
       if (type === "other" && isFunction(value)) {
-        const func = Object.assign({}, data)[key] as Function;
-
-        Object.defineProperty(data, key, {
-          value(...args: any[]) {
-            let functionValue: any;
-            _addLog({ id, args, data, key, message: "started" });
-            try {
-              // If the function returns a promise, we wait for it to resolve
-              functionValue = func(args);
-            } catch (error) {
-              // We catch the error to add it to the timeline but we also throw it again, so that the behaviour does not change in the release
-              _addLog({ id, args, data, key, message: "failed", logType: "error", error: String(error ?? "") });
-              throw error;
-            } finally {
-              _addLog({ id, args, data, key, message: "ended" });
-            }
-
-            return functionValue;
-          },
-        });
+        // Do nothing for now
+        // const func = Object.assign({}, data)[key] as Function;
+        // Object.defineProperty(data, key, {
+        //   value(...args: any[]) {
+        //     let functionValue: any;
+        //     _addLog({ id, args, data, key, message: "started" });
+        //     try {
+        //       // If the function returns a promise, we wait for it to resolve
+        //       functionValue = func(args);
+        //     } catch (error) {
+        //       // We catch the error to add it to the timeline but we also throw it again, so that the behaviour does not change in the release
+        //       _addLog({ id, args, data, key, message: "failed", logType: "error", error: String(error ?? "") });
+        //       throw error;
+        //     } finally {
+        //       _addLog({ id, args, data, key, message: "ended" });
+        //     }
+        //     return functionValue;
+        //   },
+        // });
       }
     });
     return devtoolsApi;

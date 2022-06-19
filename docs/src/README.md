@@ -5,7 +5,7 @@ heroText: Kogara
 heroAlt: Tiny, fast and unopinionated state management library for Vue!
 actions:
   - text: Get Started →
-    link: /guide/get-started
+    link: /guide/getting-started
     type: primary
   - text: View Demo
     link: https://github.com/ragokan/kogara/tree/master/example
@@ -25,5 +25,5 @@ features:
   - title: Lazy
     details: Stores are built lazy, until you use them anywhere, they won't be created. You can also dispose them anytime you want.
 
-footer: MIT Licensed | Copyright © 2021-present Okan YILDIRIM
+footer: MIT Licensed | Copyright © 2022-present Okan YILDIRIM
 ---

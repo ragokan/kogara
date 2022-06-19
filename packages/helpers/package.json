@@ -30,7 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "@vue/devtools-api": "^6.1.4",
-    "vue": "^3.2.33"
+    "vue": "^3.2.37"
   },
   "repository": {
     "type": "git",

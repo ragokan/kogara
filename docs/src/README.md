@@ -5,7 +5,7 @@ heroText: Kogara
 heroAlt: Tiny, fast and unopinionated state management library for Vue!
 actions:
   - text: Get Started →
-    link: /guide/get-started.md
+    link: /guide/get-started
     type: primary
   - text: View Demo
     link: https://github.com/ragokan/kogara/tree/master/example

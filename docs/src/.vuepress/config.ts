@@ -10,7 +10,22 @@ export default defineUserConfig({
   theme: defaultTheme({
     logo: "/assets/images/icon.svg",
     repo: "ragokan/kogara",
-    navbar: [{ text: "Home", link: "/" }],
+    navbar: [
+      { text: "Home", link: "/" },
+      { text: "Docs", link: "/guide/docs" },
+    ],
+    sidebar: {
+      "/guide/": [
+        {
+          text: "Introduction",
+          children: ["/guide/about", "/guide/getting-started", "/guide/usage"],
+        },
+        {
+          text: "Core Concepts",
+          children: ["/guide/core-concepts/stores"],
+        },
+      ],
+    },
   }),
   head: [
     [

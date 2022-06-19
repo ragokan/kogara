@@ -12,7 +12,9 @@
     "**/*.config.ts": true,
     "**/*LICENSE": true,
     "**/*global.d.ts": true,
-    "**/*dist": true
+    "**/*dist": true,
+    "**/*.md": false,
+    "**/*assets": false
   },
   "search.exclude": {
     "**/example": false,

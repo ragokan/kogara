@@ -10,11 +10,11 @@
     "update-all": "ncu -u"
   },
   "devDependencies": {
-    "@babel/types": "^7.17.10",
-    "@vuepress/bundler-vite": "^2.0.0-beta.43",
+    "@babel/types": "^7.18.4",
+    "@vuepress/bundler-vite": "^2.0.0-beta.45",
     "@vuepress/plugin-back-to-top": "^2.0.0-beta.36",
     "@vuepress/plugin-search": "^2.0.0-beta.36",
-    "vuepress": "^2.0.0-beta.36"
+    "vuepress": "^2.0.0-beta.48"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"
 }

@@ -1,14 +1,17 @@
-import { defineUserConfig } from "vuepress";
-import type { DefaultThemeOptions } from "vuepress";
-import type { ViteBundlerOptions } from "@vuepress/bundler-vite";
+import { defaultTheme, defineUserConfig } from "vuepress";
+import { backToTopPlugin } from "@vuepress/plugin-back-to-top";
+import { searchPlugin } from "@vuepress/plugin-search";
 
-export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
+export default defineUserConfig({
   lang: "en-US",
   title: "Kogara",
-  bundler: "@vuepress/bundler-vite",
   dest: "./dist",
   description: "Tiny and fast state management library for VueJS",
-  theme: "@vuepress/theme-default",
+  theme: defaultTheme({
+    logo: "/assets/images/icon.svg",
+    repo: "ragokan/kogara",
+    navbar: [{ text: "Home", link: "/" }],
+  }),
   head: [
     [
       "link",
@@ -18,11 +21,5 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
       },
     ],
   ],
-  themeConfig: {
-    logo: "/assets/images/icon.svg",
-    darkMode: true,
-    repo: "ragokan/kogara",
-    navbar: [{ text: "Home", link: "/" }],
-  },
-  plugins: ["@vuepress/plugin-search", "@vuepress/plugin-back-to-top"],
+  plugins: [backToTopPlugin(), searchPlugin()],
 });

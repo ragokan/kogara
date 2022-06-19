@@ -9,7 +9,8 @@
   "workspaces": [
     "packages/*",
     "example",
-    "local"
+    "local",
+    "docs"
   ],
   "scripts": {
     "build": "turbo run build",

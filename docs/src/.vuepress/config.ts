@@ -18,11 +18,23 @@ export default defineUserConfig({
       "/guide/": [
         {
           text: "Introduction",
-          children: ["/guide/about", "/guide/getting-started", "/guide/usage"],
+          children: ["/guide/about", "/guide/getting-started"],
         },
         {
-          text: "Core Concepts",
-          children: ["/guide/core-concepts/stores"],
+          text: "Nuxt.js",
+          children: ["/guide/nuxt/introduction"],
+        },
+        {
+          text: "Extensibility",
+          children: ["/guide/extensibility/about", "/guide/extensibility/default", "/guide/extensibility/vueuse"],
+        },
+        {
+          text: "Helpers",
+          children: ["/guide/helpers/introduction"],
+        },
+        {
+          text: "Form",
+          children: ["/guide/form/introduction"],
         },
       ],
     },

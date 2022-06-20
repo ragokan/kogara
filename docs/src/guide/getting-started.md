@@ -50,7 +50,7 @@ Creating a store is very straightforward. You simply use Vue/reactivity methods 
 
 ```ts
 import { defineStore } from "@kogara/core";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 // Give store a name for devtools
 export const useCounterStore = defineStore("counterStore", () => {
@@ -61,6 +61,11 @@ export const useCounterStore = defineStore("counterStore", () => {
   const doubledCount = computed(() => count.value * 2);
 
   const increment = () => count.value++;
+
+  // You can also use other reactivity functions here
+  watch(count, (newCount) => {
+    console.log(`Count changed to ${newCount}`);
+  });
 
   return { count, doubledCount, increment };
 });

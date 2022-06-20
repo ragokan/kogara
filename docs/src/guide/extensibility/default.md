@@ -66,3 +66,37 @@ myArray.value[0] = 0; // Doesn't triggers re-render
 
 myArray.value = [...myArray.value, 5]; // Triggers re-render
 ```
+
+## debouncedRef
+
+debouncedRef is similar to miniRef as being shallow, but it is also debounced.
+
+```ts
+import { debouncedRef } from "@kogara/helpers";
+
+const myArray = debouncedRef([1, 2, 3], 100);
+myArray.value.push(4); // Doesn't trigger re-render
+myArray.value[0] = 0; // Doesn't triggers re-render
+
+myArray.value = [...myArray.value, 5]; // Triggers re-render after 100ms
+```
+
+## debouncedWatch
+
+debouncedWatch works just like the regular watch, but it is debounced.
+
+```ts
+import { debouncedWatch } from "@kogara/helpers";
+
+const count = ref(0);
+
+debouncedWatch(
+  count, // or array of deps
+  (newCount) => {
+    console.log("count changed to", newCount);
+  },
+  100
+);
+
+count.value++; // Triggers watch callback after 100ms
+```

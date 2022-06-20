@@ -20,7 +20,7 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "build": "nuxt-module-build",
-    "update-all": "ncu -u"
+    "deps-update-all": "ncu -u"
   },
   "dependencies": {
     "@kogara/core": "0.0.24",

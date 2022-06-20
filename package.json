@@ -22,7 +22,7 @@
     "test-watch": "vitest --config vitest.config.ts --watch",
     "prepublish": "yarn build",
     "publish": "lerna publish --force-publish --yes",
-    "update-all": "ncu -u && turbo run update-all --parallel"
+    "deps-update-all": "ncu -u && turbo run deps-update-all --parallel"
   },
   "devDependencies": {
     "@babel/types": "^7.18.4",

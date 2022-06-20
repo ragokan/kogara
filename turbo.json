@@ -19,7 +19,7 @@
     "nuxt:dev": {
       "cache": false
     },
-    "update-all": {
+    "deps-update-all": {
       "cache": false
     }
   }

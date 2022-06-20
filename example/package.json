@@ -12,7 +12,7 @@
     "@kogara/core": "*",
     "@kogara/form": "*",
     "vue": "^3.2.31",
-    "update-all": "ncu -u"
+    "deps-update-all": "ncu -u"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.14",

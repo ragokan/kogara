@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
     "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
-    "update-all": "ncu -u"
+    "deps-update-all": "ncu -u"
   },
   "exports": {
     ".": {

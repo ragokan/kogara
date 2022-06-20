@@ -6,13 +6,13 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
     "test:unit": "vitest --environment jsdom",
-    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "deps-update-all": "ncu -u"
   },
   "dependencies": {
     "@kogara/core": "*",
     "@kogara/form": "*",
-    "vue": "^3.2.31",
-    "deps-update-all": "ncu -u"
+    "vue": "^3.2.31"
   },
   "devDependencies": {
     "@types/jsdom": "^16.2.14",

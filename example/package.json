@@ -15,7 +15,7 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@types/jsdom": "^16.2.14",
+    "@types/jsdom": "^20.0.0",
     "@types/node": "^18.0.0",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vue/test-utils": "^2.0.0",

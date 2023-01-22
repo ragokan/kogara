@@ -13,7 +13,7 @@ export const _validateForm = <Values>(
     if (Array.isArray(validate)) {
       for (let index = 0; index < validate.length; index++) {
         const element = validate[index];
-        const result = element((values.value as any)[key]);
+        const result = element?.((values.value as any)[key]);
         if (result) {
           validationErrors[key] = result;
           return;

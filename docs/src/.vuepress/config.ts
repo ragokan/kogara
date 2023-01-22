@@ -12,7 +12,7 @@ export default defineUserConfig({
     repo: "ragokan/kogara",
     navbar: [
       { text: "Home", link: "/" },
-      { text: "Docs", link: "/guide/docs" },
+      { text: "Docs", link: "/guide/getting-started" },
     ],
     sidebar: {
       "/guide/": [

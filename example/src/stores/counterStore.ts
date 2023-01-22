@@ -6,7 +6,9 @@ export const useCounterStore = defineStore("counterStore", () => {
 
   const doubledCount = computed(() => count.value * 2);
 
-  const increment = () => count.value++;
+  const increment = () => {
+    count.value++;
+  };
 
   return { count, doubledCount, increment };
 });

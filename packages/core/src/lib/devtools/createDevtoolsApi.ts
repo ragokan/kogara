@@ -38,6 +38,8 @@ export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] |
               functionResult.then(() => {
                 _addLog({ id, args, data, key, message: "ended" });
               });
+            } else {
+              _addLog({ id, args, data, key, message: "ended" });
             }
 
             return functionResult;

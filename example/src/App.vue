@@ -9,6 +9,8 @@
     <hr />
     <p>Kogara Stores</p>
     {{ $kogara.stores }}
+    <br />
+    {{ $kogara.stores.counterStore.store }}
   </div>
 </template>
 

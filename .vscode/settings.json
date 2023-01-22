@@ -1,17 +1,12 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.exclude": {
-    "**/example": true,
+    // "**/example": true,
     // "**/nuxt": true,
-    "**/renovate.json": true,
-    "**/lerna.json": true,
     "**/yarn.lock": true,
     "**/.turbo": true,
     "**/.npmignore": true,
-    "**/*.json": true,
-    "**/*.config.ts": true,
     "**/*LICENSE": true,
-    "**/*global.d.ts": true,
     "**/*dist": true,
     "**/*.md": false,
     "**/*assets": false

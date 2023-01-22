@@ -11,9 +11,8 @@
   },
   "devDependencies": {
     "@babel/types": "^7.20.7",
-    "@vuepress/bundler-vite": "^2.0.0-beta.45",
-    "@vuepress/plugin-back-to-top": "^2.0.0-beta.36",
-    "@vuepress/plugin-search": "^2.0.0-beta.36",
+    "@vuepress/bundler-vite": "^2.0.0-beta.60",
+    "@vuepress/plugin-search": "^2.0.0-beta.60",
     "vuepress": "^2.0.0-beta.60"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"

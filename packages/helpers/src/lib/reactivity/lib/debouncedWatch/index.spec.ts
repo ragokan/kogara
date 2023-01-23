@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ref } from "vue";
 import { debouncedWatch } from ".";
-import { sleep } from "../../../utility";
+import { sleep } from "@kogara/utils";
 
 describe("simple counter test", () => {
   const counter = ref(0);

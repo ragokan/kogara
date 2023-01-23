@@ -1,5 +1,5 @@
 import { watch, WatchCallback, WatchOptions, WatchStopHandle, type WatchSource } from "vue";
-import { debounce } from "../../../utility";
+import { debounce } from "@kogara/utils";
 import { MapSources, MultiWatchSources } from "./types";
 
 export function debouncedWatch<T extends MultiWatchSources, Immediate extends Readonly<boolean> = false>(

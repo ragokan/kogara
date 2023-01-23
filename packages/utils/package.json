@@ -1,7 +1,7 @@
 {
-  "name": "@kogara/core",
+  "name": "@kogara/utils",
   "version": "0.1.0",
-  "description": "Core library of kogara",
+  "description": "Utils that help you while coding",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -11,7 +11,8 @@
   "private": false,
   "scripts": {
     "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
-    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'"
+    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
+    "deps-update-all": "ncu -u"
   },
   "exports": {
     ".": {
@@ -27,18 +28,10 @@
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
   "license": "MIT",
-  "devDependencies": {
-    "@kogara/helpers": "0.1.0",
-    "@kogara/utils": "0.1.0",
-    "@vue/devtools-api": "^6.1.0"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.31"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ragokan/kogara.git",
-    "directory": "packages/core"
+    "directory": "packages/utils"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"
 }

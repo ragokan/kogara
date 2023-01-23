@@ -30,7 +30,8 @@
   "license": "MIT",
   "devDependencies": {
     "@vue/devtools-api": "^6.5.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "@kogara/utils": "0.1.0"
   },
   "repository": {
     "type": "git",

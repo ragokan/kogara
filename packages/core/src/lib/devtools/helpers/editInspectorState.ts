@@ -3,7 +3,7 @@ import type { DevtoolsPluginApi } from "@vue/devtools-api";
 import { isRef, type App } from "vue";
 import { kogaraDevtoolsID } from "../constants";
 import { _setReactiveDeep } from "../utilities";
-import { insert } from "@kogara/helpers";
+import { insert } from "@kogara/utils";
 
 export const _editInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) => {
   api.on.editInspectorState((payload) => {

@@ -1,7 +1,7 @@
 import type { KogaraDevtoolsApi } from "../types";
 import { _getType } from "../utilities/getType";
 import { _addLog } from "./helpers/addLog";
-import { isFunction } from "@kogara/helpers";
+import { isFunction } from "@kogara/utils";
 
 export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] | undefined => {
   if (process.env.NODE_ENV === "development") {

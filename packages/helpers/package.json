@@ -1,6 +1,6 @@
 {
   "name": "@kogara/helpers",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Helpers that help you while coding",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -29,9 +29,9 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
+    "@kogara/utils": "0.2.0",
     "@vue/devtools-api": "^6.5.0",
-    "vue": "^3.2.45",
-    "@kogara/utils": "0.1.0"
+    "vue": "^3.2.45"
   },
   "repository": {
     "type": "git",

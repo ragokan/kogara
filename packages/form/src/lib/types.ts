@@ -15,7 +15,9 @@ export interface kogaraFormOptions<Values> {
 }
 
 type Validators<Values> = {
-  [key in keyof Partial<Values>]?: kogaraFormValidator<Values[key]> | Array<kogaraFormValidator<Values[key]>>;
+  [key in keyof Partial<Values>]?:
+    | kogaraFormValidator<Values[key]>
+    | Array<kogaraFormValidator<Values[key]>>;
 };
 
 export interface kogaraFormState<Values> {

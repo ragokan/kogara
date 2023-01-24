@@ -18,7 +18,10 @@ describe("form validation test", () => {
     validators: {
       name: minLengthValidator(5, "name is too short"),
       // we can use as many as validator we want, we can also create inline validators
-      age: [requiredValidator("age is required"), (age) => (age > 50 ? "age is too high" : undefined)],
+      age: [
+        requiredValidator("age is required"),
+        (age) => (age > 50 ? "age is too high" : undefined),
+      ],
     },
   });
 

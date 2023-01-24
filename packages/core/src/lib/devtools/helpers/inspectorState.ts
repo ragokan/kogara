@@ -11,7 +11,8 @@ export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) =
     const store = KogaraInstance.stores[nodeId];
 
     if (store) {
-      const refOrReactives = store.devtoolsApi?.filter((i) => i.type === "ref" || i.type === "reactive") ?? [];
+      const refOrReactives =
+        store.devtoolsApi?.filter((i) => i.type === "ref" || i.type === "reactive") ?? [];
       const computeds = store.devtoolsApi?.filter((i) => i.type === "computed") ?? [];
       const functions = store.devtoolsApi?.filter((i) => typeof i.value === "function") ?? [];
       const state: CustomInspectorState = {};
@@ -30,7 +31,11 @@ export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) =
       }
       // Add computed variables if they exist
       if (!!computeds.length) {
-        state["computed"] = computeds.map((data) => ({ key: data.key, value: data.value.value, objectType: data.type }));
+        state["computed"] = computeds.map((data) => ({
+          key: data.key,
+          value: data.value.value,
+          objectType: data.type,
+        }));
       }
 
       // Add functions if they exist

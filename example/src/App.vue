@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useCounterStore } from "./stores/counterStore";
+  import { useCounterStore } from "./stores/counterStore";
 
-const { count, doubledCount, increment } = useCounterStore();
+  const { count, doubledCount, increment } = useCounterStore();
 </script>

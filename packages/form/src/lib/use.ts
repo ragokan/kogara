@@ -3,7 +3,13 @@ import type { kogaraFormErrors, kogaraFormOptions } from "./types";
 import { _validateForm } from "./internal/validate";
 
 export const useForm = <Values extends object = {}>(options: kogaraFormOptions<Values> = {}) => {
-  const { initialValues = {}, validators = {}, validateOnChange = true, onError, onSubmit } = options;
+  const {
+    initialValues = {},
+    validators = {},
+    validateOnChange = true,
+    onError,
+    onSubmit,
+  } = options;
   let _isValidated = false;
 
   const values = ref<Values>(initialValues as Values);

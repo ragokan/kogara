@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import { KogaraInstance } from "@kogara/core";
-import { useCounterStore } from "./stores/counterStore";
-const { count, doubledCount } = useCounterStore();
-if (process.server) {
-  console.log(useNuxtApp().payload.kogaraStores);
-}
+  import { KogaraInstance } from "@kogara/core";
+  import { useCounterStore } from "./stores/counterStore";
+  const { count, doubledCount } = useCounterStore();
+  if (process.server) {
+    console.log(useNuxtApp().payload.kogaraStores);
+  }
 </script>

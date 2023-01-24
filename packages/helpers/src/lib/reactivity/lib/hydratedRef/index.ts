@@ -11,7 +11,9 @@ export function hydratedRef<T>(key: string, fallbackValue?: T, options: Hydrated
 
   const storage = getKogaraStorage();
 
-  const value = (shallow ? shallowRef : ref)(storage.getItem(key) ?? fallbackValue) as Ref<T | null>;
+  const value = (shallow ? shallowRef : ref)(
+    storage.getItem(key) ?? fallbackValue
+  ) as Ref<T | null>;
 
   watch(
     value,

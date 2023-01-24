@@ -7,7 +7,12 @@ import { _editInspectorState, _getInspectorState, _getInspectorTree, _watchTree 
 export const useKogaraDevtools = (app: App) => {
   if (process.env.NODE_ENV === "development") {
     setupDevtoolsPlugin(
-      { id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, packageName: kogaraDevtoolsPackageName, app } as PluginDescriptor,
+      {
+        id: kogaraDevtoolsID,
+        label: kogaraDevtoolsLabel,
+        packageName: kogaraDevtoolsPackageName,
+        app,
+      } as PluginDescriptor,
       (api) => {
         // Add kogara to devtools UI
         api.addInspector({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, icon: "source" });

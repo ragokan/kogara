@@ -25,7 +25,11 @@ export default defineUserConfig({
         },
         {
           text: "Extensibility",
-          children: ["/guide/extensibility/about", "/guide/extensibility/default", "/guide/extensibility/vueuse"],
+          children: [
+            "/guide/extensibility/about",
+            "/guide/extensibility/default",
+            "/guide/extensibility/vueuse",
+          ],
         },
         {
           text: "Form",

@@ -2,14 +2,20 @@ import { watch, WatchCallback, WatchOptions, WatchStopHandle, type WatchSource }
 import { debounce } from "@kogara/utils";
 import { MapSources, MultiWatchSources } from "./types";
 
-export function debouncedWatch<T extends MultiWatchSources, Immediate extends Readonly<boolean> = false>(
+export function debouncedWatch<
+  T extends MultiWatchSources,
+  Immediate extends Readonly<boolean> = false
+>(
   sources: [...T],
   cb: WatchCallback<MapSources<T, false>, MapSources<T, Immediate>>,
   ms?: number,
   options?: WatchOptions<Immediate>
 ): WatchStopHandle;
 
-export function debouncedWatch<T extends Readonly<MultiWatchSources>, Immediate extends Readonly<boolean> = false>(
+export function debouncedWatch<
+  T extends Readonly<MultiWatchSources>,
+  Immediate extends Readonly<boolean> = false
+>(
   source: T,
   cb: WatchCallback<MapSources<T, false>, MapSources<T, Immediate>>,
   ms?: number,

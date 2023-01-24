@@ -84,9 +84,9 @@ export const useCounterStore = defineStore("counterStore", () => {
 </template>
 
 <script lang="ts" setup>
-import { useCounterStore } from "./stores/counterStore";
-// You can destructure just like a regular object.
-const { count, doubledCount, increment } = useCounterStore();
+  import { useCounterStore } from "./stores/counterStore";
+  // You can destructure just like a regular object.
+  const { count, doubledCount, increment } = useCounterStore();
 </script>
 ```
 

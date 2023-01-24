@@ -35,25 +35,28 @@ yarn add @kogara/form
 
 ```vue
 <script setup lang="ts">
-import { useForm, minLengthValidator, requiredValidator } from "@kogara/form";
+  import { useForm, minLengthValidator, requiredValidator } from "@kogara/form";
 
-const { loading, submit, values, errors } = useForm<{ name: string; age: number }>({
-  initialValues: {
-    name: "",
-    age: 0,
-  },
-  onSubmit: async (validatedValues) => {
-    // sleep for a while to trigger fake loading
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    // do something with validatedValues
-    console.log(validatedValues);
-  },
-  validators: {
-    name: minLengthValidator(5, "name is too short"),
-    // we can use as many as validator we want, we can also create inline validators
-    age: [requiredValidator("age is required"), (age) => (age > 50 ? "age is too old" : undefined)],
-  },
-});
+  const { loading, submit, values, errors } = useForm<{ name: string; age: number }>({
+    initialValues: {
+      name: "",
+      age: 0,
+    },
+    onSubmit: async (validatedValues) => {
+      // sleep for a while to trigger fake loading
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      // do something with validatedValues
+      console.log(validatedValues);
+    },
+    validators: {
+      name: minLengthValidator(5, "name is too short"),
+      // we can use as many as validator we want, we can also create inline validators
+      age: [
+        requiredValidator("age is required"),
+        (age) => (age > 50 ? "age is too old" : undefined),
+      ],
+    },
+  });
 </script>
 
 <template>

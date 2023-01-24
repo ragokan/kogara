@@ -30,7 +30,15 @@ export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] |
             try {
               functionResult = func.apply(this, args);
             } catch (error) {
-              _addLog({ id, args, data, key, message: "failed", logType: "error", error: String(error ?? "") });
+              _addLog({
+                id,
+                args,
+                data,
+                key,
+                message: "failed",
+                logType: "error",
+                error: String(error ?? ""),
+              });
               throw error;
             }
 

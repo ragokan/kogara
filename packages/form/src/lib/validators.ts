@@ -13,7 +13,9 @@ export const maxLengthValidator =
 export const requiredValidator =
   (errorMessage: string): kogaraFormValidator<any | undefined> =>
   (val) =>
-    val === null || val === undefined || (typeof val === "string" && !!val.length) ? errorMessage : undefined;
+    val === null || val === undefined || (typeof val === "string" && !!val.length)
+      ? errorMessage
+      : undefined;
 
 export const emailValidator =
   (errorMessage: string): kogaraFormValidator<string | undefined> =>

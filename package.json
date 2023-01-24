@@ -29,12 +29,12 @@
     "@types/node": "^18.11.18",
     "@types/ws": "^8.5.4",
     "lerna": "^6.4.1",
-    "npm-check-updates": "^16.6.2",
+    "npm-check-updates": "^16.6.3",
     "prettier": "^2.8.3",
     "tsup": "^6.5.0",
     "turbo": "latest",
     "typescript": "^4.9.4",
-    "vitest": "^0.27.3",
+    "vitest": "^0.28.1",
     "vue": "^3.2.45"
   },
   "engines": {

@@ -2,6 +2,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.exclude": {
     // "**/example": true,
+    "**/.nuxt": true,
     // "**/nuxt": true,
     "**/yarn.lock": true,
     "**/.turbo": true,

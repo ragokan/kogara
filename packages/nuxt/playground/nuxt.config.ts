@@ -1,6 +1,6 @@
-import { defineNuxtConfig } from "nuxt3";
-import KogaraPlugin from "..";
+import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
-  modules: [KogaraPlugin],
+  modules: ["../src/module"],
+  kogara: {},
 });

@@ -1,6 +1,6 @@
 {
   "name": "@kogara/utils",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Utils that help you while coding",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -33,5 +33,5 @@
     "url": "https://github.com/ragokan/kogara.git",
     "directory": "packages/utils"
   },
-  "gitHead": "abd158e62572f026af10d384a9767573e7504be3"
+  "gitHead": "4c011f471db9bd1f54c0229f420276b781a828d1"
 }

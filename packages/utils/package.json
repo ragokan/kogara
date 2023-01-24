@@ -1,6 +1,6 @@
 {
   "name": "@kogara/utils",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Utils that help you while coding",
   "source": "src/index.ts",
   "main": "dist/index.js",

@@ -1,21 +1,21 @@
 import { defineNuxtPlugin } from "#app";
-import { KogaraInstance, KogaraPlugin } from "@kogara/core";
+import { KogaraInstance, type IKogaraBase, KogaraPlugin } from "@kogara/core";
 
 declare module "#app" {
   interface NuxtApp {
-    $kogara: typeof KogaraInstance;
+    $kogara: IKogaraBase;
   }
 }
 
 declare module "vue" {
   interface ComponentCustomProperties {
-    $kogara: typeof KogaraInstance;
+    $kogara: IKogaraBase;
   }
 }
 
 declare module "@vue/runtime-core" {
   interface ComponentCustomProperties {
-    $kogara: typeof KogaraInstance;
+    $kogara: IKogaraBase;
   }
 }
 

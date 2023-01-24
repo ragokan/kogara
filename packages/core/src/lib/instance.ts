@@ -33,4 +33,5 @@ class KogaraBase {
   }
 }
 
-export const KogaraInstance = new KogaraBase();
+export type IKogaraBase = Omit<KogaraBase, "_stores" | "_plugins">;
+export const KogaraInstance: IKogaraBase = new KogaraBase();

@@ -1,6 +1,6 @@
 {
   "name": "@kogara/core",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Core library of kogara",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -29,8 +29,8 @@
   "author": "ragokan",
   "license": "MIT",
   "devDependencies": {
-    "@kogara/helpers": "0.2.2",
-    "@kogara/utils": "0.2.2",
+    "@kogara/helpers": "0.2.3",
+    "@kogara/utils": "0.2.3",
     "@vue/devtools-api": "^6.5.0"
   },
   "peerDependencies": {
@@ -41,5 +41,5 @@
     "url": "https://github.com/ragokan/kogara.git",
     "directory": "packages/core"
   },
-  "gitHead": "4c011f471db9bd1f54c0229f420276b781a828d1"
+  "gitHead": "88b84992b0746f36823d6b4065dc861b05c71dfc"
 }

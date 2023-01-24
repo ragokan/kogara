@@ -1,6 +1,6 @@
 {
   "name": "@kogara/nuxt",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -15,6 +15,7 @@
     "dist"
   ],
   "scripts": {
+    "build": "yarn run dev:prepare && nuxt-module-build",
     "prepack": "nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
@@ -22,12 +23,13 @@
     "deps-update-all": "ncu -u"
   },
   "dependencies": {
-    "@kogara/core": "0.2.0",
+    "@kogara/core": "0.2.1",
     "@nuxt/kit": "^3.0.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.0.0",
     "nuxt": "^3.0.0"
-  }
+  },
+  "gitHead": "abd158e62572f026af10d384a9767573e7504be3"
 }

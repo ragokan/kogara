@@ -21,5 +21,8 @@
     "**/*.config.ts": false,
     "**/*LICENSE": false,
     "**/*global.d.ts": false
-  }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }

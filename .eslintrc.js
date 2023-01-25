@@ -5,6 +5,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  ignorePatterns: ["node_modules/", ".nuxt/", "dist/", "coverage/", "*.vue"],
   extends: [
     "eslint:recommended",
     "plugin:vue/vue3-essential",

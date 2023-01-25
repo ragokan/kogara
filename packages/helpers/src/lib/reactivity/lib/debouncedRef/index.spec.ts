@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { debouncedRef } from ".";
 import { sleep } from "@kogara/utils";
+import { debouncedRef } from ".";
 
 describe("simple counter test", () => {
   const counter = debouncedRef(0, 20);

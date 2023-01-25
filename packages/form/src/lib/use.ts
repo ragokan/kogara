@@ -32,7 +32,9 @@ export const useForm = <Values extends object = {}>(options: kogaraFormOptions<V
     watch(
       values.value,
       () => {
-        if (!_isValidated) return;
+        if (!_isValidated) {
+          return;
+        }
         _validate();
       },
       { deep: true }
@@ -44,8 +46,6 @@ export const useForm = <Values extends object = {}>(options: kogaraFormOptions<V
       loading.value = true;
       try {
         await onSubmit(values.value);
-      } catch (error) {
-        throw error;
       } finally {
         loading.value = false;
       }

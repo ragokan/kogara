@@ -46,3 +46,4 @@ Temporary Items
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
+.eslintcache

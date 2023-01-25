@@ -1,11 +1,13 @@
-import { KogaraInstance } from "../../instance";
 import type { CustomInspectorState, DevtoolsPluginApi } from "@vue/devtools-api";
 import type { App } from "vue";
+import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
 export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) => {
   api.on.getInspectorState((payload) => {
-    if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) return;
+    if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {
+      return;
+    }
 
     const { nodeId } = payload;
     const store = KogaraInstance.stores[nodeId];
@@ -18,8 +20,8 @@ export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) =
       const state: CustomInspectorState = {};
 
       // Add reactive values if they exist
-      if (!!refOrReactives.length) {
-        state["state"] = refOrReactives.map((data) => {
+      if (refOrReactives.length) {
+        state.state = refOrReactives.map((data) => {
           const isRef = data.type === "ref";
           return {
             key: data.key,
@@ -30,8 +32,8 @@ export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) =
         });
       }
       // Add computed variables if they exist
-      if (!!computeds.length) {
-        state["computed"] = computeds.map((data) => ({
+      if (computeds.length) {
+        state.computed = computeds.map((data) => ({
           key: data.key,
           value: data.value.value,
           objectType: data.type,
@@ -39,8 +41,8 @@ export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) =
       }
 
       // Add functions if they exist
-      if (!!functions.length) {
-        state["functions"] = functions.map((data) => ({ key: data.key, value: data.value }));
+      if (functions.length) {
+        state.functions = functions.map((data) => ({ key: data.key, value: data.value }));
       }
 
       payload.state = state;

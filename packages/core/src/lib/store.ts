@@ -9,6 +9,7 @@ export const defineStore = <T extends object = {}>(id: string, setup: () => T) =
     // Check if data exists
     if (process.env.NODE_ENV === "development") {
       if (!data) {
+        // eslint-disable-next-line no-console
         console.error(`[Kogara] defineStore's setup() must return an object for store "${id}"`);
       }
     }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { hydratedRef } from ".";
 import { getKogaraStorage } from "../../../../bin/storage";
+import { hydratedRef } from ".";
 
 describe("simple counter test", () => {
   const count = hydratedRef("count", 0);

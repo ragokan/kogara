@@ -1,6 +1,7 @@
 import { fileURLToPath } from "url";
 import { defineNuxtModule, addPlugin, createResolver, addImports } from "@nuxt/kit";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({

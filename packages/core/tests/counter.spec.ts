@@ -1,6 +1,6 @@
 import { describe, assert, it } from "vitest";
-import { defineStore } from "../src";
 import { ref } from "vue";
+import { defineStore } from "../src";
 
 describe("simple counter test", () => {
   const useCounter = defineStore("counterStore", () => {

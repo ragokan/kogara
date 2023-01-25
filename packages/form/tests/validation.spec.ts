@@ -25,14 +25,14 @@ describe("form validation test", () => {
     },
   });
 
-  it("name test", async () => {
+  it("name test", () => {
     submit();
     expect(Object.keys(errors.value).length).toBe(1);
     expect(errors.value.name).toBe("name is too short");
     expect(errors.value.age).toBe(undefined);
   });
 
-  it("age test", async () => {
+  it("age test", () => {
     values.value.age = 51;
     submit();
     expect(Object.keys(errors.value).length).toBe(2);
@@ -40,7 +40,7 @@ describe("form validation test", () => {
     expect(errors.value.age).toBe("age is too high");
   });
 
-  it("pass name test", async () => {
+  it("pass name test", () => {
     values.value.name = "hello world!";
     submit();
     expect(Object.keys(errors.value).length).toBe(1);

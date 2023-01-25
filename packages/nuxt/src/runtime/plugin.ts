@@ -1,5 +1,5 @@
-import { defineNuxtPlugin } from "#app";
 import { KogaraInstance, type IKogaraBase, KogaraPlugin } from "@kogara/core";
+import { defineNuxtPlugin } from "#app";
 
 declare module "#app" {
   interface NuxtApp {

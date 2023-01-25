@@ -1,6 +1,6 @@
 import { describe, assert, it, expect } from "vitest";
-import { defineStore, KogaraInstance } from "../src";
 import { ref } from "vue";
+import { defineStore, KogaraInstance } from "../src";
 
 describe("simple counter test", () => {
   const useCounter = defineStore("counterStore", () => ({ count: ref(0) }));

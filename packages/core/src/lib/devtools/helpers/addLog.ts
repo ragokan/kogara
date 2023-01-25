@@ -24,7 +24,7 @@ export const _addLog = ({
     .map((key) => ({ key, value: data[key]?.value ?? Object.assign({}, data[key]) }));
 
   // If function is called with args, we add them to the timeline
-  if (!!args.length) {
+  if (args.length) {
     actionData.push({ key: "args", value: args });
   }
 

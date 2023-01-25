@@ -18,5 +18,5 @@ export interface HydratedRefOptions {
    *
    * @default () => console.error(error);
    */
-  onError?: (error: any) => void;
+  onError?: (error: unknown) => void;
 }

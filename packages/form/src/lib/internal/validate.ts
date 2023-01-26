@@ -13,6 +13,9 @@ export const _validateForm = <Values>(
     errors.value = {} as KogaraFormErrors<Values>;
     return true;
   }
+  // Disable because sometimes, when we are on *spec.ts* file, the error happens
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   errors.value = _errorConverter(result.error.errors);
   return false;
 };

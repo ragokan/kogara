@@ -11,10 +11,13 @@
     {{ $kogara.stores }}
     <br />
     {{ $kogara.stores.counterStore.store }}
+    <br />
+    <form-vue></form-vue>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import FormVue from "./Form.vue";
   import { useCounterStore } from "./stores/counterStore";
 
   const { count, doubledCount, increment } = useCounterStore();

@@ -11,23 +11,27 @@
 </template>
 
 <script setup lang="ts">
-  import { minLengthValidator, requiredValidator, useForm } from "@kogara/form";
+  import { useForm } from "@kogara/form";
+  import { z } from "zod";
 
-  const { values, errors, loading, submit } = useForm<{ name: string; age: number }>({
+  const schema = z.object({
+    name: z.string().min(3, "Name must be at least 3 characters"),
+    age: z.number().min(18, "You must be at least 18 years old"),
+  });
+
+  const { values, errors, loading, submit } = useForm({
+    schema,
     initialValues: {
-      name: "hey",
+      name: "",
       age: 0,
     },
     onSubmit: async (values) => {
       await new Promise((resolve) => setTimeout(resolve, 100));
-      console.log(values);
+      console.log("valid", values);
     },
-    validators: {
-      name: [requiredValidator("Required!"), minLengthValidator(4, "Min Length!")],
-      age: [
-        requiredValidator("Required!"),
-        (v) => (v < 5 ? "Value cannot be smaller than 5!" : null),
-      ],
+    onError: (errors) => {
+      console.log(values.value);
+      console.log(errors);
     },
   });
 </script>

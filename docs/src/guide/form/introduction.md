@@ -35,9 +35,18 @@ yarn add @kogara/form
 
 ```vue
 <script setup lang="ts">
-  import { useForm, minLengthValidator, requiredValidator } from "@kogara/form";
+  import { useForm } from "@kogara/form";
+  import { z } from "zod";
 
-  const { loading, submit, values, errors } = useForm<{ name: string; age: number }>({
+  const schema = z.object({
+    name: z.string().min(3, "Name must be at least 3 characters"),
+    age: z.number().min(18, "You must be at least 18 years old"),
+  });
+
+  // The types are automatically inferred from the *schema*
+  const { loading, submit, values, errors } = useForm({
+    schema,
+    // They are also totally type safe
     initialValues: {
       name: "",
       age: 0,

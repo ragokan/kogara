@@ -30,7 +30,8 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/core": "0.2.5"
+    "@kogara/core": "0.2.5",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.5.0"

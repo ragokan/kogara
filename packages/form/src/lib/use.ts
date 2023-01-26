@@ -1,31 +1,28 @@
 import { ref, watch, type Ref } from "vue";
-import type { kogaraFormErrors, kogaraFormOptions } from "./types";
+import type { KogaraFormErrors, KogaraFormOptions } from "./types";
 import { _validateForm } from "./internal/validate";
 
-export const useForm = <Values extends object = {}>(options: kogaraFormOptions<Values> = {}) => {
-  const {
-    initialValues = {},
-    validators = {},
-    validateOnChange = true,
-    onError,
-    onSubmit,
-  } = options;
+export const useForm = <Values extends object = {}>(options: KogaraFormOptions<Values> = {}) => {
+  const { initialValues = {}, validateOnChange = true, onError, onSubmit, schema } = options;
   let _isValidated = false;
 
-  const values = ref<Values>(initialValues as Values);
-  const errors = ref<kogaraFormErrors<Values>>({});
+  const values = ref(initialValues) as Ref<Values>;
+  const errors = ref({}) as Ref<KogaraFormErrors<Values>>;
 
   const loading = ref(false);
 
   const _validate = () => {
-    const status = _validateForm(values, errors as Ref<kogaraFormErrors<Values>>, validators);
-    if (!_isValidated && !status) {
+    if (!schema) {
+      return true;
+    }
+    const valid = _validateForm<Values>(values, schema, errors);
+    if (!_isValidated && !valid) {
       _isValidated = true;
     }
-    if (!status && onError) {
+    if (!valid && onError) {
       onError(errors.value);
     }
-    return status;
+    return valid;
   };
 
   if (validateOnChange) {

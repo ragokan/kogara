@@ -1,26 +1,24 @@
-export type kogaraFormValidator<T> = (value: T) => string | void | undefined | null;
+import { z } from "zod";
 
-export type kogaraFormErrors<Values> = { [key in keyof Values]?: string };
+export type KogaraFormErrors<Values> = Values extends object
+  ? {
+      [P in keyof Values]?: KogaraFormErrors<Values[P]>;
+    }
+  : string;
 
-type Validators<Values> = {
-  [key in keyof Partial<Values>]?:
-    | kogaraFormValidator<Values[key]>
-    | Array<kogaraFormValidator<Values[key]>>;
-};
-
-export interface kogaraFormState<Values> {
+export interface KogaraFormState<Values> {
   values: Values;
-  errors: kogaraFormErrors<Values>;
+  errors: KogaraFormErrors<Values>;
 }
 
-export interface kogaraFormOptions<Values> {
-  validateOnChange?: boolean;
+export interface KogaraFormOptions<Values> {
+  schema?: z.Schema<Values>;
 
   initialValues?: Partial<Values>;
 
+  validateOnChange?: boolean;
+
   onSubmit?: (values: Values) => void | Promise<void>;
 
-  onError?: (error: kogaraFormErrors<Values>) => void;
-
-  validators?: Validators<Values>;
+  onError?: (error: KogaraFormErrors<Values>) => void;
 }

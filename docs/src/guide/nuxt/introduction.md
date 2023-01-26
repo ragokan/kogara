@@ -46,8 +46,6 @@ export default defineNuxtConfig({
 
 ## Usage
 
+Now, it does auto import the `defineStore`, so you can use it without importing.
+
 Currently the usage is same with the `@kogara/core` package. You can check it by clicking [this](/guide/getting-started.md#create-a-store).
-
-## Future plans
-
-I aim to add auto imports for Kogara _(e.g. defineStore)_ in the future.

@@ -3,7 +3,7 @@ import { getKogaraStorage } from "../../../../bin/storage";
 import { hydratedRef } from ".";
 
 describe("simple counter test", () => {
-  const count = hydratedRef("count", 0);
+  const count = hydratedRef("count", () => 0);
 
   it("increments", () => {
     expect(count.value).toBe(0);

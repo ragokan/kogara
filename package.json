@@ -38,7 +38,7 @@
     "tsup": "^6.5.0",
     "turbo": "latest",
     "typescript": "^4.9.4",
-    "vitest": "^0.28.2",
+    "vitest": "^0.28.3",
     "vue": "^3.2.45"
   },
   "engines": {

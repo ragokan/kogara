@@ -28,8 +28,10 @@
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
   "license": "MIT",
+  "dependencies": {
+    "@kogara/utils": "^0.4.0"
+  },
   "devDependencies": {
-    "@kogara/utils": "0.4.0",
     "@vue/devtools-api": "^6.5.0",
     "vue": "^3.2.45"
   },

@@ -26,11 +26,11 @@ class KogaraBase {
   }
 
   public disposeStore(id: string) {
+    delete this._stores[id];
     if (process.env.NODE_ENV === "development") {
       this.plugins.__devtoolsApi?.sendInspectorTree(kogaraDevtoolsID);
       this.plugins.__devtoolsApi?.sendInspectorState(kogaraDevtoolsID);
     }
-    delete this._stores[id];
   }
 }
 

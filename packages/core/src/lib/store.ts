@@ -21,7 +21,6 @@ export function defineStore<T extends object = {}>(
       }
 
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
-      // It is not typed because it is a private api
       baseStore.devtoolsType = options?.devtoolsType ?? "core";
       KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree("kogara");
       KogaraInstance.plugins.__devtoolsApi?.sendInspectorState("kogara");

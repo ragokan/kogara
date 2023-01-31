@@ -1,3 +1,4 @@
+import { kogaraDevtoolsID } from "./devtools/constants";
 import { _createDevtoolsApi } from "./devtools/createDevtoolsApi";
 import { KogaraInstance } from "./instance";
 import type { KogaraDefineStoreOptions, KogaraStoreApi } from "./types";
@@ -22,8 +23,8 @@ export function defineStore<T extends object = {}>(
 
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
       baseStore.devtoolsType = options?.devtoolsType ?? "core";
-      KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree("kogara");
-      KogaraInstance.plugins.__devtoolsApi?.sendInspectorState("kogara");
+      KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree(kogaraDevtoolsID);
+      KogaraInstance.plugins.__devtoolsApi?.sendInspectorState(kogaraDevtoolsID);
     }
 
     return KogaraInstance.addStore(baseStore);

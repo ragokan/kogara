@@ -1,5 +1,6 @@
 import { KogaraInstance } from "../../instance";
 import { _getType } from "../../utilities/getType";
+import { kogaraDevtoolsID } from "../constants";
 
 export const _addLog = ({
   id,
@@ -35,7 +36,7 @@ export const _addLog = ({
 
   // Finally we add the log to the timeline
   KogaraInstance.plugins.__devtoolsApi?.addTimelineEvent({
-    layerId: "kogara",
+    layerId: kogaraDevtoolsID,
     event: {
       groupId: id,
       logType,

@@ -1,4 +1,5 @@
 import { effectScope, shallowReactive } from "vue";
+import { kogaraDevtoolsID } from "./devtools/constants";
 import type { KogaraPlugins, KogaraStoreApi, KogaraStores } from "./types";
 
 class KogaraBase {
@@ -26,8 +27,8 @@ class KogaraBase {
 
   public disposeStore(id: string) {
     if (process.env.NODE_ENV === "development") {
-      this.plugins.__devtoolsApi?.sendInspectorTree("kogara");
-      this.plugins.__devtoolsApi?.sendInspectorState("kogara");
+      this.plugins.__devtoolsApi?.sendInspectorTree(kogaraDevtoolsID);
+      this.plugins.__devtoolsApi?.sendInspectorState(kogaraDevtoolsID);
     }
     delete this._stores[id];
   }

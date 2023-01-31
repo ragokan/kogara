@@ -11,6 +11,7 @@ export interface KogaraStoreApi<T = any> {
   id: string;
   store: T;
   devtoolsApi?: KogaraDevtoolsApi[];
+  devtoolsType?: "core" | "trpc";
 }
 
 export interface KogaraStores {

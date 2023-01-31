@@ -10,20 +10,34 @@ export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) =>
     }
 
     const nodes: CustomInspectorNode[] = [];
-
     const stores = Object.entries(KogaraInstance.stores).map(([, store]) => store);
 
-    if (stores.length) {
-      nodes.push({
-        id: "stores",
-        label: "Kogara Stores",
-        children: stores.map(({ id }) => ({ id, label: id })),
-        tags: [getTag(stores.length)],
-      });
-    } else {
+    if (!stores.length) {
       nodes.push({
         id: "noStores",
         label: "No Stores Yet",
+      });
+      payload.rootNodes = nodes;
+      return;
+    }
+
+    const coreStores = stores.filter((store) => store.devtoolsType === "core");
+    if (coreStores.length) {
+      nodes.push({
+        id: "coreStores",
+        label: "Kogara Stores",
+        children: coreStores.map(({ id }) => ({ id, label: id })),
+        tags: [getTag(coreStores.length)],
+      });
+    }
+
+    const trpcStores = stores.filter((store) => store.devtoolsType === "trpc");
+    if (trpcStores.length) {
+      nodes.push({
+        id: "trpcStores",
+        label: "TRPC Stores",
+        children: trpcStores.map(({ id }) => ({ id, label: id })),
+        tags: [getTag(trpcStores.length)],
       });
     }
 

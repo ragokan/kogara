@@ -11,6 +11,7 @@ export const useKogaraDevtools = (app: App) => {
         id: kogaraDevtoolsID,
         label: kogaraDevtoolsLabel,
         packageName: kogaraDevtoolsPackageName,
+        homepage: "https://kogara.vercel.app",
         app,
       } as PluginDescriptor,
       (api) => {

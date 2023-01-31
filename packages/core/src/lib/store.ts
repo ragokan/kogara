@@ -1,9 +1,13 @@
 import { _createDevtoolsApi } from "./devtools/createDevtoolsApi";
 import { KogaraInstance } from "./instance";
-import type { KogaraStoreApi } from "./types";
+import type { KogaraDefineStoreOptions, KogaraStoreApi } from "./types";
 
-export const defineStore = <T extends object = {}>(id: string, setup: () => T) => {
-  const create = () => {
+export function defineStore<T extends object = {}>(
+  id: string,
+  setup: () => T,
+  options?: KogaraDefineStoreOptions
+) {
+  function create() {
     const data = KogaraInstance.plugins.__scope.run(setup);
 
     const baseStore: KogaraStoreApi = { id, store: data };
@@ -17,12 +21,13 @@ export const defineStore = <T extends object = {}>(id: string, setup: () => T) =
       }
 
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
-      baseStore.devtoolsType = "core";
+      // It is not typed because it is a private api
+      baseStore.devtoolsType = options?.devtoolsType ?? "core";
       KogaraInstance.plugins.__devtoolsApi?.sendInspectorTree("kogara");
       KogaraInstance.plugins.__devtoolsApi?.sendInspectorState("kogara");
     }
 
     return KogaraInstance.addStore(baseStore);
-  };
+  }
   return () => KogaraInstance.getStore(id, create)!.store as T;
-};
+}

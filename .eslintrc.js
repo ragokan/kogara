@@ -31,6 +31,7 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "prefer-rest-params": "off",
     "no-control-regex": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { args: "none" }],

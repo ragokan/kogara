@@ -7,11 +7,13 @@ export interface KogaraDevtoolsApi {
   value: any;
 }
 
+export type KogaraDevToolsType = "core" | "trpc";
+
 export interface KogaraStoreApi<T = any> {
   id: string;
   store: T;
   devtoolsApi?: KogaraDevtoolsApi[];
-  devtoolsType?: "core" | "trpc";
+  devtoolsType?: KogaraDevToolsType;
 }
 
 export interface KogaraStores {
@@ -21,4 +23,8 @@ export interface KogaraStores {
 export interface KogaraPlugins {
   __devtoolsApi?: DevtoolsPluginApi<any>;
   __scope: EffectScope;
+}
+
+export interface KogaraDefineStoreOptions {
+  devtoolsType?: KogaraDevToolsType;
 }

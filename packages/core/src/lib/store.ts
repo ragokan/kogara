@@ -1,7 +1,6 @@
 import { isReactive, isRef, watch } from "vue";
 import { _createDevtoolsApi } from "./devtools/createDevtoolsApi";
-import { updateDevtoolsTags } from "./devtools/helpers/updateDevtoolsTags";
-import { _devtoolsSenders } from "./devtools/helpers/senders";
+import { _updateDevtoolsTags, _devtoolsSenders } from "./devtools/helpers";
 import { KogaraInstance } from "./instance";
 import type { KogaraDefineStoreOptions, KogaraStoreApi } from "./types";
 
@@ -42,7 +41,7 @@ export function defineStore<T extends object = {}>(
         Object.values(data!).filter((v) => isRef(v) || isReactive(v)),
         (_, __, onCleanup) => {
           // Add updated tag and notify
-          updateDevtoolsTags(baseStore.devtoolsTags);
+          _updateDevtoolsTags(baseStore.devtoolsTags);
           _devtoolsSenders.sendTree();
 
           // Remove updated tag after 1 second

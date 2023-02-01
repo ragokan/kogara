@@ -1,4 +1,4 @@
-export function updateDevtoolsTags(tags: Array<string>) {
+export function _updateDevtoolsTags(tags: Array<string>) {
   const index = tags.findIndex((tag) => tag.startsWith("updated"));
 
   if (index === -1) {

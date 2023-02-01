@@ -1,6 +1,6 @@
 {
   "name": "@kogara/helpers",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Helpers that help you while coding",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/utils": "^0.4.0"
+    "@kogara/utils": "0.4.1"
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.5.0",

@@ -1,7 +1,7 @@
 import { customRef } from "vue";
 
-export const miniRef = <T>(value: T) =>
-  customRef((track, trigger) => ({
+export function miniRef<T>(value: T) {
+  return customRef((track, trigger) => ({
     get() {
       track();
       return value;
@@ -11,3 +11,4 @@ export const miniRef = <T>(value: T) =>
       trigger();
     },
   }));
+}

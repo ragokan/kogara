@@ -9,4 +9,6 @@ const _kogaraGlobal =
     ? global
     : {};
 
-export const getKogaraGlobal = (): any => _kogaraGlobal;
+export function getKogaraGlobal(): Record<any, any> {
+  return _kogaraGlobal;
+}

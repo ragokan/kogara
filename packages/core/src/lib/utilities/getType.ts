@@ -1,7 +1,7 @@
 import { isReactive, isRef } from "vue";
 import { _isComputed } from "./isComputed";
 
-export const _getType = (value: unknown) => {
+export function _getType(value: unknown) {
   if (_isComputed(value)) {
     return "computed";
   }
@@ -12,4 +12,4 @@ export const _getType = (value: unknown) => {
     return "reactive";
   }
   return "other";
-};
+}

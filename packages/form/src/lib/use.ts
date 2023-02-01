@@ -2,7 +2,7 @@ import { ref, watch, type Ref } from "vue";
 import type { KogaraFormErrors, KogaraFormOptions } from "./types";
 import { _validateForm } from "./internal/validate";
 
-export const useForm = <Values extends object = {}>(options: KogaraFormOptions<Values> = {}) => {
+export function useForm<Values extends object = {}>(options: KogaraFormOptions<Values> = {}) {
   const { initialValues = {}, validateOnChange = true, onError, onSubmit, schema } = options;
   let _isValidated = false;
 
@@ -11,7 +11,7 @@ export const useForm = <Values extends object = {}>(options: KogaraFormOptions<V
 
   const loading = ref(false);
 
-  const _validate = () => {
+  function _validate() {
     if (!schema) {
       return true;
     }
@@ -23,7 +23,7 @@ export const useForm = <Values extends object = {}>(options: KogaraFormOptions<V
       onError(errors.value);
     }
     return valid;
-  };
+  }
 
   if (validateOnChange) {
     watch(
@@ -38,7 +38,7 @@ export const useForm = <Values extends object = {}>(options: KogaraFormOptions<V
     );
   }
 
-  const submit = async () => {
+  async function submit() {
     if (_validate() && onSubmit) {
       loading.value = true;
       try {
@@ -47,7 +47,7 @@ export const useForm = <Values extends object = {}>(options: KogaraFormOptions<V
         loading.value = false;
       }
     }
-  };
+  }
 
   return { loading, values, errors, submit };
-};
+}

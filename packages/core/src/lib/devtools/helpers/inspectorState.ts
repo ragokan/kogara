@@ -3,7 +3,7 @@ import type { App } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
-export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) => {
+export function _getInspectorState(api: DevtoolsPluginApi<any>, app: App<any>) {
   api.on.getInspectorState((payload) => {
     if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {
       return;
@@ -49,4 +49,4 @@ export const _getInspectorState = (api: DevtoolsPluginApi<any>, app: App<any>) =
 
     payload.state = state;
   });
-};
+}

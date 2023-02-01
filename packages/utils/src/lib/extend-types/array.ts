@@ -1,5 +1,7 @@
-export const insert = <T>(array: T[], index: number, ...items: T[]) =>
-  array.splice(index, 0, ...items);
+export function insert<T>(array: T[], index: number, ...items: T[]) {
+  return array.splice(index, 0, ...items);
+}
 
-export const getRandomElement = <T>(arr: Array<T>): T | undefined =>
-  arr[Math.floor(Math.random() * arr.length)];
+export function getRandomElement<T>(arr: Array<T>): T | undefined {
+  return arr[Math.floor(Math.random() * arr.length)];
+}

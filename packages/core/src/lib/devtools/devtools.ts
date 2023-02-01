@@ -4,7 +4,7 @@ import { KogaraInstance } from "../instance";
 import { kogaraDevtoolsID, kogaraDevtoolsLabel, kogaraDevtoolsPackageName } from "./constants";
 import { _editInspectorState, _getInspectorState, _getInspectorTree, _watchTree } from "./helpers";
 
-export const useKogaraDevtools = (app: App) => {
+export function useKogaraDevtools(app: App) {
   if (process.env.NODE_ENV === "development") {
     setupDevtoolsPlugin(
       {
@@ -36,4 +36,4 @@ export const useKogaraDevtools = (app: App) => {
       }
     );
   }
-};
+}

@@ -1,4 +1,5 @@
 import { isRef, type ComputedRef } from "vue";
 
-export const _isComputed = <T>(value: ComputedRef<T> | unknown): value is ComputedRef<T> =>
-  !!(isRef(value) && (value as any).effect);
+export function _isComputed<T>(value: ComputedRef<T> | unknown): value is ComputedRef<T> {
+  return !!(isRef(value) && (value as any).effect);
+}

@@ -3,7 +3,7 @@ import type { KogaraDevtoolsApi } from "../types";
 import { _getType } from "../utilities/getType";
 import { _addLog } from "./helpers/addLog";
 
-export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] | undefined => {
+export function _createDevtoolsApi(id: string, data: any): KogaraDevtoolsApi[] | undefined {
   if (process.env.NODE_ENV === "development") {
     // Base api for the store
     const devtoolsApi: KogaraDevtoolsApi[] = [];
@@ -57,4 +57,4 @@ export const _createDevtoolsApi = (id: string, data: any): KogaraDevtoolsApi[] |
     });
     return devtoolsApi;
   }
-};
+}

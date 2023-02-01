@@ -1,6 +1,11 @@
-export const isArray = (value: any): value is any[] => value && value instanceof Array;
+export function isArray(value: any): value is any[] {
+  return value && value instanceof Array;
+}
 
-export const isObject = (value: any): value is object =>
-  value && typeof value === "object" && !(value instanceof Array);
+export function isObject(value: any): value is object {
+  return value && typeof value === "object" && !(value instanceof Array);
+}
 
-export const isFunction = (value: any): value is Function => value && typeof value === "function";
+export function isFunction(value: any): value is Function {
+  return value && typeof value === "function";
+}

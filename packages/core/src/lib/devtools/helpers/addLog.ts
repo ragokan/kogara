@@ -2,7 +2,7 @@ import { KogaraInstance } from "../../instance";
 import { _getType } from "../../utilities/getType";
 import { kogaraDevtoolsID } from "../constants";
 
-export const _addLog = ({
+export function _addLog({
   id,
   key,
   data,
@@ -18,7 +18,7 @@ export const _addLog = ({
   message: string;
   logType?: "default" | "error";
   error?: string;
-}) => {
+}) {
   // Convert data to raw, so that they won't be reactive
   const actionData = Object.keys(data)
     .filter((item) => _getType(data[item]) !== "other")
@@ -46,4 +46,4 @@ export const _addLog = ({
       data: actionData,
     },
   });
-};
+}

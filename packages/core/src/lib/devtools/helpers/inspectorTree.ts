@@ -3,7 +3,7 @@ import type { App } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
-export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) => {
+export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
   api.on.getInspectorTree((payload) => {
     if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {
       return;
@@ -47,7 +47,7 @@ export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) =>
 
     payload.rootNodes = nodes;
   });
-};
+}
 function getTag(label: number | string, backgroundColor = 0x3ba776): InspectorNodeTag {
   return {
     label: label.toString(),

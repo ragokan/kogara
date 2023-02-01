@@ -6,7 +6,9 @@ describe("simple combine test", () => {
   const useCounter = defineStore("counterStore", () => {
     const count = ref(0);
 
-    const increment = () => count.value++;
+    function increment() {
+      return count.value++;
+    }
 
     const countWithAge = computed(() => {
       const { age } = useAge();
@@ -19,7 +21,9 @@ describe("simple combine test", () => {
   const useAge = defineStore("ageStore", () => {
     const age = ref(0);
 
-    const increment = () => age.value++;
+    function increment() {
+      return age.value++;
+    }
 
     return { age, increment };
   });

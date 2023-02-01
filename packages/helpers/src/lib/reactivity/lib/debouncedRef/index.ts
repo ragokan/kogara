@@ -1,6 +1,6 @@
 import { customRef } from "vue";
 
-export const debouncedRef = <T>(value: T, ms = 250) => {
+export function debouncedRef<T>(value: T, ms = 250) {
   let timeout: NodeJS.Timeout;
 
   return customRef<T>((track, trigger) => ({
@@ -16,4 +16,4 @@ export const debouncedRef = <T>(value: T, ms = 250) => {
       }, ms);
     },
   }));
-};
+}

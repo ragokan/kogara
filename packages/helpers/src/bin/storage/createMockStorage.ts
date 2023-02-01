@@ -1,6 +1,6 @@
 import { IStorage } from "./types";
 
-export const createMockStorage = (): IStorage => {
+export function createMockStorage(): IStorage {
   const storage: Record<string, string> = {};
 
   return {
@@ -8,4 +8,4 @@ export const createMockStorage = (): IStorage => {
     setItem: (key: string, value: string) => (storage[key] = value),
     removeItem: (key: string) => delete storage[key],
   };
-};
+}

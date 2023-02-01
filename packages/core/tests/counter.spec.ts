@@ -6,8 +6,12 @@ describe("simple counter test", () => {
   const useCounter = defineStore("counterStore", () => {
     const count = ref(0);
 
-    const increment = () => count.value++;
-    const decrement = () => count.value--;
+    function increment() {
+      return count.value++;
+    }
+    function decrement() {
+      return count.value--;
+    }
 
     return { count, decrement, increment };
   });

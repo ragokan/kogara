@@ -33,6 +33,7 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off",
     "prefer-rest-params": "off",
     "no-control-regex": "off",
+    "no-console": ["warn", { allow: ["warn", "error"] }],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { args: "none" }],
     "@typescript-eslint/quotes": [

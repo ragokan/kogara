@@ -14,6 +14,7 @@ export interface KogaraStoreApi<T = any> {
   store: T;
   devtoolsApi?: KogaraDevtoolsApi[];
   devtoolsType?: KogaraDevToolsType;
+  devtoolsTag?: string;
 }
 
 export interface KogaraStores {

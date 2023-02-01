@@ -8,9 +8,9 @@
     <!-- Just to show the stores -->
     <hr />
     <p>Kogara Stores</p>
-    {{ $kogara.stores }}
+    {{ $kogara?.stores }}
     <br />
-    {{ $kogara.stores.counterStore.store }}
+    {{ $kogara?.stores?.counterStore?.store }}
     <br />
     <form-vue></form-vue>
   </div>

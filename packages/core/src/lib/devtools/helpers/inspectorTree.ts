@@ -26,7 +26,11 @@ export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) =>
       nodes.push({
         id: "coreStores",
         label: "Kogara Stores",
-        children: coreStores.map(({ id }) => ({ id, label: id })),
+        children: coreStores.map(({ id, devtoolsTag }) => ({
+          id,
+          label: id.replace("Store", ""),
+          tags: devtoolsTag ? [getTag(devtoolsTag, 0xfff200)] : undefined,
+        })),
         tags: [getTag(coreStores.length)],
       });
     }
@@ -44,10 +48,10 @@ export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) =>
     payload.rootNodes = nodes;
   });
 };
-function getTag(label: number | string): InspectorNodeTag {
+function getTag(label: number | string, backgroundColor = 0x3ba776): InspectorNodeTag {
   return {
     label: label.toString(),
-    backgroundColor: 0x3ba776,
+    backgroundColor,
     textColor: 0x000000,
   };
 }

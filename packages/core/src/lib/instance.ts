@@ -20,8 +20,8 @@ class KogaraBase {
 
   public getStore<T = any>(
     id: string,
-    create?: () => KogaraStoreApi<T> | null | undefined
-  ): KogaraStoreApi<T> | undefined | null {
+    create?: () => KogaraStoreApi<T> | undefined
+  ): KogaraStoreApi<T> | undefined {
     return this._stores[id] ?? create?.();
   }
 

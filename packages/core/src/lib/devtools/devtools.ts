@@ -16,7 +16,7 @@ export const useKogaraDevtools = (app: App) => {
       } as PluginDescriptor,
       (api) => {
         // Add kogara to devtools UI
-        api.addInspector({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, icon: "source" });
+        api.addInspector({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, icon: "celebration" });
         api.addTimelineLayer({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, color: 0xff725c });
 
         // Set global devtools api for KogaraInstance

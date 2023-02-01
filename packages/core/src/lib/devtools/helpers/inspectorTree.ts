@@ -26,10 +26,10 @@ export const _getInspectorTree = (api: DevtoolsPluginApi<any>, app: App<any>) =>
       nodes.push({
         id: "coreStores",
         label: "Kogara Stores",
-        children: coreStores.map(({ id, devtoolsTag }) => ({
+        children: coreStores.map(({ id, devtoolsTags }) => ({
           id,
           label: id.replace("Store", ""),
-          tags: devtoolsTag ? [getTag(devtoolsTag, 0xfff200)] : undefined,
+          tags: devtoolsTags.map((tag) => getTag(tag, 0xfff200)),
         })),
         tags: [getTag(coreStores.length)],
       });

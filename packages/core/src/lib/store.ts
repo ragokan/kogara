@@ -1,6 +1,6 @@
 import { isReactive, isRef, watch } from "vue";
 import { _createDevtoolsApi } from "./devtools/createDevtoolsApi";
-import { getDevtoolsUpdatedTag } from "./devtools/helpers/getDevtoolsUpdatedTag";
+import { updateDevtoolsTags } from "./devtools/helpers/updateDevtoolsTags";
 import { _devtoolsSenders } from "./devtools/helpers/senders";
 import { KogaraInstance } from "./instance";
 import type { KogaraDefineStoreOptions, KogaraStoreApi } from "./types";
@@ -13,7 +13,7 @@ export function defineStore<T extends object = {}>(
   function create() {
     const data = KogaraInstance.plugins.__scope.run(setup);
 
-    const baseStore: KogaraStoreApi = { id, store: data };
+    const baseStore = { id, store: data } as KogaraStoreApi;
 
     // If dev mode
     if (process.env.NODE_ENV === "development") {
@@ -24,7 +24,8 @@ export function defineStore<T extends object = {}>(
 
       // Create devtools api, tag and type
       baseStore.devtoolsApi = _createDevtoolsApi(id, data);
-      baseStore.devtoolsTag = "created";
+      baseStore.devtoolsTags = options?.devtoolsTags ?? [];
+      baseStore.devtoolsTags.push("created");
       baseStore.devtoolsType = options?.devtoolsType ?? "core";
 
       // Then notify
@@ -32,7 +33,7 @@ export function defineStore<T extends object = {}>(
 
       // Remote created tag after 2 seconds
       setTimeout(() => {
-        baseStore.devtoolsTag = undefined;
+        baseStore.devtoolsTags = baseStore.devtoolsTags.filter((tag) => tag !== "created");
         _devtoolsSenders.sendTree();
       }, 2000);
 
@@ -41,12 +42,14 @@ export function defineStore<T extends object = {}>(
         Object.values(data!).filter((v) => isRef(v) || isReactive(v)),
         (_, __, onCleanup) => {
           // Add updated tag and notify
-          baseStore.devtoolsTag = getDevtoolsUpdatedTag(baseStore.devtoolsTag);
+          updateDevtoolsTags(baseStore.devtoolsTags);
           _devtoolsSenders.sendTree();
 
           // Remove updated tag after 1 second
           const timeout = setTimeout(() => {
-            baseStore.devtoolsTag = undefined;
+            baseStore.devtoolsTags = baseStore.devtoolsTags.filter(
+              (tag) => !tag.startsWith("updated")
+            );
             _devtoolsSenders.sendTree();
           }, 1000);
 

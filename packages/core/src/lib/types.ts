@@ -12,9 +12,9 @@ export type KogaraDevToolsType = "core" | "trpc";
 export interface KogaraStoreApi<T = any> {
   id: string;
   store: T;
-  devtoolsApi?: KogaraDevtoolsApi[];
-  devtoolsType?: KogaraDevToolsType;
-  devtoolsTag?: string;
+  devtoolsApi?: Array<KogaraDevtoolsApi>;
+  devtoolsType: KogaraDevToolsType;
+  devtoolsTags: Array<string>;
 }
 
 export interface KogaraStores {
@@ -28,4 +28,5 @@ export interface KogaraPlugins {
 
 export interface KogaraDefineStoreOptions {
   devtoolsType?: KogaraDevToolsType;
+  devtoolsTags?: Array<string>;
 }

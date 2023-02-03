@@ -1,6 +1,6 @@
 {
   "name": "@kogara/di",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Simple dependency injection everywhere",
   "source": "src/index.ts",
   "main": "dist/index.js",

@@ -1,14 +1,13 @@
 {
-  "name": "@kogara/form",
+  "name": "@kogara/di",
   "version": "0.4.1",
-  "description": "Lightweight form validation libary for VueJS",
+  "description": "Simple dependency injection everywhere",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "unpkg": "dist/iife/index.js",
   "jsdelivr": "dist/iife/index.js",
   "types": "dist/index.d.ts",
-  "private": false,
   "scripts": {
     "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
     "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
@@ -21,28 +20,17 @@
     }
   },
   "keywords": [
-    "vue",
+    "dependency injection",
     "state",
-    "kogara",
-    "form"
+    "kogara"
   ],
   "homepage": "https://github.com/ragokan/kogara",
   "author": "ragokan",
   "license": "MIT",
-  "dependencies": {
-    "@kogara/core": "0.4.1",
-    "zod": "^3.20.2"
-  },
-  "devDependencies": {
-    "@vue/devtools-api": "^6.5.0"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.31"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ragokan/kogara.git",
-    "directory": "packages/form"
+    "directory": "packages/di"
   },
   "gitHead": "d6a70d27f09db28fdbcec1a4a83e7b820c4ee9a4"
 }

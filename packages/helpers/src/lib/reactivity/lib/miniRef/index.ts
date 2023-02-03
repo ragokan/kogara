@@ -7,6 +7,9 @@ export function miniRef<T>(value: T) {
       return value;
     },
     set(newValue: T) {
+      if (newValue === value) {
+        return;
+      }
       value = newValue;
       trigger();
     },

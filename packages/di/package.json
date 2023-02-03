@@ -9,8 +9,8 @@
   "jsdelivr": "dist/iife/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
-    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
+    "build": "tsup src/index.ts --sourcemap --dts --format esm,cjs,iife --legacy-output",
+    "dev": "tsup src/index.ts --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
     "deps-update-all": "ncu -u"
   },
   "exports": {

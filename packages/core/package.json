@@ -10,8 +10,8 @@
   "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
-    "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
-    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch",
+    "build": "tsup src/index.ts --sourcemap --dts --format esm,cjs,iife --legacy-output",
+    "dev": "tsup src/index.ts --sourcemap --dts --format esm,cjs,iife --legacy-output --watch",
     "deps-update-all": "ncu -u"
   },
   "exports": {

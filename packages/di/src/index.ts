@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-use-before-define
-export type GetDependency = <T>(dependency: Dependency<T>) => T;
+export type GetDependencyFn = <T>(dependency: Dependency<T>) => T;
 
-export type CreateFn<T> = (get: GetDependency) => T;
+export type CreateFn<T> = (get: GetDependencyFn) => T;
 
 export interface Dependency<T> {
   id: symbol;
@@ -9,7 +9,7 @@ export interface Dependency<T> {
 }
 
 export interface DependencyStore {
-  get: GetDependency;
+  get: GetDependencyFn;
 }
 
 export function dependency<T>(create: CreateFn<T>): Dependency<T> {

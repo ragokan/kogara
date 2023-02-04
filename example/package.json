@@ -12,6 +12,7 @@
   "dependencies": {
     "@kogara/core": "*",
     "@kogara/form": "*",
+    "@kogara/helpers": "*",
     "vue": "^3.2.47"
   },
   "devDependencies": {

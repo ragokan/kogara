@@ -10,6 +10,9 @@
       "cache": false,
       "outputs": ["dist/**"]
     },
+    "clean": {
+      "cache": false
+    },
     "docs:dev": {
       "cache": false
     },

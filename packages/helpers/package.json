@@ -2,23 +2,39 @@
   "name": "@kogara/helpers",
   "version": "0.4.7",
   "description": "Helpers that help you while coding",
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
-  "unpkg": "dist/iife/index.js",
-  "jsdelivr": "dist/iife/index.js",
-  "types": "dist/index.d.ts",
   "private": false,
   "scripts": {
-    "build": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output",
-    "dev": "tsup src/index.ts --minify --clean --sourcemap --dts --format esm,cjs,iife --legacy-output --watch --onSuccess 'node dist/index.js'",
+    "build": "rimraf dist && rollup -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:helpers",
+    "dev": "rimraf dist && rollup --watch -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:helpers",
+    "clean": "rimraf dist",
     "deps-update-all": "ncu -u"
   },
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "unpkg": "dist/index.global.prod.js",
+  "jsdelivr": "dist/index.global.prod.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/index.js"
-    }
+      "types": "./dist/index.d.ts",
+      "node": {
+        "import": {
+          "production": "./dist/index.prod.cjs",
+          "development": "./dist/index.mjs",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "production": "./dist/index.prod.cjs",
+          "development": "./dist/index.cjs",
+          "default": "./dist/index.cjs"
+        }
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
   },
   "keywords": [
     "vue",

@@ -1,6 +1,6 @@
 {
   "name": "@kogara/nuxt",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -23,7 +23,7 @@
     "deps-update-all": "ncu -u"
   },
   "dependencies": {
-    "@kogara/core": "0.4.7",
+    "@kogara/core": "0.5.0",
     "@nuxt/kit": "^3.1.2"
   },
   "devDependencies": {

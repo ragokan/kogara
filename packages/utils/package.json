@@ -1,6 +1,6 @@
 {
   "name": "@kogara/utils",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "description": "Utils that help you while coding",
   "scripts": {
     "build": "rimraf dist && rollup -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:utils",

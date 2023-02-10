@@ -6,7 +6,7 @@ export function _updateDevtoolsTags(tags: Array<string>) {
   }
 
   if (tags[index] === "updated") {
-    return (tags[index] = "updated x1");
+    return (tags[index] = "updated x2");
   }
 
   tags[index] = tags[index]!.replace(/x(\d+)$/, (_, x) => `x${+x + 1}`);

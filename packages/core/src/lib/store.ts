@@ -1,6 +1,6 @@
-import { isReactive, isRef, watch } from "vue";
 import { _createDevtoolsApi } from "./devtools/createDevtoolsApi";
-import { _updateDevtoolsTags, _devtoolsSenders } from "./devtools/helpers";
+import { _devtoolsSenders } from "./devtools/helpers";
+import { _watchCoreStore } from "./devtools/helpers/watchCoreStore";
 import { KogaraInstance } from "./instance";
 import type { KogaraDefineStoreOptions, KogaraStoreApi } from "./types";
 
@@ -36,27 +36,7 @@ export function defineStore<T extends object = {}>(
         _devtoolsSenders.sendTree();
       }, 2000);
 
-      watch(
-        // Watch only reactive and ref
-        Object.values(data!).filter((v) => isRef(v) || isReactive(v)),
-        (_, __, onCleanup) => {
-          // Add updated tag and notify
-          _updateDevtoolsTags(baseStore.devtoolsTags);
-          _devtoolsSenders.sendTree();
-
-          // Remove updated tag after 1 second
-          const timeout = setTimeout(() => {
-            baseStore.devtoolsTags = baseStore.devtoolsTags.filter(
-              (tag) => !tag.startsWith("updated")
-            );
-            _devtoolsSenders.sendTree();
-          }, 1000);
-
-          // Clean the timeout if the watcher is stopped or re-run
-          onCleanup(() => clearTimeout(timeout));
-        },
-        { deep: true }
-      );
+      _watchCoreStore<T>(data, baseStore);
     }
 
     return KogaraInstance.addStore(baseStore);

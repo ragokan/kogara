@@ -20,7 +20,9 @@ export function _watchCoreStore<T extends object = {}>(
 
       // Remove updated tag after 1 second
       const timeout = setTimeout(() => {
-        baseStore.devtoolsTags = baseStore.devtoolsTags.filter((tag) => !tag.startsWith("updated"));
+        baseStore.devtoolsTags = baseStore.devtoolsTags.filter(
+          (tag) => !tag.startsWith("updated")
+        );
         _devtoolsSenders.sendTree();
       }, 2500);
 

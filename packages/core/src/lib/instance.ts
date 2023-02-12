@@ -3,7 +3,9 @@ import { kogaraDevtoolsID } from "./devtools/constants";
 import type { KogaraPlugins, KogaraStoreApi, KogaraStores } from "./types";
 
 class KogaraBase {
-  private _stores: KogaraStores = process.env.NODE_ENV === "development" ? shallowReactive({}) : {};
+  private _stores: KogaraStores =
+    process.env.NODE_ENV === "development" ? shallowReactive({}) : {};
+
   private _plugins: KogaraPlugins = { __scope: effectScope(true) };
 
   public get stores() {

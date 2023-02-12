@@ -18,7 +18,9 @@ export function defineStore<T extends object = {}>(
     if (process.env.NODE_ENV === "development") {
       // Check if data exists
       if (!data) {
-        console.error(`[Kogara] defineStore's setup() must return an object for store "${id}"`);
+        console.error(
+          `[Kogara] defineStore's setup() must return an object for store "${id}"`
+        );
       }
 
       // Create devtools api, tag and type
@@ -32,7 +34,9 @@ export function defineStore<T extends object = {}>(
 
       // Remote created tag after 2 seconds
       setTimeout(() => {
-        baseStore.devtoolsTags = baseStore.devtoolsTags.filter((tag) => tag !== "created");
+        baseStore.devtoolsTags = baseStore.devtoolsTags.filter(
+          (tag) => tag !== "created"
+        );
         _devtoolsSenders.sendTree();
       }, 2500);
 

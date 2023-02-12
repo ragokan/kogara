@@ -1,4 +1,7 @@
-import type { CustomInspectorState, DevtoolsPluginApi } from "@vue/devtools-api";
+import type {
+  CustomInspectorState,
+  DevtoolsPluginApi,
+} from "@vue/devtools-api";
 import type { App } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
@@ -16,9 +19,13 @@ export function _getInspectorState(api: DevtoolsPluginApi<any>, app: App<any>) {
     }
 
     const refOrReactives =
-      store.devtoolsApi?.filter((i) => i.type === "ref" || i.type === "reactive") ?? [];
-    const computeds = store.devtoolsApi?.filter((i) => i.type === "computed") ?? [];
-    const functions = store.devtoolsApi?.filter((i) => typeof i.value === "function") ?? [];
+      store.devtoolsApi?.filter(
+        (i) => i.type === "ref" || i.type === "reactive"
+      ) ?? [];
+    const computeds =
+      store.devtoolsApi?.filter((i) => i.type === "computed") ?? [];
+    const functions =
+      store.devtoolsApi?.filter((i) => typeof i.value === "function") ?? [];
     const state: CustomInspectorState = {};
 
     // Add reactive values if they exist
@@ -44,7 +51,10 @@ export function _getInspectorState(api: DevtoolsPluginApi<any>, app: App<any>) {
 
     // Add functions if they exist
     if (functions.length) {
-      state.functions = functions.map((data) => ({ key: data.key, value: data.value }));
+      state.functions = functions.map((data) => ({
+        key: data.key,
+        value: data.value,
+      }));
     }
 
     payload.state = state;

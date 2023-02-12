@@ -1,8 +1,17 @@
 import { setupDevtoolsPlugin, type PluginDescriptor } from "@vue/devtools-api";
 import type { App } from "vue";
 import { KogaraInstance } from "../instance";
-import { kogaraDevtoolsID, kogaraDevtoolsLabel, kogaraDevtoolsPackageName } from "./constants";
-import { _editInspectorState, _getInspectorState, _getInspectorTree, _watchTree } from "./helpers";
+import {
+  kogaraDevtoolsID,
+  kogaraDevtoolsLabel,
+  kogaraDevtoolsPackageName,
+} from "./constants";
+import {
+  _editInspectorState,
+  _getInspectorState,
+  _getInspectorTree,
+  _watchTree,
+} from "./helpers";
 
 export function useKogaraDevtools(app: App) {
   if (process.env.NODE_ENV === "development") {
@@ -16,8 +25,16 @@ export function useKogaraDevtools(app: App) {
       } as PluginDescriptor,
       (api) => {
         // Add kogara to devtools UI
-        api.addInspector({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, icon: "celebration" });
-        api.addTimelineLayer({ id: kogaraDevtoolsID, label: kogaraDevtoolsLabel, color: 0xff725c });
+        api.addInspector({
+          id: kogaraDevtoolsID,
+          label: kogaraDevtoolsLabel,
+          icon: "celebration",
+        });
+        api.addTimelineLayer({
+          id: kogaraDevtoolsID,
+          label: kogaraDevtoolsLabel,
+          color: 0xff725c,
+        });
 
         // Set global devtools api for KogaraInstance
         KogaraInstance.plugins.__devtoolsApi = api;

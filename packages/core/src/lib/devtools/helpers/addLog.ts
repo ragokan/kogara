@@ -22,7 +22,10 @@ export function _addLog({
   // Convert data to raw, so that they won't be reactive
   const actionData = Object.keys(data)
     .filter((item) => _getType(data[item]) !== "other")
-    .map((key) => ({ key, value: data[key]?.value ?? Object.assign({}, data[key]) }));
+    .map((key) => ({
+      key,
+      value: data[key]?.value ?? Object.assign({}, data[key]),
+    }));
 
   // If function is called with args, we add them to the timeline
   if (args.length) {

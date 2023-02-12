@@ -1,4 +1,8 @@
-import type { CustomInspectorNode, DevtoolsPluginApi, InspectorNodeTag } from "@vue/devtools-api";
+import type {
+  CustomInspectorNode,
+  DevtoolsPluginApi,
+  InspectorNodeTag,
+} from "@vue/devtools-api";
 import type { App } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
@@ -10,7 +14,9 @@ export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
     }
 
     const nodes: CustomInspectorNode[] = [];
-    const stores = Object.entries(KogaraInstance.stores).map(([, store]) => store);
+    const stores = Object.entries(KogaraInstance.stores).map(
+      ([, store]) => store
+    );
 
     if (!stores.length) {
       nodes.push({
@@ -48,7 +54,10 @@ export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
     payload.rootNodes = nodes;
   });
 }
-function getTag(label: number | string, backgroundColor = 0x3ba776): InspectorNodeTag {
+function getTag(
+  label: number | string,
+  backgroundColor = 0x3ba776
+): InspectorNodeTag {
   return {
     label: label.toString(),
     backgroundColor,

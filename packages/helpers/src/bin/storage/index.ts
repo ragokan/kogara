@@ -3,7 +3,8 @@ import { createMockStorage } from "./createMockStorage";
 import { IStorage } from "./types";
 
 export function getKogaraStorage() {
-  const storage: IStorage = (getKogaraGlobal().localStorage ??= createMockStorage());
+  const storage: IStorage = (getKogaraGlobal().localStorage ??=
+    createMockStorage());
 
   return {
     getItem: <T>(key: string): T | null => {

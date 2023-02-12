@@ -4,7 +4,9 @@ import { useForm } from "../src";
 
 describe("form validation test", () => {
   const schema = z.object({
-    name: z.string({ required_error: "name is required" }).min(5, "name is too short"),
+    name: z
+      .string({ required_error: "name is required" })
+      .min(5, "name is too short"),
     age: z.number().max(50, "age is too high"),
   });
   const { errors, values, submit } = useForm({

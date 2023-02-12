@@ -23,7 +23,10 @@ export function hydratedRef<T>(
     storage.getItem(key) ?? fallbackValue?.()
   ) as Ref<T | null>;
 
-  watch(value, (newValue) => storage.setItem(key, newValue), { deep, flush: "post" });
+  watch(value, (newValue) => storage.setItem(key, newValue), {
+    deep,
+    flush: "post",
+  });
 
   return value;
 }

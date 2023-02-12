@@ -34,7 +34,7 @@ export function defineStore<T extends object = {}>(
       setTimeout(() => {
         baseStore.devtoolsTags = baseStore.devtoolsTags.filter((tag) => tag !== "created");
         _devtoolsSenders.sendTree();
-      }, 2000);
+      }, 2500);
 
       _watchCoreStore<T>(data, baseStore);
     }

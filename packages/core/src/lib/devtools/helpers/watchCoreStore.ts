@@ -22,7 +22,7 @@ export function _watchCoreStore<T extends object = {}>(
       const timeout = setTimeout(() => {
         baseStore.devtoolsTags = baseStore.devtoolsTags.filter((tag) => !tag.startsWith("updated"));
         _devtoolsSenders.sendTree();
-      }, 1000);
+      }, 2500);
 
       // Clean the timeout if the watcher is stopped or re-run
       onCleanup(() => clearTimeout(timeout));

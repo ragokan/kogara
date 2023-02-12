@@ -24,7 +24,6 @@
     "noImplicitThis": true,
     "noImplicitReturns": false,
     "strict": true,
-    "isolatedModules": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "removeComments": false,

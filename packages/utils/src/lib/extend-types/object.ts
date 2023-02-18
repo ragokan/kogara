@@ -14,3 +14,7 @@ export function objectIncludes<T extends object, K extends keyof T>(
 export function objectKeys<T extends object>(obj: T): Array<keyof T> {
   return Object.keys(obj) as Array<keyof T>;
 }
+
+export function objectValues<T extends object>(obj: T): Array<T[keyof T]> {
+  return Object.values(obj);
+}

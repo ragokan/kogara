@@ -10,3 +10,7 @@ export function objectIncludes<T extends object, K extends keyof T>(
 ): obj is T & Record<K, NonNullable<T[K]>> {
   return isNotNull(obj[key]);
 }
+
+export function objectKeys<T extends object>(obj: T): Array<keyof T> {
+  return Object.keys(obj) as Array<keyof T>;
+}

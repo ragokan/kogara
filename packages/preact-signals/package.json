@@ -1,0 +1,53 @@
+{
+  "name": "@kogara/preact-signals",
+  "version": "0.5.1",
+  "description": "Preact-signals that is refined for my usage.",
+  "scripts": {
+    "build": "rimraf dist && rollup -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:preact-signals",
+    "dev": "rimraf dist && rollup --watch -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:preact-signals",
+    "clean": "rimraf dist",
+    "deps-update-all": "ncu -u"
+  },
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "unpkg": "dist/index.global.prod.js",
+  "jsdelivr": "dist/index.global.prod.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": {
+        "import": {
+          "production": "./dist/index.prod.cjs",
+          "development": "./dist/index.mjs",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "production": "./dist/index.prod.cjs",
+          "development": "./dist/index.cjs",
+          "default": "./dist/index.cjs"
+        }
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
+  },
+  "keywords": [
+    "preact-signals",
+    "utility",
+    "state",
+    "kogara"
+  ],
+  "homepage": "https://github.com/ragokan/kogara",
+  "author": "ragokan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ragokan/kogara.git",
+    "directory": "packages/preact-signals"
+  },
+  "gitHead": "d6a70d27f09db28fdbcec1a4a83e7b820c4ee9a4"
+}

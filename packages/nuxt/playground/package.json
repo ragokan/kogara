@@ -2,6 +2,6 @@
   "private": true,
   "name": "@kogara/nuxt-playground",
   "dependencies": {
-    "@kogara/core": "^0.4.0"
+    "@kogara/core": "^0.6.0"
   }
 }

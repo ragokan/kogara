@@ -8,7 +8,12 @@ if (!process.env.TARGET) {
   throw new Error("TARGET package must be specified via --environment flag.");
 }
 
-const pkg = require(path.join(__dirname, "packages", process.env.TARGET, "package.json"));
+const pkg = require(path.join(
+  __dirname,
+  "packages",
+  process.env.TARGET,
+  "package.json"
+));
 
 const banner = `/*!
   * ${pkg.name} v${pkg.version}

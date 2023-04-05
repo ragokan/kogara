@@ -1,1 +1,3 @@
-export function x() {}
+export function x() {
+  return 0;
+}

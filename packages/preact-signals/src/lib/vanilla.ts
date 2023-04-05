@@ -5,7 +5,7 @@ import {
   effect as baseEffect,
   batch as baseBatch,
 } from "@preact/signals";
-import { Computed, Signal } from "./vanilla.type";
+import { Computed, Signal } from "./types";
 
 export function signal<T>(value: T): Signal<T> {
   const base = baseSignal(value);
@@ -55,7 +55,7 @@ export function computed<T>(compute: () => T): Computed<T> {
     return base.value;
   }
 
-  fn.get = base.peek();
+  fn.get = base.peek;
 
   fn.subscribe = base.subscribe;
 

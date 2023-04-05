@@ -22,6 +22,6 @@ export type Signal<T> = T extends object
 
 export interface Computed<T> {
   (): T;
-  get: T;
+  get: () => T;
   subscribe: (fn: (value: T) => void) => () => void;
 }

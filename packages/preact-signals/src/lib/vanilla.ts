@@ -23,7 +23,7 @@ export function signal<T>(value: T): Signal<T> {
 
   fn.get = () => base.peek();
 
-  fn.set = set;
+  fn.set = (value: T) => set(value);
 
   fn.update = (fn: (value: T) => T) => set(fn(base.peek()));
 
@@ -34,12 +34,13 @@ export function signal<T>(value: T): Signal<T> {
       set(copy as T);
     };
 
-    fn.partial = (maybeFn: ((value: T) => Partial<T>) | Partial<T>) => {
-      const obj = isArray(value) ? [] : {};
-      const current = base.peek();
-      const part = isFunction(maybeFn) ? maybeFn(current) : maybeFn;
-      set(Object.assign(obj, current, part));
-    };
+    if (!isArray(value)) {
+      fn.partial = (maybeFn: ((value: T) => Partial<T>) | Partial<T>) => {
+        const current = base.peek();
+        const part = isFunction(maybeFn) ? maybeFn(current) : maybeFn;
+        set(Object.assign({}, current, part));
+      };
+    }
   }
 
   fn.subscribe = base.subscribe;

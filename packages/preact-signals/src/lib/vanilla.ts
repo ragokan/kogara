@@ -21,7 +21,7 @@ export function signal<T>(value: T): Signal<T> {
     base.value = value;
   }
 
-  fn.get = base.peek;
+  fn.get = () => base.peek();
 
   fn.set = set;
 
@@ -54,7 +54,7 @@ export function computed<T>(compute: () => T): Computed<T> {
     return base.value;
   }
 
-  fn.get = base.peek;
+  fn.get = () => base.peek();
 
   fn.subscribe = base.subscribe;
 

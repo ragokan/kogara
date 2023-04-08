@@ -18,7 +18,7 @@ export function useComputed<T>(compute: () => T): Computed<T> {
       return computed.value;
     }
 
-    fn.get = computed.peek;
+    fn.get = () => computed.peek();
 
     fn.subscribe = computed.subscribe;
 

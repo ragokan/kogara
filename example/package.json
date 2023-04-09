@@ -24,7 +24,7 @@
     "jsdom": "^21.1.1",
     "typescript": "~5.0.4",
     "vite": "^4.2.1",
-    "vitest": "^0.29.8",
+    "vitest": "^0.30.0",
     "vue-tsc": "^1.2.0"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"

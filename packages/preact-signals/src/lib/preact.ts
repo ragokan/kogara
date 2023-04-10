@@ -22,7 +22,7 @@ export function useComputed<T>(compute: () => T): Computed<T> {
 
     fn.subscribe = computed.subscribe;
 
-    fn.element = () => computed as any;
+    fn.perf = () => computed;
 
     return fn;
   }, []);

@@ -45,7 +45,7 @@ export function signal<T>(value: T): Signal<T> {
 
   fn.subscribe = base.subscribe;
 
-  fn.element = () => base;
+  fn.perf = () => base;
 
   // Cast to any to avoid TS error
   return fn as any as Signal<T>;
@@ -62,7 +62,7 @@ export function computed<T>(compute: () => T): Computed<T> {
 
   fn.subscribe = base.subscribe;
 
-  fn.element = () => base as any;
+  fn.perf = () => base;
 
   return fn;
 }

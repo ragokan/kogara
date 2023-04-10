@@ -1,9 +1,12 @@
+import { JSXInternal } from "preact/src/jsx";
+
 interface BaseSignal<T> {
   (): T;
   get(): T;
   set(value: T): void;
   update(fn: (value: T) => T): void;
-  subscribe: (fn: (value: T) => void) => () => void;
+  subscribe(fn: (value: T) => void): () => void;
+  element(): JSXInternal.Element;
 }
 
 interface ObjectSignal<T extends object> extends BaseSignal<T> {
@@ -25,4 +28,5 @@ export interface Computed<T> {
   (): T;
   get: () => T;
   subscribe: (fn: (value: T) => void) => () => void;
+  element(): JSXInternal.Element;
 }

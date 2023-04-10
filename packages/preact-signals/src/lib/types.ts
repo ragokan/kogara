@@ -10,15 +10,16 @@ interface ObjectSignal<T extends object> extends BaseSignal<T> {
   mutate(fn: (value: T) => void): void;
 }
 
-interface RecordSignal<T extends Record<any, any>> extends ObjectSignal<T> {
+interface RecordSignal<T extends object> extends ObjectSignal<T> {
   partial(maybeFn: ((value: T) => Partial<T>) | Partial<T>): void;
 }
 
-export type Signal<T> = T extends object
-  ? T extends Array<any>
-    ? ObjectSignal<T>
-    : RecordSignal<T>
-  : BaseSignal<T>;
+type RecordOrArraySignal<T extends object> = T extends Array<any>
+  ? ObjectSignal<T>
+  : RecordSignal<T>;
+
+export type Signal<T> = BaseSignal<T> &
+  (T extends object ? RecordOrArraySignal<T> : {});
 
 export interface Computed<T> {
   (): T;

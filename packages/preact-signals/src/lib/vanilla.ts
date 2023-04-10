@@ -45,7 +45,8 @@ export function signal<T>(value: T): Signal<T> {
 
   fn.subscribe = base.subscribe;
 
-  return fn as Signal<T>;
+  // Cast to any to avoid TS error
+  return fn as any as Signal<T>;
 }
 
 export function computed<T>(compute: () => T): Computed<T> {

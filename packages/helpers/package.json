@@ -1,6 +1,6 @@
 {
   "name": "@kogara/helpers",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Helpers that help you while coding",
   "private": false,
   "scripts": {
@@ -45,7 +45,7 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/utils": "0.7.0"
+    "@kogara/utils": "0.7.1"
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.5.0",

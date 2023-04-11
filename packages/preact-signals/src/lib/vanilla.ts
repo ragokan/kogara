@@ -43,7 +43,7 @@ export function signal<T>(value: T): Signal<T> {
     }
   }
 
-  fn.subscribe = base.subscribe;
+  fn.subscribe = base.subscribe.bind(base);
 
   fn.$ = base;
 
@@ -60,7 +60,7 @@ export function computed<T>(compute: () => T): Computed<T> {
 
   fn.get = () => base.peek();
 
-  fn.subscribe = base.subscribe;
+  fn.subscribe = base.subscribe.bind(base);
 
   fn.$ = base;
 

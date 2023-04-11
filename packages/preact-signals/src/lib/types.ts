@@ -6,7 +6,7 @@ interface BaseSignal<T> {
   set(value: T): void;
   update(fn: (value: T) => T): void;
   subscribe(fn: (value: T) => void): () => void;
-  perf(): PerfSignal;
+  $: PerfSignal;
 }
 
 interface ObjectSignal<T extends object> extends BaseSignal<T> {
@@ -28,5 +28,5 @@ export interface Computed<T> {
   (): T;
   get: () => T;
   subscribe: (fn: (value: T) => void) => () => void;
-  perf(): PerfSignal;
+  $: PerfSignal;
 }

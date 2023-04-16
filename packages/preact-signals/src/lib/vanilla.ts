@@ -8,7 +8,7 @@ import {
 import { Computed, Signal } from "./types";
 
 export function signal<T>(value: T): Signal<T> {
-  const base = baseSignal(value);
+  const base = baseSignal<T>(value);
 
   function fn() {
     return base.value;

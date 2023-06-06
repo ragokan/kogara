@@ -30,5 +30,7 @@ describe("simple are equal test", () => {
 
     // And we can test it with areEqual
     expect(areEqual(cloned, original)).toBe(true);
+
+    expect(areEqual(null, {})).toBe(false);
   });
 });

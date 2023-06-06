@@ -33,6 +33,6 @@
     "@preact/signals": "^1.1.3"
   },
   "devDependencies": {
-    "preact": "^10.13.2"
+    "preact": "^10.15.1"
   }
 }

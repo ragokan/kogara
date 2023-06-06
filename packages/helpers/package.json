@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.5.0",
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   },
   "repository": {
     "type": "git",

@@ -3,11 +3,12 @@ import {
   useSignalEffect as useBaseSignalEffect,
 } from "@preact/signals";
 import { useMemo } from "preact/hooks";
+import { Maybe } from "@kogara/utils";
 import { signal } from "./vanilla";
 import { Computed } from "./types";
 
-export function useSignal<T>(value: T) {
-  return useMemo(() => signal<T>(value as any), []);
+export function useSignal<T>(value: T extends Maybe<object> ? T | null : T) {
+  return useMemo(() => signal<T>(value), []);
 }
 
 export function useComputed<T>(compute: () => T): Computed<T> {

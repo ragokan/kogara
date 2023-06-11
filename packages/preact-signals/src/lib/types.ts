@@ -38,7 +38,7 @@ export type Signal<T> = T extends Maybe<object>
   ? MaybeRecordSignal<T>
   : T extends object
   ? RecordOrArraySignal<T>
-  : {};
+  : BaseSignal<T>;
 
 export interface Computed<T> {
   (): T;

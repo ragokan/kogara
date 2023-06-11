@@ -10,7 +10,7 @@ interface BaseSignal<T> {
   $: PerfSignal;
 }
 
-interface ObjectSignal<T extends object> extends BaseSignal<T> {
+interface ObjectSignal<T extends object> {
   mutate(fn: (value: NonNullable<T>) => void): void;
 }
 
@@ -18,8 +18,7 @@ interface RecordSignal<T extends object> extends ObjectSignal<T> {
   partial(maybeFn: ((value: T) => Partial<T>) | Partial<T>): void;
 }
 
-interface MaybeRecordSignal<T extends object | null>
-  extends BaseSignal<UnwrapMaybe<T>> {
+interface MaybeRecordSignal<T extends object | null> {
   maybeMutate(
     fn: (value: NonNullable<T>) => void,
     otherwise?: (tryAgain: () => void) => void
@@ -40,7 +39,7 @@ type MergeSignal<T> = T extends Maybe<object>
   ? RecordOrArraySignal<T>
   : {};
 
-export type Signal<T> = BaseSignal<T> & MergeSignal<T>;
+export type Signal<T> = BaseSignal<UnwrapMaybe<T>> & MergeSignal<T>;
 
 export interface Computed<T> {
   (): T;

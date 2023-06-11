@@ -19,8 +19,13 @@ export function isNotNull<T>(value: T): value is NonNullable<T> {
 }
 
 declare const maybeBrand: unique symbol;
+
 export type Maybe<T> = (T | null) & {
   [maybeBrand]: true;
 };
 
 export type MaybeWithoutBrand<T> = T extends Maybe<infer U> ? U : T;
+
+export function asMaybe<T>(value: T): Maybe<T> {
+  return value as Maybe<T>;
+}

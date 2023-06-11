@@ -1,9 +1,9 @@
 import { clone, isArray, isFunction } from "@kogara/utils";
 import {
-  signal as baseSignal,
+  batch as baseBatch,
   computed as baseComputed,
   effect as baseEffect,
-  batch as baseBatch,
+  signal as baseSignal,
 } from "@preact/signals";
 import { Computed, Signal } from "./types";
 
@@ -28,18 +28,40 @@ export function signal<T>(value: T): Signal<T> {
   fn.update = (fn: (value: T) => T) => set(fn(base.peek()));
 
   if (typeof value === "object") {
-    fn.mutate = (fn: (value: T) => void) => {
-      const copy = clone(base.peek() as object);
-      fn(copy as T);
-      set(copy as T);
-    };
+    if (value) {
+      fn.mutate = (fn: (value: T) => void) => {
+        const copy = clone(base.peek() as object);
+        fn(copy as T);
+        set(copy as T);
+      };
+    } else {
+      fn.maybeMutate = (fn: (value: T) => void) => {
+        const value = base.peek() as object | null;
+        if (!value) {
+          return;
+        }
+        const copy = clone(value);
+        fn(copy as T);
+        set(copy as T);
+      };
+    }
 
     if (!isArray(value)) {
-      fn.partial = (maybeFn: ((value: T) => Partial<T>) | Partial<T>) => {
-        const current = base.peek();
-        const part = isFunction(maybeFn) ? maybeFn(current) : maybeFn;
-        set(Object.assign({}, current, part));
-      };
+      if (value) {
+        fn.partial = (maybeFn: ((value: T) => Partial<T>) | Partial<T>) => {
+          const current = base.peek();
+          const part = isFunction(maybeFn) ? maybeFn(current) : maybeFn;
+          set(Object.assign({}, current, part));
+        };
+      } else {
+        fn.maybePartial = (
+          maybeFn: ((value: T) => Partial<T>) | Partial<T>
+        ) => {
+          const current = base.peek();
+          const part = isFunction(maybeFn) ? maybeFn(current) : maybeFn;
+          set(Object.assign({}, current, part));
+        };
+      }
     }
   }
 
@@ -67,4 +89,4 @@ export function computed<T>(compute: () => T): Computed<T> {
   return fn;
 }
 
-export { baseEffect as effect, baseBatch as batch };
+export { baseBatch as batch, baseEffect as effect };

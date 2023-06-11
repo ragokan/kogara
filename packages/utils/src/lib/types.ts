@@ -17,3 +17,8 @@ export function isNull<T>(value: T | null | undefined): value is null {
 export function isNotNull<T>(value: T): value is NonNullable<T> {
   return value !== null && value !== undefined;
 }
+
+declare const maybeBrand: unique symbol;
+export type Maybe<T> = (T | null) & {
+  [maybeBrand]: true;
+};

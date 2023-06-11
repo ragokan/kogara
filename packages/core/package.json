@@ -1,6 +1,6 @@
 {
   "name": "@kogara/core",
-  "version": "0.11.2",
+  "version": "0.12.0",
   "description": "Core library of kogara",
   "private": false,
   "scripts": {
@@ -45,8 +45,8 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/helpers": "0.11.2",
-    "@kogara/utils": "0.11.2"
+    "@kogara/helpers": "0.12.0",
+    "@kogara/utils": "0.12.0"
   },
   "devDependencies": {
     "@vue/devtools-api": "^6.5.0"

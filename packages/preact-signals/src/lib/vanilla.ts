@@ -1,4 +1,4 @@
-import { clone, isArray, isFunction } from "@kogara/utils";
+import { Maybe, clone, isArray, isFunction } from "@kogara/utils";
 import {
   batch as baseBatch,
   computed as baseComputed,
@@ -7,8 +7,10 @@ import {
 } from "@preact/signals";
 import { Computed, Signal } from "./types";
 
-export function signal<T>(value: T): Signal<T> {
-  const base = baseSignal<T>(value);
+export function signal<T>(
+  value: T extends Maybe<object> ? T | null : T
+): Signal<T> {
+  const base = baseSignal<T>(value as T);
 
   function fn() {
     return base.value;
@@ -35,10 +37,18 @@ export function signal<T>(value: T): Signal<T> {
         set(copy as T);
       };
     } else {
-      fn.maybeMutate = (fn: (value: T) => void) => {
+      fn.maybeMutate = (
+        fn: (value: T) => void,
+        otherwise?: (tryAgain: () => void) => void
+      ) => {
         const value = base.peek() as object | null;
         if (!value) {
-          return;
+          if (!otherwise) {
+            return;
+          }
+          return otherwise(() =>
+            (fn as Signal<Maybe<object>>).maybeMutate(fn as () => void)
+          );
         }
         const copy = clone(value);
         fn(copy as T);
@@ -55,11 +65,22 @@ export function signal<T>(value: T): Signal<T> {
         };
       } else {
         fn.maybePartial = (
-          maybeFn: ((value: T) => Partial<T>) | Partial<T>
+          maybeFn: ((value: T) => Partial<T>) | Partial<T>,
+          otherwise?: (tryAgain: () => void) => void
         ) => {
-          const current = base.peek();
-          const part = isFunction(maybeFn) ? maybeFn(current) : maybeFn;
-          set(Object.assign({}, current, part));
+          const value = base.peek();
+          if (!value) {
+            if (!otherwise) {
+              return;
+            }
+            return otherwise(() =>
+              (fn as Signal<Maybe<Record<any, any>>>).maybePartial(
+                maybeFn as () => Partial<T>
+              )
+            );
+          }
+          const part = isFunction(maybeFn) ? maybeFn(value) : maybeFn;
+          set(Object.assign({}, value, part));
         };
       }
     }

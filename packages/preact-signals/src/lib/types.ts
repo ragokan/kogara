@@ -1,4 +1,4 @@
-import { Maybe } from "@kogara/utils";
+import { Maybe, MaybeWithoutBrand } from "@kogara/utils";
 import { type ReadonlySignal as PerfSignal } from "@preact/signals";
 
 interface BaseSignal<T> {
@@ -19,8 +19,16 @@ interface RecordSignal<T extends object> extends ObjectSignal<T> {
 }
 
 interface MaybeRecordSignal<T extends object | null> {
-  maybeMutate(fn: (value: NonNullable<T>) => void): void;
-  maybePartial(maybeFn: ((value: T) => Partial<T>) | Partial<T>): void;
+  maybeMutate(
+    fn: (value: NonNullable<T>) => void,
+    otherwise?: (tryAgain: () => void) => void
+  ): void;
+  maybePartial(
+    maybeFn: ((value: NonNullable<T>) => Partial<T>) | Partial<T>,
+    otherwise?: (tryAgain: () => void) => void
+  ): void;
+  set(value: MaybeWithoutBrand<T>): void;
+  update: (fn: (value: T) => MaybeWithoutBrand<T>) => void;
 }
 
 type RecordOrArraySignal<T extends object> = T extends Array<any>

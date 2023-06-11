@@ -7,7 +7,7 @@ import { signal } from "./vanilla";
 import { Computed } from "./types";
 
 export function useSignal<T>(value: T) {
-  return useMemo(() => signal<T>(value), []);
+  return useMemo(() => signal<T>(value as any), []);
 }
 
 export function useComputed<T>(compute: () => T): Computed<T> {

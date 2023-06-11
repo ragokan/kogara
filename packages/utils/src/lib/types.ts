@@ -22,3 +22,5 @@ declare const maybeBrand: unique symbol;
 export type Maybe<T> = (T | null) & {
   [maybeBrand]: true;
 };
+
+export type MaybeWithoutBrand<T> = T extends Maybe<infer U> ? U : T;

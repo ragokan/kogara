@@ -24,7 +24,7 @@ export type Maybe<T> = (T | null) & {
   [maybeBrand]: true;
 };
 
-export type MaybeWithoutBrand<T> = T extends Maybe<infer U> ? U : T;
+export type UnwrapMaybe<T> = T extends Maybe<infer U> ? U | null : T;
 
 export function asMaybe<T>(value: T): Maybe<T> {
   return value as Maybe<T>;

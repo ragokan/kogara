@@ -34,11 +34,13 @@ type RecordOrArraySignal<T extends object> = T extends Array<any>
   ? ObjectSignal<T>
   : RecordSignal<T>;
 
-export type Signal<T> = T extends Maybe<object>
+type MergeSignal<T> = T extends Maybe<object>
   ? MaybeRecordSignal<T>
   : T extends object
   ? RecordOrArraySignal<T>
-  : BaseSignal<T>;
+  : {};
+
+export type Signal<T> = BaseSignal<T> & MergeSignal<T>;
 
 export interface Computed<T> {
   (): T;

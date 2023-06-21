@@ -7,11 +7,11 @@
     "clean": "rimraf dist",
     "deps-update-all": "ncu -u"
   },
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
-  "module": "dist/index.js",
+  "source": "src/index.tsx",
+  "main": "dist/index.jsx",
+  "unpkg": "dist/index.jsx",
+  "jsdelivr": "dist/index.jsx",
+  "module": "dist/index.jsx",
   "types": "dist/index.d.ts",
   "keywords": [
     "preact-router",

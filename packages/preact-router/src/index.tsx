@@ -100,17 +100,18 @@ function initEventListeners() {
   addEventListener("click", delegateLinkHandler);
 }
 
-export default function Router(this: Component, props: Record<string, any>) {
-  this.state = {
-    url: props.url || getCurrentUrl(),
-  };
-}
+export default class Router extends Component<Record<string, any>> {
+  _updating = false;
+  _unlisten: Function | undefined;
+  _contextValue: typeof GLOBAL_ROUTE_CONTEXT | undefined;
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore-next-line
-const RouterProto: Component = (Router.prototype = new Component());
+  constructor() {
+    super();
+    this.state = {
+      url: this.props.url || getCurrentUrl(),
+    };
+  }
 
-assign(RouterProto, {
   shouldComponentUpdate(props: Record<any, any>) {
     if (props.static !== true) {
       return true;
@@ -118,12 +119,14 @@ assign(RouterProto, {
     return (
       props.url !== this.props.url || props.onChange !== this.props.onChange
     );
-  },
+  }
 
   canRoute(url: string) {
-    const children = toChildArray(this.props.children);
+    const children = toChildArray(this.props.children) as Array<
+      VNode<{ path: string }>
+    >;
     return this._getMatchingChild(children, url) !== undefined;
-  },
+  }
 
   routeTo(url: string) {
     this.setState({ url });
@@ -135,32 +138,32 @@ assign(RouterProto, {
     }
 
     return didRoute;
-  },
+  }
 
   componentWillMount() {
     this._updating = true;
-  },
+  }
 
   componentDidMount() {
     initEventListeners();
     ROUTERS.push(this);
     this._updating = false;
-  },
+  }
 
   componentWillUnmount() {
     if (typeof this._unlisten === "function") {
       this._unlisten();
     }
     ROUTERS.splice(ROUTERS.indexOf(this), 1);
-  },
+  }
 
   componentWillUpdate() {
     this._updating = true;
-  },
+  }
 
   componentDidUpdate() {
     this._updating = false;
-  },
+  }
 
   _getMatchingChild(children: Array<VNode<{ path: string }>>, url: string) {
     for (let i = 0; i < children.length; i++) {
@@ -170,7 +173,7 @@ assign(RouterProto, {
         return [vnode, matches];
       }
     }
-  },
+  }
 
   render(
     {
@@ -182,10 +185,14 @@ assign(RouterProto, {
     },
     { url }: { url: string }
   ) {
-    let ctx: typeof GLOBAL_ROUTE_CONTEXT = this._contextValue;
+    let ctx: typeof GLOBAL_ROUTE_CONTEXT =
+      this._contextValue ?? GLOBAL_ROUTE_CONTEXT;
 
-    const active = this._getMatchingChild(toChildArray(children), url);
-    let matches, current;
+    const active: any = this._getMatchingChild(
+      toChildArray(children) as Array<VNode<{ path: string }>>,
+      url
+    );
+    let matches: any, current: any;
     if (active) {
       matches = active[1];
       current = cloneElement(
@@ -228,8 +235,8 @@ assign(RouterProto, {
         {current}
       </RouterContext.Provider>
     );
-  },
-});
+  }
+}
 
 export function Link(props: preact.JSX.HTMLAttributes<HTMLAnchorElement>) {
   return h("a", assign({ onClick: delegateLinkHandler }, props));

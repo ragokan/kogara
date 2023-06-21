@@ -1,0 +1,37 @@
+{
+  "name": "@kogara/preact-router",
+  "version": "0.12.3",
+  "description": "Preact-router that is refined for my usage.",
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rimraf dist",
+    "deps-update-all": "ncu -u"
+  },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "preact-router",
+    "utility",
+    "state",
+    "kogara"
+  ],
+  "homepage": "https://github.com/ragokan/kogara",
+  "author": "ragokan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ragokan/kogara.git",
+    "directory": "packages/preact-router"
+  },
+  "gitHead": "d6a70d27f09db28fdbcec1a4a83e7b820c4ee9a4",
+  "dependencies": {
+    "@kogara/utils": "0.12.3"
+  },
+  "devDependencies": {
+    "preact": "^10.15.1"
+  }
+}

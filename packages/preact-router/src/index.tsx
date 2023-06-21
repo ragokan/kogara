@@ -102,20 +102,17 @@ function initEventListeners() {
 
 export default class Router extends Component<Record<string, any>> {
   _updating = false;
-  _unlisten: Function | undefined;
   _contextValue: typeof GLOBAL_ROUTE_CONTEXT | undefined;
 
   constructor() {
     super();
     this.state = {
-      url: this.props.url || getCurrentUrl(),
+      url: getCurrentUrl(),
     };
   }
 
-  shouldComponentUpdate(props: Record<any, any>) {
-    return (
-      props.url !== this.props.url || props.onChange !== this.props.onChange
-    );
+  shouldComponentUpdate() {
+    return false;
   }
 
   canRoute(url: string) {
@@ -148,9 +145,6 @@ export default class Router extends Component<Record<string, any>> {
   }
 
   componentWillUnmount() {
-    if (typeof this._unlisten === "function") {
-      this._unlisten();
-    }
     ROUTERS.splice(ROUTERS.indexOf(this), 1);
   }
 
@@ -173,13 +167,7 @@ export default class Router extends Component<Record<string, any>> {
   }
 
   render(
-    {
-      children,
-      onChange,
-    }: {
-      children: Array<VNode<{ path: string }>>;
-      onChange: (ctx: typeof GLOBAL_ROUTE_CONTEXT) => void;
-    },
+    { children }: { children: Array<VNode<{ path: string }>> },
     { url }: { url: string }
   ) {
     let ctx: typeof GLOBAL_ROUTE_CONTEXT =
@@ -220,10 +208,6 @@ export default class Router extends Component<Record<string, any>> {
       // notify useRouter subscribers outside this subtree:
       for (let i = SUBS.length; i--; ) {
         SUBS[i]({});
-      }
-
-      if (typeof onChange === "function") {
-        onChange(ctx);
       }
     }
 

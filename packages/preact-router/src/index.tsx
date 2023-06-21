@@ -113,9 +113,6 @@ export default class Router extends Component<Record<string, any>> {
   }
 
   shouldComponentUpdate(props: Record<any, any>) {
-    if (props.static !== true) {
-      return true;
-    }
     return (
       props.url !== this.props.url || props.onChange !== this.props.onChange
     );

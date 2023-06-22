@@ -1,6 +1,6 @@
 {
   "name": "@kogara/preact-router",
-  "version": "0.13.8",
+  "version": "0.13.9",
   "description": "Preact-router that is refined for my usage.",
   "scripts": {
     "build": "yarn clean && tsc",
@@ -8,10 +8,10 @@
     "deps-update-all": "ncu -u"
   },
   "source": "src/index.tsx",
-  "main": "dist/index.jsx",
-  "unpkg": "dist/index.jsx",
-  "jsdelivr": "dist/index.jsx",
-  "module": "dist/index.jsx",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "keywords": [
     "preact-router",
@@ -29,7 +29,7 @@
   },
   "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3",
   "dependencies": {
-    "@kogara/utils": "0.13.8"
+    "@kogara/utils": "0.13.9"
   },
   "devDependencies": {
     "preact": "^10.15.1"

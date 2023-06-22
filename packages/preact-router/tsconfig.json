@@ -5,7 +5,9 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsx": "preserve",
+    "jsxImportSource": "preact",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   }
 }

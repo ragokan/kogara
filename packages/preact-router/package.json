@@ -1,37 +1,53 @@
 {
   "name": "@kogara/preact-router",
   "version": "0.13.11",
-  "description": "Preact-router that is refined for my usage.",
+  "private": false,
+  "description": "A fork of preact-router. I changed it a litle bit. -> Connect your components up to that address bar.",
+  "main": "dist/preact-router.js",
+  "module": "dist/preact-router.module.js",
+  "jsnext:main": "dist/preact-router.module.js",
+  "umd:main": "dist/preact-router.umd.js",
+  "unpkg": "dist/preact-router.umd.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "module": "./dist/preact-router.mjs",
+      "import": "./dist/preact-router.mjs",
+      "require": "./dist/preact-router.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "build": "yarn clean && tsc",
     "clean": "rimraf dist",
-    "deps-update-all": "ncu -u"
+    "deps-update-all": "ncu -u",
+    "build": "microbundle -f es --no-generateTypes && microbundle src/cjs.js -f cjs,umd --no-generateTypes",
+    "postbuild": "cp dist/preact-router.module.js dist/preact-router.mjs"
   },
-  "source": "src/index.tsx",
-  "main": "dist/index.js",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "keywords": [
-    "preact-router",
-    "utility",
-    "state",
-    "kogara"
+  "files": [
+    "dist",
+    "match",
+    "index.d.ts"
   ],
-  "homepage": "https://github.com/ragokan/kogara",
-  "author": "ragokan",
+  "typings": "./index.d.ts",
+  "keywords": [
+    "preact",
+    "router"
+  ],
+  "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ragokan/kogara.git",
-    "directory": "packages/preact-router"
-  },
-  "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3",
-  "dependencies": {
-    "@kogara/utils": "0.13.11"
+  "repository": "preactjs/preact-router",
+  "homepage": "https://github.com/preactjs/preact-router",
+  "peerDependencies": {
+    "preact": ">=10"
   },
   "devDependencies": {
-    "preact": "^10.15.1"
+    "@babel/plugin-transform-react-jsx": "^7.9.1",
+    "copyfiles": "^1.0.0",
+    "microbundle": "^0.14.2",
+    "mkdirp": "^0.5.3",
+    "preact": "^10.6.4",
+    "rimraf": "^2.5.1",
+    "typescript": "^3.4.4",
+    "webpack": "^4.42.0"
   }
 }

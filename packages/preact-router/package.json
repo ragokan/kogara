@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.9.1",
     "copyfiles": "^1.0.0",
-    "microbundle": "^0.14.2",
+    "microbundle": "^0.15.0",
     "mkdirp": "^0.5.3",
     "preact": "^10.6.4",
     "rimraf": "^2.5.1",

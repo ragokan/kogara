@@ -104,11 +104,15 @@ export default class Router extends Component<Record<string, any>> {
   _updating = false;
   _contextValue: typeof GLOBAL_ROUTE_CONTEXT | undefined;
 
-  constructor() {
+  constructor(props: Record<string, any>) {
     super();
     this.state = {
       url: getCurrentUrl(),
     };
+    const children = toChildArray(props.children) as Array<
+      VNode<{ path: string }>
+    >;
+    this.initContext(children, getCurrentUrl());
   }
 
   shouldComponentUpdate() {
@@ -170,6 +174,15 @@ export default class Router extends Component<Record<string, any>> {
     { children }: { children: Array<VNode<{ path: string }>> },
     { url }: { url: string }
   ) {
+    const { ctx, current }: { ctx: Record<string, any>; current: any } =
+      this.initContext(children, url);
+
+    return (
+      <RouterContext.Provider value={ctx}>{current}</RouterContext.Provider>
+    );
+  }
+
+  private initContext(children: VNode<{ path: string }>[], url: string) {
     let ctx: typeof GLOBAL_ROUTE_CONTEXT =
       this._contextValue ?? GLOBAL_ROUTE_CONTEXT;
 
@@ -210,10 +223,7 @@ export default class Router extends Component<Record<string, any>> {
         SUBS[i]({});
       }
     }
-
-    return (
-      <RouterContext.Provider value={ctx}>{current}</RouterContext.Provider>
-    );
+    return { ctx, current };
   }
 }
 

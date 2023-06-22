@@ -212,9 +212,7 @@ export default class Router extends Component<Record<string, any>> {
     }
 
     return (
-      <RouterContext.Provider value={ctx} children={children}>
-        {current}
-      </RouterContext.Provider>
+      <RouterContext.Provider value={ctx}>{current}</RouterContext.Provider>
     );
   }
 }

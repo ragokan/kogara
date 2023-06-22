@@ -1,6 +1,6 @@
 {
   "name": "@kogara/preact-router",
-  "version": "0.13.7",
+  "version": "0.13.8",
   "description": "Preact-router that is refined for my usage.",
   "scripts": {
     "build": "yarn clean && tsc",
@@ -29,7 +29,7 @@
   },
   "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3",
   "dependencies": {
-    "@kogara/utils": "0.13.7"
+    "@kogara/utils": "0.13.8"
   },
   "devDependencies": {
     "preact": "^10.15.1"

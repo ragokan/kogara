@@ -1,6 +1,6 @@
 {
   "name": "@kogara/di",
-  "version": "0.14.1",
+  "version": "0.14.2",
   "description": "Simple dependency injection everywhere",
   "scripts": {
     "build": "rimraf dist && rollup -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:di",

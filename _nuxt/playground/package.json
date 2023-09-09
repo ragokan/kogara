@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "@kogara/nuxt-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "devDependencies": {
+    "nuxt": "latest"
+  },
+  "dependencies": {
+    "@kogara/core": "0.13.12"
+  }
+}

@@ -1,12 +1,12 @@
-import { fileURLToPath } from "url";
 import {
   defineNuxtModule,
   addPlugin,
   createResolver,
   addImports,
 } from "@nuxt/kit";
+import { fileURLToPath } from "url";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// Module options TypeScript interface definition
 export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
@@ -14,7 +14,8 @@ export default defineNuxtModule<ModuleOptions>({
     name: "@kogara/nuxt",
     configKey: "kogara",
   },
-  defaults: { apt: true },
+  // Default configuration options of the Nuxt module
+  defaults: {},
   setup(_options, nuxt) {
     const { resolve } = createResolver(import.meta.url);
     const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));

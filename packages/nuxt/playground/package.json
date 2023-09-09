@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "name": "@kogara/nuxt-playground",
-  "dependencies": {
-    "@kogara/core": "^0.6.0"
-  }
-}

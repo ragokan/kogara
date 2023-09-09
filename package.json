@@ -8,11 +8,10 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "example",
-    "local"
+    "example"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo build",
     "dev": "turbo run dev --parallel",
     "clean": "turbo run clean --parallel",
     "docs:dev": "turbo run docs:dev --parallel",

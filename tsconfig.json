@@ -30,5 +30,5 @@
     "jsx": "preserve"
   },
   "include": ["./global.d.ts", "packages"],
-  "exclude": ["node_modules", "packages/preact-router"]
+  "exclude": ["node_modules", "packages/preact-router", "_nuxt"]
 }

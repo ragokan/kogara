@@ -1,10 +1,12 @@
 {
   "name": "@kogara/nuxt",
-  "version": "0.13.12",
+  "version": "1.0.0",
+  "description": "Kogara Nuxt module",
   "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     }
@@ -15,21 +17,28 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn run dev:prepare && nuxt-module-build",
     "prepack": "nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "deps-update-all": "ncu -u"
+    "build": "yarn run lint && yarn run prepack && changelogen --release && yarn publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@kogara/core": "0.13.12",
     "@nuxt/kit": "^3.7.1"
   },
   "devDependencies": {
+    "@types/node": "^20.6.0",
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/module-builder": "^0.5.1",
     "@nuxt/schema": "^3.7.1",
-    "nuxt": "^3.7.1"
-  },
-  "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3"
+    "@nuxt/test-utils": "^3.7.1",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.49.0",
+    "nuxt": "^3.7.1",
+    "vitest": "^0.34.4"
+  }
 }

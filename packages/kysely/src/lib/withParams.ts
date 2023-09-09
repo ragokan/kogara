@@ -1,4 +1,4 @@
-import { Kysely, type Compilable, type CompiledQuery } from "kysely";
+import type { Kysely, Compilable, CompiledQuery } from "kysely";
 
 declare const withDefaultBrand: unique symbol;
 export type WithDefault<T> = (T | null) & {

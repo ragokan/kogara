@@ -24,12 +24,12 @@
   },
   "dependencies": {
     "@kogara/core": "0.13.12",
-    "@nuxt/kit": "^3.5.3"
+    "@nuxt/kit": "^3.7.1"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.4.0",
-    "@nuxt/schema": "^3.5.3",
-    "nuxt": "^3.5.3"
+    "@nuxt/module-builder": "^0.5.1",
+    "@nuxt/schema": "^3.7.1",
+    "nuxt": "^3.7.1"
   },
   "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3"
 }

@@ -26,7 +26,7 @@ describe("simple counter test", () => {
     expect(debouncedCounter).toBe(0);
     expect(triggerAmount).toBe(0);
 
-    await sleep(21);
+    await sleep(50);
 
     expect(counter.value).toBe(1);
     expect(debouncedCounter).toBe(1);

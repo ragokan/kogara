@@ -1,0 +1,35 @@
+{
+  "name": "@kogara/kysely",
+  "version": "0.13.12",
+  "description": "Kysely utilities that is refined for my usage.",
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rimraf dist",
+    "deps-update-all": "ncu -u"
+  },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "kysely",
+    "utility",
+    "state",
+    "kogara"
+  ],
+  "homepage": "https://github.com/ragokan/kogara",
+  "author": "ragokan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ragokan/kogara.git",
+    "directory": "packages/kysely"
+  },
+  "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3",
+  "dependencies": {
+    "@kogara/utils": "0.13.12",
+    "kysely": "^0.26.3"
+  }
+}

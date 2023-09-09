@@ -34,6 +34,7 @@ module.exports = {
     "prefer-rest-params": "off",
     "no-control-regex": "off",
     "no-console": ["warn", { allow: ["warn", "error"] }],
+    "no-useless-constructor": "off",
     "func-style": ["error", "declaration", { allowArrowFunctions: false }],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { args: "none" }],

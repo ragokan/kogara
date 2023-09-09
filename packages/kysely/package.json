@@ -9,11 +9,32 @@
     "deps-update-all": "ncu -u"
   },
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.cjs",
+  "unpkg": "dist/index.global.prod.js",
+  "jsdelivr": "dist/index.global.prod.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": {
+        "import": {
+          "production": "./dist/index.prod.cjs",
+          "development": "./dist/index.mjs",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "production": "./dist/index.prod.cjs",
+          "development": "./dist/index.cjs",
+          "default": "./dist/index.cjs"
+        }
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
+  },
   "keywords": [
     "kysely",
     "utility",

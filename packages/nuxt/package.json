@@ -22,7 +22,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "build": "yarn run lint && yarn run prepack && changelogen --release && yarn publish && git push --follow-tags",
+    "build": "yarn run lint && yarn run prepack",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch"

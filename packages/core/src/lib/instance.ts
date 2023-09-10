@@ -1,4 +1,4 @@
-import { effectScope, shallowReactive } from "vue";
+import { App, effectScope, shallowReactive } from "vue";
 import { kogaraDevtoolsID } from "./devtools/constants";
 import type { KogaraPlugins, KogaraStoreApi, KogaraStores } from "./types";
 
@@ -7,6 +7,21 @@ class KogaraBase {
     process.env.NODE_ENV === "development" ? shallowReactive({}) : {};
 
   private _plugins: KogaraPlugins = { __scope: effectScope(true) };
+  private _app: App | undefined;
+
+  public runWithContext<T>(fn: () => T) {
+    if (process.env.NODE_ENV === "development" && !this._app) {
+      console.warn(
+        "[Kogara] It is recommended to use 'KogaraPlugin' to get full power of the library.",
+      );
+    }
+    return this._app?.runWithContext?.(fn) ?? fn();
+  }
+
+  public initApp(app: App) {
+    this._app = app;
+    app.config.globalProperties.$kogara = this;
+  }
 
   public get stores() {
     return this._stores;

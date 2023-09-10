@@ -16,7 +16,7 @@ declare module "@vue/runtime-core" {
 
 export const KogaraPlugin: Plugin = {
   install(app) {
-    app.config.globalProperties.$kogara = KogaraInstance;
+    KogaraInstance.initApp(app);
 
     if (process.env.NODE_ENV === "development") {
       useKogaraDevtools(app);

@@ -10,7 +10,9 @@ export function defineStore<T extends object = {}>(
   options?: KogaraDefineStoreOptions,
 ) {
   function create() {
-    const data = KogaraInstance.plugins.__scope.run(setup);
+    const data = KogaraInstance.runWithContext(() =>
+      KogaraInstance.plugins.__scope.run(setup),
+    );
 
     const baseStore = { id, store: data } as KogaraStoreApi;
 

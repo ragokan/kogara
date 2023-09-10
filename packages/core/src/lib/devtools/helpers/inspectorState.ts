@@ -20,7 +20,7 @@ export function _getInspectorState(api: DevtoolsPluginApi<any>, app: App<any>) {
 
     const refOrReactives =
       store.devtoolsApi?.filter(
-        (i) => i.type === "ref" || i.type === "reactive"
+        (i) => i.type === "ref" || i.type === "reactive",
       ) ?? [];
     const computeds =
       store.devtoolsApi?.filter((i) => i.type === "computed") ?? [];

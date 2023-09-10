@@ -6,7 +6,7 @@ export function merge<T>(oldObject: T, newObject: Partial<T>, base = {}): T {
 
 export function objectIncludes<T extends object, K extends keyof T>(
   obj: T,
-  key: K
+  key: K,
 ): obj is T & Record<K, NonNullable<T[K]>> {
   return isNotNull(obj[key]);
 }

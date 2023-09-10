@@ -2,7 +2,7 @@ import { z } from "zod";
 import { KogaraFormErrors } from "../types";
 
 export function _errorConverter<Values>(
-  errors: z.ZodIssue[]
+  errors: z.ZodIssue[],
 ): KogaraFormErrors<Values> {
   // Object to store the final result
   const result: Record<any, any> = {};

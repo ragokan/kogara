@@ -253,7 +253,7 @@ assign(RouterProto, {
         assign(assign({ url, matches }, matches), {
           key: undefined,
           ref: undefined,
-        })
+        }),
       );
     }
 

@@ -21,11 +21,11 @@ interface RecordSignal<T extends object> extends ObjectSignal<T> {
 interface MaybeRecordSignal<T extends object | null> {
   maybeMutate(
     fn: (value: NonNullable<T>) => void,
-    otherwise?: (tryAgain: () => void) => void
+    otherwise?: (tryAgain: () => void) => void,
   ): void;
   maybePartial(
     maybeFn: ((value: NonNullable<T>) => Partial<T>) | Partial<T>,
-    otherwise?: (tryAgain: () => void) => void
+    otherwise?: (tryAgain: () => void) => void,
   ): void;
 }
 

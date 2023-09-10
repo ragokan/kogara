@@ -8,7 +8,7 @@ import {
 import { Computed, Signal } from "./types";
 
 export function signal<T>(
-  value: T extends Maybe<object> ? T | null : T
+  value: T extends Maybe<object> ? T | null : T,
 ): Signal<T> {
   const base = baseSignal<T>(value as T);
 
@@ -39,7 +39,7 @@ export function signal<T>(
     } else {
       fn.maybeMutate = (
         fn: (value: T) => void,
-        otherwise?: (tryAgain: () => void) => void
+        otherwise?: (tryAgain: () => void) => void,
       ) => {
         const value = base.peek() as object | null;
         if (!value) {
@@ -47,7 +47,7 @@ export function signal<T>(
             return;
           }
           return otherwise(() =>
-            (fn as Signal<Maybe<object>>).maybeMutate(fn as () => void)
+            (fn as Signal<Maybe<object>>).maybeMutate(fn as () => void),
           );
         }
         const copy = clone(value);
@@ -66,7 +66,7 @@ export function signal<T>(
       } else {
         fn.maybePartial = (
           maybeFn: ((value: T) => Partial<T>) | Partial<T>,
-          otherwise?: (tryAgain: () => void) => void
+          otherwise?: (tryAgain: () => void) => void,
         ) => {
           const value = base.peek();
           if (!value) {
@@ -75,8 +75,8 @@ export function signal<T>(
             }
             return otherwise(() =>
               (fn as Signal<Maybe<Record<any, any>>>).maybePartial(
-                maybeFn as () => Partial<T>
-              )
+                maybeFn as () => Partial<T>,
+              ),
             );
           }
           const part = isFunction(maybeFn) ? maybeFn(value) : maybeFn;

@@ -16,7 +16,7 @@ describe("simple counter test", () => {
       debouncedCounter = c;
       triggerAmount++;
     },
-    20
+    20,
   );
 
   it("increments", async () => {

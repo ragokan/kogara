@@ -5,7 +5,7 @@ import { _addLog } from "./helpers/addLog";
 
 export function _createDevtoolsApi(
   id: string,
-  data: any
+  data: any,
 ): KogaraDevtoolsApi[] | undefined {
   if (process.env.NODE_ENV === "development") {
     // Base api for the store

@@ -50,7 +50,7 @@ export function useKogaraDevtools(app: App) {
 
         // Devtools Actions
         _editInspectorState(api, app);
-      }
+      },
     );
   }
 }

@@ -15,7 +15,7 @@ export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
 
     const nodes: CustomInspectorNode[] = [];
     const stores = Object.entries(KogaraInstance.stores).map(
-      ([, store]) => store
+      ([, store]) => store,
     );
 
     if (!stores.length) {
@@ -56,7 +56,7 @@ export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
 }
 function getTag(
   label: number | string,
-  backgroundColor = 0x3ba776
+  backgroundColor = 0x3ba776,
 ): InspectorNodeTag {
   return {
     label: label.toString(),

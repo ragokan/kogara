@@ -3,7 +3,7 @@ import type { KogaraFormErrors, KogaraFormOptions } from "./types";
 import { _validateForm } from "./internal/validate";
 
 export function useForm<Values extends object = {}>(
-  options: KogaraFormOptions<Values> = {}
+  options: KogaraFormOptions<Values> = {},
 ) {
   const {
     initialValues = {},
@@ -42,7 +42,7 @@ export function useForm<Values extends object = {}>(
         }
         _validate();
       },
-      { deep: true }
+      { deep: true },
     );
   }
 

@@ -7,7 +7,7 @@ import { _setReactiveDeep } from "../utilities";
 
 export function _editInspectorState(
   api: DevtoolsPluginApi<any>,
-  app: App<any>
+  app: App<any>,
 ) {
   api.on.editInspectorState((payload) => {
     if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {

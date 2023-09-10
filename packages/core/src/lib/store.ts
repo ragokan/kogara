@@ -7,7 +7,7 @@ import type { KogaraDefineStoreOptions, KogaraStoreApi } from "./types";
 export function defineStore<T extends object = {}>(
   id: string,
   setup: () => T,
-  options?: KogaraDefineStoreOptions
+  options?: KogaraDefineStoreOptions,
 ) {
   function create() {
     const data = KogaraInstance.plugins.__scope.run(setup);
@@ -19,7 +19,7 @@ export function defineStore<T extends object = {}>(
       // Check if data exists
       if (!data) {
         console.error(
-          `[Kogara] defineStore's setup() must return an object for store "${id}"`
+          `[Kogara] defineStore's setup() must return an object for store "${id}"`,
         );
       }
 
@@ -35,7 +35,7 @@ export function defineStore<T extends object = {}>(
       // Remote created tag after 2 seconds
       setTimeout(() => {
         baseStore.devtoolsTags = baseStore.devtoolsTags.filter(
-          (tag) => tag !== "created"
+          (tag) => tag !== "created",
         );
         _devtoolsSenders.sendTree();
       }, 2500);

@@ -6,7 +6,7 @@ import { _errorConverter } from "./errorConverter";
 export function _validateForm<Values>(
   values: Ref<Values>,
   schema: z.Schema<Values>,
-  errors: Ref<KogaraFormErrors<Values>>
+  errors: Ref<KogaraFormErrors<Values>>,
 ): boolean {
   const result = schema.safeParse(values.value);
   if (result.success) {

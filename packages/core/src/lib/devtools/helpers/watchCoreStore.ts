@@ -5,7 +5,7 @@ import { _updateDevtoolsTags } from "./updateDevtoolsTags";
 
 export function _watchCoreStore<T extends object = {}>(
   data: T | undefined,
-  baseStore: KogaraStoreApi<any>
+  baseStore: KogaraStoreApi<any>,
 ) {
   if (baseStore.devtoolsType !== "core") {
     return;
@@ -21,7 +21,7 @@ export function _watchCoreStore<T extends object = {}>(
       // Remove updated tag after 1 second
       const timeout = setTimeout(() => {
         baseStore.devtoolsTags = baseStore.devtoolsTags.filter(
-          (tag) => !tag.startsWith("updated")
+          (tag) => !tag.startsWith("updated"),
         );
         _devtoolsSenders.sendTree();
       }, 2500);
@@ -29,6 +29,6 @@ export function _watchCoreStore<T extends object = {}>(
       // Clean the timeout if the watcher is stopped or re-run
       onCleanup(() => clearTimeout(timeout));
     },
-    { deep: true }
+    { deep: true },
   );
 }

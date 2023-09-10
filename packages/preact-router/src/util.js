@@ -17,7 +17,7 @@ export function exec(url, route, opts) {
     for (let i = 0; i < p.length; i++) {
       const r = p[i].split("=");
       matches[decodeURIComponent(r[0])] = decodeURIComponent(
-        r.slice(1).join("=")
+        r.slice(1).join("="),
       );
     }
   }

@@ -1,6 +1,7 @@
 {
   "name": "@kogara/nuxt",
-  "version": "0.0.0",
+  "version": "0.14.6",
+  "private": "false",
   "description": "Kogara Nuxt module",
   "license": "MIT",
   "type": "module",

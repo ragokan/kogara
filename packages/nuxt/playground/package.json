@@ -12,5 +12,8 @@
   },
   "dependencies": {
     "@kogara/core": "0.13.12"
+  },
+  "overrides": {
+    "wide-align": "git://github.com/jimmywarting/wide-align.git#es6-style"
   }
 }

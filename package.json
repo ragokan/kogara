@@ -41,6 +41,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.17.0",
+    "glob": "^10.3.4",
     "lerna": "^7.2.0",
     "npm-check-updates": "^16.13.3",
     "prettier": "^3.0.3",
@@ -51,6 +52,9 @@
     "typescript": "^5.2.2",
     "vitest": "^0.34.4",
     "vue": "^3.3.4"
+  },
+  "overrides": {
+    "wide-align": "git://github.com/jimmywarting/wide-align.git#es6-style"
   },
   "engines": {
     "npm": ">=7.0.0",

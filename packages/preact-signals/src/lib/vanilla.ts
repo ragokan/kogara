@@ -4,6 +4,7 @@ import {
   computed as baseComputed,
   effect as baseEffect,
   signal as baseSignal,
+  untracked,
 } from "@preact/signals";
 import { Computed, Signal } from "./types";
 
@@ -110,4 +111,13 @@ export function computed<T>(compute: () => T): Computed<T> {
   return fn;
 }
 
-export { baseBatch as batch, baseEffect as effect };
+function effect<T>(fn: () => T, deps: Array<Signal<any> | Computed<any>> = []) {
+  return baseEffect(() => {
+    for (const dep of deps) {
+      dep();
+    }
+    return fn();
+  });
+}
+
+export { baseBatch as batch, effect, untracked as untrack };

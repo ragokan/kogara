@@ -8,12 +8,9 @@ if (!process.env.TARGET) {
   throw new Error("TARGET package must be specified via --environment flag.");
 }
 
-const pkg = require(path.join(
-  __dirname,
-  "packages",
-  process.env.TARGET,
-  "package.json"
-));
+const pkg = require(
+  path.join(__dirname, "packages", process.env.TARGET, "package.json"),
+);
 
 const banner = `/*!
   * ${pkg.name} v${pkg.version}
@@ -44,7 +41,7 @@ const outputConfigs = {
 
 const packageBuilds = Object.keys(outputConfigs);
 const packageConfigs = packageBuilds.map((buildName) =>
-  createConfig(buildName, outputConfigs[buildName])
+  createConfig(buildName, outputConfigs[buildName]),
 );
 
 packageBuilds.forEach((buildName) => {
@@ -145,6 +142,6 @@ function createMinifiedConfig(format) {
           pure_getters: true,
         },
       }),
-    ]
+    ],
   );
 }

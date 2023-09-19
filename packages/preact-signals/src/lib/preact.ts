@@ -29,4 +29,16 @@ export function useComputed<T>(compute: () => T): Computed<T> {
   }, []);
 }
 
-export { useBaseSignalEffect as useSignalEffect };
+function useSignalEffect(
+  effect: () => void | (() => void),
+  deps: Array<Computed<any> | Computed<any>>,
+) {
+  return useBaseSignalEffect(() => {
+    for (const dep of deps) {
+      dep();
+    }
+    return effect();
+  });
+}
+
+export { useSignalEffect };

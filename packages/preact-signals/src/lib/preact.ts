@@ -31,7 +31,7 @@ export function useComputed<T>(compute: () => T): Computed<T> {
 
 function useSignalEffect(
   effect: () => void | (() => void),
-  deps: Array<Computed<any> | Computed<any>>,
+  deps: Array<Computed<any> | Computed<any>> = [],
 ) {
   return useBaseSignalEffect(() => {
     for (const dep of deps) {

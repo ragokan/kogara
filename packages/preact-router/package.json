@@ -1,6 +1,6 @@
 {
   "name": "@kogara/preact-router",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "private": false,
   "description": "A fork of preact-router. I changed it a litle bit. -> Connect your components up to that address bar.",
   "main": "dist/preact-router.js",

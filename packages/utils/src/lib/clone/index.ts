@@ -9,11 +9,6 @@ export function clone<T extends object>(obj: T): T {
       continue;
     }
 
-    if (typeof val === "string") {
-      result[key] = val.toString();
-      continue;
-    }
-
     // Catch Array
     if (val instanceof Array) {
       result[key] = val.map((item) =>

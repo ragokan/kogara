@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { miniRef } from "@kogara/helpers";
+  import { miniRef } from "@kogara/core";
   import FormVue from "./Form.vue";
   import { useCounterStore } from "./stores/counterStore";
   import { watch } from "vue";

@@ -10,7 +10,7 @@ To use Kogara extensions, you firstly have to use the following command:
 <CodeGroupItem title="pnpm" active>
 
 ```bash:no-line-numbers
-pnpm install @kogara/helpers
+pnpm install @kogara/core
 ```
 
 </CodeGroupItem>
@@ -18,7 +18,7 @@ pnpm install @kogara/helpers
 <CodeGroupItem title="npm">
 
 ```bash:no-line-numbers
-npm install @kogara/helpers
+npm install @kogara/core
 ```
 
 </CodeGroupItem>
@@ -26,7 +26,7 @@ npm install @kogara/helpers
 <CodeGroupItem title="Yarn">
 
 ```bash:no-line-numbers
-yarn add @kogara/helpers
+yarn add @kogara/core
 ```
 
 </CodeGroupItem>
@@ -40,7 +40,7 @@ yarn add @kogara/helpers
 Creates a reactive reference that saves the value of the given object to the local storage whenever it changes.
 
 ```ts
-import { hydratedRef } from "@kogara/helpers";
+import { hydratedRef } from "@kogara/core";
 const store = defineStore("my-store", () => {
   // Create the hydrated ref with a key and a default value.
   // If the key is not found in the local storage, the default value will be used.
@@ -58,7 +58,7 @@ const store = defineStore("my-store", () => {
 miniRef is similar to shallowRef, but it is even more lightweight and does trigger re-render only when you set the value directly.
 
 ```ts
-import { miniRef } from "@kogara/helpers";
+import { miniRef } from "@kogara/core";
 
 const myArray = miniRef([1, 2, 3]);
 myArray.value.push(4); // Doesn't trigger re-render
@@ -72,7 +72,7 @@ myArray.value = [...myArray.value, 5]; // Triggers re-render
 debouncedRef is similar to miniRef as being shallow, but it is also debounced.
 
 ```ts
-import { debouncedRef } from "@kogara/helpers";
+import { debouncedRef } from "@kogara/core";
 
 const myArray = debouncedRef([1, 2, 3], 100);
 myArray.value.push(4); // Doesn't trigger re-render
@@ -86,7 +86,7 @@ myArray.value = [...myArray.value, 5]; // Triggers re-render after 100ms
 debouncedWatch works just like the regular watch, but it is debounced.
 
 ```ts
-import { debouncedWatch } from "@kogara/helpers";
+import { debouncedWatch } from "@kogara/core";
 
 const count = ref(0);
 
@@ -95,7 +95,7 @@ debouncedWatch(
   (newCount) => {
     console.log("count changed to", newCount);
   },
-  100
+  100,
 );
 
 count.value++; // Triggers watch callback after 100ms

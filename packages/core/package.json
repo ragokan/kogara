@@ -45,7 +45,6 @@
   "author": "ragokan",
   "license": "MIT",
   "dependencies": {
-    "@kogara/helpers": "0.17.5",
     "@kogara/utils": "0.17.5"
   },
   "devDependencies": {

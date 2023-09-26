@@ -49,7 +49,7 @@
     "url": "https://github.com/ragokan/kogara.git",
     "directory": "packages/kysely"
   },
-  "gitHead": "d332c5c534ffe350f4c551af3d721824eccdb4b3",
+  "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2",
   "dependencies": {
     "@kogara/utils": "0.17.4",
     "kysely": "^0.26.3"

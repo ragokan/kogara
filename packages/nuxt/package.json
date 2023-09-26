@@ -44,5 +44,6 @@
   },
   "overrides": {
     "wide-align": "git://github.com/jimmywarting/wide-align.git#es6-style"
-  }
+  },
+  "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2"
 }

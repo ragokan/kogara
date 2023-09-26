@@ -49,5 +49,6 @@
     "rimraf": "^5.0.1",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2"
-  }
+  },
+  "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2"
 }

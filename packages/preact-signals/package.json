@@ -1,6 +1,6 @@
 {
   "name": "@kogara/preact-signals",
-  "version": "0.17.5",
+  "version": "0.18.0",
   "description": "Preact-signals that is refined for my usage.",
   "scripts": {
     "build": "yarn clean && tsc",
@@ -29,7 +29,7 @@
   },
   "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2",
   "dependencies": {
-    "@kogara/utils": "0.17.5",
+    "@kogara/utils": "0.18.0",
     "@preact/signals": "^1.2.1"
   },
   "devDependencies": {

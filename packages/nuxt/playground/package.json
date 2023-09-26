@@ -11,7 +11,7 @@
     "nuxt": "latest"
   },
   "dependencies": {
-    "@kogara/core": "0.13.12"
+    "@kogara/core": "0.18.0"
   },
   "overrides": {
     "wide-align": "git://github.com/jimmywarting/wide-align.git#es6-style"

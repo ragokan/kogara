@@ -46,7 +46,7 @@
     "npm-check-updates": "^16.13.3",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.1",
-    "rollup": "^3.29.0",
+    "rollup": "^4.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "turbo": "^1.10.13",
     "typescript": "^5.2.2",

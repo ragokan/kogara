@@ -45,10 +45,10 @@
     "copyfiles": "^2.4.1",
     "microbundle": "^0.15.1",
     "mkdirp": "^3.0.1",
-    "preact": "^10.17.1",
-    "rimraf": "^5.0.1",
+    "preact": "^10.19.1",
+    "rimraf": "^5.0.5",
     "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "webpack": "^5.89.0"
   },
   "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2"
 }

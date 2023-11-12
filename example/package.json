@@ -12,15 +12,15 @@
   "dependencies": {
     "@kogara/core": "*",
     "@kogara/form": "*",
-    "vue": "^3.3.4"
+    "vue": "^3.3.8"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.4",
+    "@vitejs/plugin-vue": "^4.4.1",
     "@vue/tsconfig": "^0.4.0",
     "typescript": "~5.2.2",
-    "vite": "^4.4.9",
-    "vitest": "^0.34.4",
-    "vue-tsc": "^1.8.10"
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6",
+    "vue-tsc": "^1.8.22"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"
 }

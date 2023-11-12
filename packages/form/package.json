@@ -47,10 +47,10 @@
   "license": "MIT",
   "dependencies": {
     "@kogara/core": "0.18.0",
-    "zod": "^3.22.2"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@vue/devtools-api": "^6.5.0"
+    "@vue/devtools-api": "^6.5.1"
   },
   "peerDependencies": {
     "vue": "^3.2.31"

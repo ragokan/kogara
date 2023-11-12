@@ -1,6 +1,6 @@
 {
   "name": "@kogara/kysely",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "description": "Kysely utilities that is refined for my usage.",
   "scripts": {
     "build": "rimraf dist && rollup -c ../../rollup.config.mjs --bundleConfigAsCjs --environment TARGET:utils",
@@ -51,7 +51,7 @@
   },
   "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2",
   "dependencies": {
-    "@kogara/utils": "0.18.0",
+    "@kogara/utils": "0.19.0",
     "kysely": "^0.26.3"
   }
 }

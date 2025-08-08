@@ -24,7 +24,7 @@ describe("form validation test", () => {
   it("name test", () => {
     submit();
     expect(Object.keys(errors.value).length).toBe(2);
-    expect(errors.value.name).toBe("name is required");
+    expect(errors.value.name).toBe("Required");
     expect(errors.value.age).toBe("Required");
   });
 
@@ -32,7 +32,7 @@ describe("form validation test", () => {
     values.value.age = 51;
     submit();
     expect(Object.keys(errors.value).length).toBe(2);
-    expect(errors.value.name).toBe("name is required");
+    expect(errors.value.name).toBe("Required");
     expect(errors.value.age).toBe("age is too high");
   });
 

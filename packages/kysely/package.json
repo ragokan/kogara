@@ -52,6 +52,6 @@
   "gitHead": "e8d666569b375d6d56b6250d00ee642a373de2c2",
   "dependencies": {
     "@kogara/utils": "0.19.0",
-    "kysely": "^0.26.3"
+    "kysely": "^0.28.4"
   }
 }

@@ -48,10 +48,10 @@
     "@kogara/utils": "0.19.0"
   },
   "devDependencies": {
-    "@vue/devtools-api": "^6.5.1"
+    "@vue/devtools-api": "^8.0.0"
   },
   "peerDependencies": {
-    "vue": "^3.2.31"
+    "vue": "^3.5.0"
   },
   "repository": {
     "type": "git",

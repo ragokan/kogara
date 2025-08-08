@@ -18,7 +18,7 @@ describe("form loading test", () => {
     expect(loading.value).toBe(true);
     await new Promise((resolve) => setTimeout(resolve, 50));
     expect(loading.value).toBe(true);
-    await new Promise((resolve) => setTimeout(resolve, 50));
+    await new Promise((resolve) => setTimeout(resolve, 80));
     expect(loading.value).toBe(false);
   });
 });

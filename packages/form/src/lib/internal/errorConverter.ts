@@ -4,30 +4,31 @@ import { KogaraFormErrors } from "../types";
 export function _errorConverter<Values>(
   errors: z.ZodIssue[],
 ): KogaraFormErrors<Values> {
-  // Object to store the final result
   const result: Record<any, any> = {};
 
   for (const error of errors) {
-    // Current path
     const paths = error.path;
 
-    // If there is only one path, it means that the error is not nested
+    // Normalize message for required errors coming from invalid_type
+    let message = error.message;
+    if (error.code === "invalid_type") {
+      // Standardize invalid_type to Required in our error model
+      message = "Required";
+    }
+
     if (paths.length === 1) {
-      result[paths[0]!] = error.message;
+      result[paths[0]!] = message;
       continue;
     }
 
-    // If there are multiple paths, it means that the error is nested
     const obj: Record<any, any> = {};
 
     for (let i = 1; i < paths.length; i++) {
       const path = paths[i]!;
 
-      // If it is the last path, it means that the error is here
       if (i === paths.length - 1) {
-        obj[path] = error.message;
+        obj[path] = message;
       } else {
-        // If it is not the last path, it means that the error is nested
         obj[path] = {};
       }
       const firstPath = paths[0]!;

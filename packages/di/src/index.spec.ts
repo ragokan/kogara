@@ -43,7 +43,7 @@ describe("simple dependency tests", () => {
     const store = createDependencyStore();
 
     it("should get a", () => {
-      expect(store.get(a)).toContain({ value: 0 });
+      expect(store.get(a)).toMatchObject({ value: 0 });
     });
 
     it("should get b", () => {

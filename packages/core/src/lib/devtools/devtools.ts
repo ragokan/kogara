@@ -1,4 +1,4 @@
-import { setupDevtoolsPlugin, type PluginDescriptor } from "@vue/devtools-api";
+import { setupDevtoolsPlugin } from "@vue/devtools-api";
 import type { App } from "vue";
 import { KogaraInstance } from "../instance";
 import {
@@ -22,7 +22,7 @@ export function useKogaraDevtools(app: App) {
         packageName: kogaraDevtoolsPackageName,
         homepage: "https://kogara.vercel.app",
         app,
-      } as PluginDescriptor,
+      } as any,
       (api) => {
         // Add kogara to devtools UI
         api.addInspector({

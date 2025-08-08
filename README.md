@@ -4,6 +4,12 @@
 
 ### For all docs, _[click here.](https://kogara.vercel.app)_
 
+### Requirements
+
+- Node.js >= 18 (tested on 22)
+- Yarn 1 (workspaces)
+- Vue ^3.5
+
 ### Installation
 
 To install `Kogara`, you can use the following command:
@@ -70,3 +76,21 @@ export const useCounterStore = defineStore("counterStore", () => {
   const { count, doubledCount, increment } = useCounterStore();
 </script>
 ```
+
+### Monorepo development
+
+- Install deps: `yarn install`
+- Build all: `yarn build`
+- Dev all packages: `yarn dev`
+- Example app dev: `yarn example:dev` then open http://localhost:3001
+
+### Testing
+
+- Run all tests: `yarn test`
+- Watch mode: `yarn test-watch`
+- Lint & format: `yarn eslint` and `yarn prettier:fix`
+
+### Docs
+
+- Dev docs: `yarn docs:dev`
+- Build docs: from `docs/` package: `yarn --cwd docs build`

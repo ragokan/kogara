@@ -1,14 +1,25 @@
-import type {
-  CustomInspectorNode,
-  DevtoolsPluginApi,
-  InspectorNodeTag,
-} from "@vue/devtools-api";
 import type { App } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
-export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
-  api.on.getInspectorTree((payload) => {
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+type DevtoolsApi = InstanceType<any>;
+
+type InspectorNodeTag = {
+  label: string;
+  backgroundColor?: number;
+  textColor?: number;
+};
+
+type CustomInspectorNode = {
+  id: string;
+  label: string;
+  children?: CustomInspectorNode[];
+  tags?: InspectorNodeTag[];
+};
+
+export function _getInspectorTree(api: DevtoolsApi, app: App<any>) {
+  api.on.getInspectorTree((payload: any) => {
     if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {
       return;
     }
@@ -54,10 +65,7 @@ export function _getInspectorTree(api: DevtoolsPluginApi<any>, app: App<any>) {
     payload.rootNodes = nodes;
   });
 }
-function getTag(
-  label: number | string,
-  backgroundColor = 0x3ba776,
-): InspectorNodeTag {
+function getTag(label: number | string, backgroundColor = 0x3ba776): InspectorNodeTag {
   return {
     label: label.toString(),
     backgroundColor,

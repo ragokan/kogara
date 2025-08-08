@@ -1,9 +1,11 @@
-import type { DevtoolsPluginApi } from "@vue/devtools-api";
 import { watch } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
-export function _watchTree(api: DevtoolsPluginApi<any>) {
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+type DevtoolsApi = InstanceType<any>;
+
+export function _watchTree(api: DevtoolsApi) {
   watch(KogaraInstance.stores, () => api.sendInspectorState(kogaraDevtoolsID), {
     deep: true,
     immediate: true,

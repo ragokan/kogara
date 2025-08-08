@@ -1,4 +1,6 @@
-import { defaultTheme, defineUserConfig } from "vuepress";
+import { defineUserConfig } from "vuepress";
+import { defaultTheme } from "@vuepress/theme-default";
+import { viteBundler } from "@vuepress/bundler-vite";
 // import { searchPlugin } from "@vuepress/plugin-search";
 
 export default defineUserConfig({
@@ -38,6 +40,7 @@ export default defineUserConfig({
       ],
     },
   }),
+  bundler: viteBundler(),
   head: [
     [
       "link",

@@ -91,7 +91,7 @@ function createConfig(buildName, output, plugins = []) {
         declarationMap: shouldEmitDeclarations,
         rootDir: "./src",
       },
-      exclude: ["tests", "*.spec.ts"],
+      exclude: ["tests", "**/*.spec.ts"],
     },
   });
   hasTSChecked = true;

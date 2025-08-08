@@ -1,5 +1,7 @@
-import type { DevtoolsPluginApi } from "@vue/devtools-api";
 import { EffectScope } from "vue";
+
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+type DevtoolsApi = InstanceType<any>;
 
 export interface KogaraDevtoolsApi {
   key: string;
@@ -22,7 +24,7 @@ export interface KogaraStores {
 }
 
 export interface KogaraPlugins {
-  __devtoolsApi?: DevtoolsPluginApi<any>;
+  __devtoolsApi?: DevtoolsApi;
   __scope: EffectScope;
 }
 

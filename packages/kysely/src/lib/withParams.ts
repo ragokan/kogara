@@ -40,19 +40,18 @@ class Executor<DB, O, PS extends BaseParams, FPS = ConvertParams<PS>> {
   ) {}
 
   async execute(params: FPS): Promise<O[]> {
-    return (
-      await this.db.executeQuery({
-        sql: this.args.sql,
-        query: this.args.query,
-        parameters: this.args.parameters.map((p) =>
-          p instanceof _P
-            ? p._ in (params as object)
-              ? (params as BaseParams)[p._]
-              : p._d
-            : p,
-        ),
-      })
-    ).rows as O[];
+    const compiledWithParams: CompiledQuery<O> = {
+      ...(this.args as unknown as CompiledQuery<O>),
+      parameters: this.args.parameters.map((p) =>
+        p instanceof _P
+          ? p._ in (params as object)
+            ? (params as BaseParams)[p._]
+            : p._d
+          : p,
+      ),
+    };
+
+    return (await this.db.executeQuery(compiledWithParams)).rows as O[];
   }
 
   async executeTakeFirst(params: FPS): Promise<O | undefined> {

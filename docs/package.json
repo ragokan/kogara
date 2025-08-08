@@ -13,6 +13,9 @@
     "@babel/types": "^7.20.7",
     "@vuepress/bundler-vite": "next",
     "@vuepress/plugin-search": "next",
+    "@vuepress/theme-default": "next",
+    "sass-embedded": "^1.90.0",
+    "vue": "^3.5.18",
     "vuepress": "next"
   },
   "gitHead": "3e36475dcda02773bf218c1e00601d1776827cd5"

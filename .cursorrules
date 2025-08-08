@@ -1,0 +1,41 @@
+# Cursor Rules for Kogara Monorepo
+
+[general]
+# Keep responses concise; prefer bullet points and code citations.
+prefer_concise_responses = true
+
+[env]
+node_min_version = "18"
+package_manager = "yarn@1"
+workspace_packages = ["packages/*", "example"]
+
+[commands]
+# Common workflows
+run_tests = "yarn test"
+run_tests_watch = "yarn test-watch"
+run_build = "yarn build"
+run_dev = "yarn dev"
+run_example = "yarn example:dev"
+run_docs_dev = "yarn docs:dev"
+run_docs_build = "yarn --cwd docs build"
+
+[testing]
+# Use vitest at root; tests include **/*spec.ts
+runner = "vitest"
+config = "vitest.config.ts"
+
+[lint_format]
+lint = "yarn eslint"
+format = "yarn prettier:fix"
+
+[typescript]
+tsconfig = "tsconfig.json"
+strict = true
+
+[vue]
+version = "^3.5"
+
+[conventions]
+- Prefer updating `peerDependencies` for Vue to `^3.5.0` across packages.
+- When testing local packages, resolve aliases to `packages/*/src/index.ts` in `vitest.config.ts`.
+- After upgrading dependencies, run `yarn install` and `yarn test` to verify.

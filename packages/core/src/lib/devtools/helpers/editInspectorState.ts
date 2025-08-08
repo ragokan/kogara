@@ -1,23 +1,21 @@
-import type { DevtoolsPluginApi } from "@vue/devtools-api";
 import { isRef, type App } from "vue";
 import { insert } from "@kogara/utils";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 import { _setReactiveDeep } from "../utilities";
 
-export function _editInspectorState(
-  api: DevtoolsPluginApi<any>,
-  app: App<any>,
-) {
-  api.on.editInspectorState((payload) => {
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+type DevtoolsApi = InstanceType<any>;
+
+export function _editInspectorState(api: DevtoolsApi, app: App<any>) {
+  api.on.editInspectorState((payload: any) => {
     if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {
       return;
     }
     const { state, path, nodeId } = payload;
-    const store = KogaraInstance.stores[nodeId]?.store;
+    const store = (KogaraInstance.stores as any)[nodeId]?.store as any;
 
-    // path[0] is the target. if it is a ref, we need to add the *value* getter
-    if (path[0] && isRef(store[path[0]])) {
+    if (path[0] && isRef((store as any)[path[0]])) {
       insert(path, 1, "value");
     }
     _setReactiveDeep(store, state.value, path);

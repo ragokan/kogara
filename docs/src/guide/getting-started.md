@@ -1,5 +1,11 @@
 # Getting Started
 
+## Requirements
+
+- Node.js >= 18
+- Vue ^3.5
+- Yarn 1 or pnpm
+
 ## Installation
 
 To install `Kogara`, you can use the following command:

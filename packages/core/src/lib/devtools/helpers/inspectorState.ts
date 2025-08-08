@@ -1,13 +1,25 @@
-import type {
-  CustomInspectorState,
-  DevtoolsPluginApi,
-} from "@vue/devtools-api";
 import type { App } from "vue";
 import { KogaraInstance } from "../../instance";
 import { kogaraDevtoolsID } from "../constants";
 
-export function _getInspectorState(api: DevtoolsPluginApi<any>, app: App<any>) {
-  api.on.getInspectorState((payload) => {
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+type DevtoolsApi = InstanceType<any>;
+
+// Minimal local shape compatible with v8 inspector state
+interface StateItem {
+  key: string;
+  value: unknown;
+  objectType?: string;
+  editable?: boolean;
+}
+interface CustomInspectorState {
+  state?: StateItem[];
+  computed?: StateItem[];
+  functions?: { key: string; value: unknown }[];
+}
+
+export function _getInspectorState(api: DevtoolsApi, app: App<any>) {
+  api.on.getInspectorState((payload: any) => {
     if (payload.inspectorId !== kogaraDevtoolsID || payload.app !== app) {
       return;
     }
@@ -28,35 +40,32 @@ export function _getInspectorState(api: DevtoolsPluginApi<any>, app: App<any>) {
       store.devtoolsApi?.filter((i) => typeof i.value === "function") ?? [];
     const state: CustomInspectorState = {};
 
-    // Add reactive values if they exist
     if (refOrReactives.length) {
-      state.state = refOrReactives.map((data) => {
+      state.state = refOrReactives.map((data: any) => {
         const isRef = data.type === "ref";
         return {
           key: data.key,
           value: isRef ? data.value.value : data.value,
           objectType: data.type,
           editable: isRef || data.type === "reactive",
-        };
+        } as StateItem;
       });
     }
-    // Add computed variables if they exist
     if (computeds.length) {
-      state.computed = computeds.map((data) => ({
+      state.computed = computeds.map((data: any) => ({
         key: data.key,
         value: data.value.value,
         objectType: data.type,
       }));
     }
 
-    // Add functions if they exist
     if (functions.length) {
-      state.functions = functions.map((data) => ({
+      state.functions = functions.map((data: any) => ({
         key: data.key,
         value: data.value,
       }));
     }
 
-    payload.state = state;
+    payload.state = state as any;
   });
 }
